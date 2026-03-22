@@ -1,0 +1,31 @@
+baseURL = 'https://ollie33.github.io/'
+languageCode = 'zh-tw'
+title = 'Olivia | Portfolio'
+theme = "void"
+
+[params]
+  [params.social]
+    github = "https://github.com/你的帳號"
+    # 這裡可以加上 LinkedIn，展現專業形象
+    linkedin = "https://www.linkedin.com/feed/" 
+    email = "hsien.yy@gmail.com"
+  [params.avatar]
+    # 先隨便放一個圖片連結，之後可以換成你放在 static 裡的專業頭像
+    url = "https://i.pinimg.com/736x/a3/dc/6e/a3dc6e533bc7c643cd0746079b3034cd.jpg" 
+
+# 導覽列設定
+[[menus.main]]
+  name = 'Home'
+  pageRef = '/'
+  weight = 10
+[[menus.main]]
+  name = 'Achievement'
+  pageRef = '/posts'
+  weight = 20
+[[menus.main]]
+  name = 'About'
+  pageRef = '/about'
+  weight = 30
+
+[markup.goldmark.renderer]
+  unsafe = true  # 允許在 Markdown 中使用 HTML（主題需求）
