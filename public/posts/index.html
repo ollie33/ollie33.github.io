@@ -3,7 +3,7 @@
 <head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
   <meta charset="utf-8">
 <meta name="viewport" content="width=device-width">
-<title>Categories | Olivia | Portfolio</title>
+<title>Achievement | Olivia | Portfolio</title>
 
 
 <meta name="color-scheme" content="light dark">
@@ -485,7 +485,7 @@
     </li>
     <li class="text-gray-600 dark:text-gray-200 hover:text-gray-900 dark:hover:text-white text-base sm:text-lg">
       <a
-        class="px-2 py-1 sm:px-3 sm:py-2 rounded hover:bg-gray-100 dark:hover:bg-slate-800 transition-colors" href="/posts/">Achievement</a>
+        class="px-2 py-1 sm:px-3 sm:py-2 rounded hover:bg-gray-100 dark:hover:bg-slate-800 transition-colors" aria-current="page" class="active font-bold" href="/posts/">Achievement</a>
     </li>
     <li class="text-gray-600 dark:text-gray-200 hover:text-gray-900 dark:hover:text-white text-base sm:text-lg">
       <a
@@ -518,63 +518,221 @@
   <div class="flex-1 flex flex-col min-h-screen pt-24">
     <main class="flex-1 w-full max-w-4xl mx-auto px-6 overflow-x-auto sm:overflow-visible">
       
-<div class="max-w-4xl mx-auto px-4 py-8">
-  <h1 class="text-3xl font-bold text-center text-gray-800 mb-8">Categories</h1>
   
-  
-  <div class="mb-8 text-center text-gray-600 text-sm">
-    <p>Click any category to expand or collapse articles</p>
-  </div>
-  
-  
-  <div class="space-y-4">
-    
-  </div>
-  
-  
-  <div class="mt-10 text-center">
-    <a href="/" class="inline-flex items-center text-gray-600 hover:text-green-600 transition-colors">
-      <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 19l-7-7m0 0l7-7m-7 7h18" />
-      </svg>
-      Back to Home
-    </a>
-  </div>
-</div>
+  <div class="max-w-4xl mx-auto pb-16">
+    <header class="mb-10 text-center">
+      <h1 class="text-3xl sm:text-4xl font-bold text-gray-900 dark:text-gray-100 mb-2">Achievement</h1>
+      
+      <p class="text-lg text-blue-700 dark:text-blue-300 font-medium">成就與經歷</p>
+      
+      
+      <p class="mt-3 text-sm text-gray-500 dark:text-gray-400 max-w-2xl mx-auto">Professional experience and projects in a timeline, structured with STAR (Situation, Task, Action, Result).</p>
+      
+    </header>
 
-
-<script>
-  document.addEventListener('DOMContentLoaded', function() {
-    const toggles = document.querySelectorAll('.category-toggle');
     
-    toggles.forEach(toggle => {
-      toggle.addEventListener('click', function() {
-        const targetId = this.getAttribute('data-target');
-        const target = document.getElementById(targetId);
-        const icon = this.querySelector('.category-icon');
+    <div class="mb-12 prose prose-sm sm:prose dark:prose-invert max-w-none text-gray-700 dark:text-gray-300">
+      <p>以下以<strong>時間軸</strong>呈現重點經歷；每段依 <strong>STAR</strong>（情境、任務、行動、結果）整理，方便對齊履歷與面試敘事。</p>
+
+    </div>
+    
+
+    
+    <div class="relative">
+      
+      <div class="absolute left-[15px] md:left-6 top-2 bottom-2 w-px bg-gradient-to-b from-blue-200 via-blue-300/80 to-transparent dark:from-slate-600 dark:via-slate-600/80" aria-hidden="true"></div>
+
+      <ol class="space-y-12 md:space-y-14 list-none pl-0 m-0">
         
-        if (target.classList.contains('hidden')) {
-          target.classList.remove('hidden');
-          icon.classList.add('rotate-180');
-        } else {
-          target.classList.add('hidden');
-          icon.classList.remove('rotate-180');
-        }
-      });
-    });
+        <li class="relative pl-10 md:pl-14">
+          <span class="absolute left-[9px] md:left-[17px] top-2 w-3 h-3 rounded-full bg-blue-600 dark:bg-blue-500 ring-4 ring-white dark:ring-slate-900 shadow-sm" aria-hidden="true"></span>
 
+          <article class="bg-white dark:bg-slate-900 rounded-xl shadow-sm border border-gray-100 dark:border-slate-800 overflow-hidden">
+            <div class="px-5 py-4 sm:px-6 sm:py-5 border-b border-gray-100 dark:border-slate-800 bg-gradient-to-r from-blue-50/80 to-transparent dark:from-slate-800/50">
+              <p class="text-sm font-semibold text-blue-800 dark:text-blue-300 tracking-wide">Sep 2025 – Present</p>
+              <h2 class="mt-1 text-xl sm:text-2xl font-bold text-gray-900 dark:text-gray-100">
+                System Analysis &amp; Development Intern
+                <span class="text-gray-400 dark:text-gray-500 font-normal">@</span>
+                <span class="text-gray-800 dark:text-gray-200">SYSTEX</span>
+              </h2>
+              
+            </div>
+
+            <div class="px-5 py-5 sm:px-6 sm:py-6 space-y-5 text-[15px] leading-relaxed text-gray-700 dark:text-gray-300">
+              <div>
+                <h3 class="text-xs font-bold uppercase tracking-wider text-gray-400 dark:text-gray-500 mb-1.5">情境 · Situation</h3>
+                <p>Client-facing projects needed tight alignment between business needs, user flows, and what engineering could ship on schedule.</p>
+              </div>
+              <div>
+                <h3 class="text-xs font-bold uppercase tracking-wider text-gray-400 dark:text-gray-500 mb-1.5">任務 · Task</h3>
+                <p>Gather and translate requirements into a clear scope; author SRS/FSD as the single source of truth; validate defects against specifications.</p>
+              </div>
+              <div>
+                <h3 class="text-xs font-bold uppercase tracking-wider text-gray-400 dark:text-gray-500 mb-1.5">行動 · Action</h3>
+                <ul class="list-disc pl-5 space-y-2 marker:text-blue-500 dark:marker:text-blue-400">
+                  
+                  <li>Spearheaded requirements gathering through client interviews and translated outcomes into user flows and feature roadmaps.</li>
+                  
+                  <li>Authored System Requirements Specifications (SRS) and Functional Specifications Documents (FSD), defining logic and UI fields for the development team.</li>
+                  
+                  <li>Executed logic validation and root-cause analysis for bugs to keep deliverables aligned with technical specifications.</li>
+                  
+                </ul>
+              </div>
+              <div>
+                <h3 class="text-xs font-bold uppercase tracking-wider text-gray-400 dark:text-gray-500 mb-1.5">結果 · Result</h3>
+                <p>Delivered a well-defined project scope and documentation foundation that enabled engineering to build with clarity and traceability.</p>
+              </div>
+            </div>
+          </article>
+        </li>
+        
+        <li class="relative pl-10 md:pl-14">
+          <span class="absolute left-[9px] md:left-[17px] top-2 w-3 h-3 rounded-full bg-blue-600 dark:bg-blue-500 ring-4 ring-white dark:ring-slate-900 shadow-sm" aria-hidden="true"></span>
+
+          <article class="bg-white dark:bg-slate-900 rounded-xl shadow-sm border border-gray-100 dark:border-slate-800 overflow-hidden">
+            <div class="px-5 py-4 sm:px-6 sm:py-5 border-b border-gray-100 dark:border-slate-800 bg-gradient-to-r from-blue-50/80 to-transparent dark:from-slate-800/50">
+              <p class="text-sm font-semibold text-blue-800 dark:text-blue-300 tracking-wide">Jul 2025 – Aug 2025</p>
+              <h2 class="mt-1 text-xl sm:text-2xl font-bold text-gray-900 dark:text-gray-100">
+                CTO &amp; CDO
+                <span class="text-gray-400 dark:text-gray-500 font-normal">@</span>
+                <span class="text-gray-800 dark:text-gray-200">European Innovation Academy (EIA)</span>
+              </h2>
+              
+            </div>
+
+            <div class="px-5 py-5 sm:px-6 sm:py-6 space-y-5 text-[15px] leading-relaxed text-gray-700 dark:text-gray-300">
+              <div>
+                <h3 class="text-xs font-bold uppercase tracking-wider text-gray-400 dark:text-gray-500 mb-1.5">情境 · Situation</h3>
+                <p>A high-intensity programme with a multinational team tasked with shipping a purpose-driven product on a 21-day runway.</p>
+              </div>
+              <div>
+                <h3 class="text-xs font-bold uppercase tracking-wider text-gray-400 dark:text-gray-500 mb-1.5">任務 · Task</h3>
+                <p>Lead the team to develop an MVP for a social matching platform and complete product definition with market validation.</p>
+              </div>
+              <div>
+                <h3 class="text-xs font-bold uppercase tracking-wider text-gray-400 dark:text-gray-500 mb-1.5">行動 · Action</h3>
+                <ul class="list-disc pl-5 space-y-2 marker:text-blue-500 dark:marker:text-blue-400">
+                  
+                  <li>Led a multinational team through product definition, delivery, and validation within the programme window.</li>
+                  
+                  <li>Designed algorithms aligning users’ interests and itineraries to address loneliness and safety for solo travellers.</li>
+                  
+                  <li>Architected user flows and optimised security verification to reflect social preferences and trust requirements.</li>
+                  
+                </ul>
+              </div>
+              <div>
+                <h3 class="text-xs font-bold uppercase tracking-wider text-gray-400 dark:text-gray-500 mb-1.5">結果 · Result</h3>
+                <p>Delivered an MVP with clear product narrative and validation outcomes within the 21-day timeline.</p>
+              </div>
+            </div>
+          </article>
+        </li>
+        
+        <li class="relative pl-10 md:pl-14">
+          <span class="absolute left-[9px] md:left-[17px] top-2 w-3 h-3 rounded-full bg-blue-600 dark:bg-blue-500 ring-4 ring-white dark:ring-slate-900 shadow-sm" aria-hidden="true"></span>
+
+          <article class="bg-white dark:bg-slate-900 rounded-xl shadow-sm border border-gray-100 dark:border-slate-800 overflow-hidden">
+            <div class="px-5 py-4 sm:px-6 sm:py-5 border-b border-gray-100 dark:border-slate-800 bg-gradient-to-r from-blue-50/80 to-transparent dark:from-slate-800/50">
+              <p class="text-sm font-semibold text-blue-800 dark:text-blue-300 tracking-wide">Feb 2025 – Dec 2025</p>
+              <h2 class="mt-1 text-xl sm:text-2xl font-bold text-gray-900 dark:text-gray-100">
+                Project Leader
+                <span class="text-gray-400 dark:text-gray-500 font-normal">@</span>
+                <span class="text-gray-800 dark:text-gray-200">RAG-Based Virtual Anchor Generation System</span>
+              </h2>
+              
+              <p class="mt-2 text-sm text-amber-800 dark:text-amber-200/90 bg-amber-50 dark:bg-amber-900/20 border border-amber-100 dark:border-amber-800/40 rounded-lg px-3 py-2 inline-block">
+                Ranked Top 7 out of 80 projects — Department of Computer Science graduation exhibition
+              </p>
+              
+            </div>
+
+            <div class="px-5 py-5 sm:px-6 sm:py-6 space-y-5 text-[15px] leading-relaxed text-gray-700 dark:text-gray-300">
+              <div>
+                <h3 class="text-xs font-bold uppercase tracking-wider text-gray-400 dark:text-gray-500 mb-1.5">情境 · Situation</h3>
+                <p>A competitive graduation showcase where projects were judged on technical depth, innovation, and presentation quality.</p>
+              </div>
+              <div>
+                <h3 class="text-xs font-bold uppercase tracking-wider text-gray-400 dark:text-gray-500 mb-1.5">任務 · Task</h3>
+                <p>Build a RAG-based virtual anchor pipeline with reliable retrieval, strong answers, and fast video turnaround.</p>
+              </div>
+              <div>
+                <h3 class="text-xs font-bold uppercase tracking-wider text-gray-400 dark:text-gray-500 mb-1.5">行動 · Action</h3>
+                <ul class="list-disc pl-5 space-y-2 marker:text-blue-500 dark:marker:text-blue-400">
+                  
+                  <li>Self-taught and integrated a RAG framework within one week to reduce hallucinations and lift content quality.</li>
+                  
+                  <li>Optimised prompt engineering and integrated LLMs with vector databases for higher retrieval accuracy.</li>
+                  
+                  <li>Combined RAG retrieval with real-time news analysis to streamline professional video production.</li>
+                  
+                </ul>
+              </div>
+              <div>
+                <h3 class="text-xs font-bold uppercase tracking-wider text-gray-400 dark:text-gray-500 mb-1.5">結果 · Result</h3>
+                <p>Achieved Top 7 placement; roughly 80% reduction in hallucinations; cut end-to-end video production from several hours to under 10 minutes.</p>
+              </div>
+            </div>
+          </article>
+        </li>
+        
+        <li class="relative pl-10 md:pl-14">
+          <span class="absolute left-[9px] md:left-[17px] top-2 w-3 h-3 rounded-full bg-blue-600 dark:bg-blue-500 ring-4 ring-white dark:ring-slate-900 shadow-sm" aria-hidden="true"></span>
+
+          <article class="bg-white dark:bg-slate-900 rounded-xl shadow-sm border border-gray-100 dark:border-slate-800 overflow-hidden">
+            <div class="px-5 py-4 sm:px-6 sm:py-5 border-b border-gray-100 dark:border-slate-800 bg-gradient-to-r from-blue-50/80 to-transparent dark:from-slate-800/50">
+              <p class="text-sm font-semibold text-blue-800 dark:text-blue-300 tracking-wide">Aug 2023 – Dec 2024</p>
+              <h2 class="mt-1 text-xl sm:text-2xl font-bold text-gray-900 dark:text-gray-100">
+                Founder
+                <span class="text-gray-400 dark:text-gray-500 font-normal">@</span>
+                <span class="text-gray-800 dark:text-gray-200">Independent Handmade Dessert Brand</span>
+              </h2>
+              
+            </div>
+
+            <div class="px-5 py-5 sm:px-6 sm:py-6 space-y-5 text-[15px] leading-relaxed text-gray-700 dark:text-gray-300">
+              <div>
+                <h3 class="text-xs font-bold uppercase tracking-wider text-gray-400 dark:text-gray-500 mb-1.5">情境 · Situation</h3>
+                <p>Operating an independent brand end-to-end with limited bandwidth for repetitive admin work.</p>
+              </div>
+              <div>
+                <h3 class="text-xs font-bold uppercase tracking-wider text-gray-400 dark:text-gray-500 mb-1.5">任務 · Task</h3>
+                <p>Grow the brand while controlling cost, quality, and time spent on operations.</p>
+              </div>
+              <div>
+                <h3 class="text-xs font-bold uppercase tracking-wider text-gray-400 dark:text-gray-500 mb-1.5">行動 · Action</h3>
+                <ul class="list-disc pl-5 space-y-2 marker:text-blue-500 dark:marker:text-blue-400">
+                  
+                  <li>Managed brand building, product development, and cost control across the full lifecycle.</li>
+                  
+                  <li>Automated administrative workflows by integrating Gmail and Google Sheets via n8n, parsing order emails with AI.</li>
+                  
+                  <li>Applied iterative testing from product development to technical troubleshooting, using data feedback to steer decisions.</li>
+                  
+                </ul>
+              </div>
+              <div>
+                <h3 class="text-xs font-bold uppercase tracking-wider text-gray-400 dark:text-gray-500 mb-1.5">結果 · Result</h3>
+                <p>Demonstrated execution from business to technology; reduced administrative time by roughly 80%.</p>
+              </div>
+            </div>
+          </article>
+        </li>
+        
+      </ol>
+    </div>
     
-    const articleLinks = document.querySelectorAll('.article-link');
-    articleLinks.forEach(article => {
-      article.addEventListener('click', function() {
-        const href = this.getAttribute('data-href');
-        if (href) {
-          window.location.href = href;
-        }
-      });
-    });
-  });
-</script>
+
+    <div class="mt-14 flex justify-center">
+      <a href="/" class="inline-flex items-center text-gray-600 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-300 transition-colors">
+        <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 19l-7-7m0 0l7-7m-7 7h18" />
+        </svg>
+        Back to Home
+      </a>
+    </div>
+  </div>
 
     </main>
   </div>
