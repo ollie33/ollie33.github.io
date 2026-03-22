@@ -1,9 +1,37 @@
 baseURL = 'https://ollie33.github.io/'
-languageCode = 'zh-tw'
-title = 'Olivia | Portfolio'
+languageCode = 'en'
+defaultContentLanguage = 'en'
+title = 'Ying-Hsien Lee | Portfolio'
 theme = "void"
 
 [params]
+  [params.home]
+    display_name = "Ying-Hsien Lee"
+    role_line = "AI Software Engineer with a Product Mindset"
+    hero_greeting = "Hey — thanks for stopping by."
+    hero_intro = "I'm an engineer who ships AI systems the way a good PM thinks about products: clear requirements, measurable outcomes, and automation that still works on a Tuesday three months later."
+    story_line = "My path has wandered from zero-to-one dessert entrepreneurship and PM/QA trenches at SYSTEX, to leading a multinational build as CTO at the European Innovation Academy in Portugal — same thread, different scale: use technology to remove real operational pain."
+    vision = "Crafting AI solutions that solve real-world business pain points."
+    keywords = [
+      "RAG",
+      "Prompt Engineering",
+      "Python",
+      "System Analysis",
+      "n8n Automation",
+      "Product Thinking",
+      "LLM Systems",
+      "Requirements & QA Mindset",
+    ]
+    philosophy = [
+      "Start from the bottleneck, not the buzzword — I anchor generative AI in workflows people actually use: retrieval you can trust, prompts you can version, and guardrails that keep answers on-spec.",
+      "Automate the repetitive, elevate the human — I wire APIs, data pipelines, and agents so teams spend time on judgment calls, not copy-paste — whether that's n8n glue code or LLM orchestration.",
+      "Prove value where it hurts — I measure success by whether the business problem got smaller: clearer specs, shorter release loops, fewer surprise defects, faster time-to-yes for stakeholders.",
+    ]
+    highlights = [
+      "CTO — European Innovation Academy (Portugal)",
+      "PM / QA Intern — SYSTEX",
+      "Founder — independent dessert brand (0→1)",
+    ]
   [params.social]
     github = "https://github.com/ollie33"
     # 這裡可以加上 LinkedIn，展現專業形象
