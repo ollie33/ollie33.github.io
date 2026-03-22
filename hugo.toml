@@ -5,7 +5,7 @@ theme = "void"
 
 [params]
   [params.social]
-    github = "https://github.com/你的帳號"
+    github = "https://github.com/ollie33"
     # 這裡可以加上 LinkedIn，展現專業形象
     linkedin = "https://www.linkedin.com/feed/" 
     email = "hsien.yy@gmail.com"

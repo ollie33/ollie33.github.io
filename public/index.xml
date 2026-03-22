@@ -7,5 +7,12 @@
     <generator>Hugo</generator>
     <language>zh-tw</language>
     <atom:link href="http://localhost:1313/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>About</title>
+      <link>http://localhost:1313/about/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/about/</guid>
+      <description>&lt;p&gt;Hello, I&amp;rsquo;m &lt;strong&gt;Ying-Hsien Lee&lt;/strong&gt;, a passionate developer graduating from &lt;strong&gt;Feng Chia University&lt;/strong&gt; with a &lt;strong&gt;B.S. in Computer Science&lt;/strong&gt;. My technical journey goes beyond writing clean code—from founding an independent brand and automating operational workflows, to serving as &lt;strong&gt;CTO&lt;/strong&gt; at the &lt;strong&gt;EIA in Portugal&lt;/strong&gt;, I am driven by the desire to &lt;em&gt;&amp;ldquo;use technology to solve real-world business pain points.&amp;rdquo;&lt;/em&gt; I believe that an exceptional software engineer needs not only a solid understanding of &lt;strong&gt;system architecture&lt;/strong&gt; but also &lt;strong&gt;cross-cultural communication&lt;/strong&gt; skills and a sharp &lt;strong&gt;product sense&lt;/strong&gt;.&lt;/p&gt;</description>
+    </item>
   </channel>
 </rss>
