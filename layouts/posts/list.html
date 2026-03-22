@@ -1,5 +1,4 @@
 {{ define "main" }}
-  {{ $entries := (index site.Data.achievements "entries") | default slice }}
   <div class="max-w-4xl mx-auto pb-20 md:pb-28">
     <header class="mb-12 md:mb-16 text-center">
       <h1 class="text-3xl sm:text-4xl font-bold text-[#27272A] dark:text-stone-50 mb-2">{{ .Title }}</h1>
@@ -12,72 +11,42 @@
     </header>
 
     {{ with .Content }}
-    <div class="mb-14 md:mb-16 prose prose-sm sm:prose dark:prose-invert max-w-none text-[#3f3f46] dark:text-stone-300">
+    <div class="mb-12 md:mb-14 prose prose-sm sm:prose dark:prose-invert max-w-2xl mx-auto text-center text-[#3f3f46] dark:text-stone-300">
       {{ . }}
     </div>
     {{ end }}
 
-    {{ if gt (len $entries) 0 }}
     <div class="relative">
       <div class="absolute left-[15px] md:left-6 top-2 bottom-2 w-px bg-gradient-to-b from-zinc-300 via-zinc-200/90 to-transparent dark:from-stone-600 dark:via-stone-600/80" aria-hidden="true"></div>
 
-      <ol class="space-y-14 md:space-y-16 list-none pl-0 m-0">
-        {{ range $entries }}
+      <ol class="space-y-6 md:space-y-8 list-none pl-0 m-0">
+        {{/* Newest start date first (`date` in each post = role start) */}}
+        {{ range (.Pages.ByDate.Reverse) }}
         <li class="relative pl-10 md:pl-14">
-          <span class="absolute left-[9px] md:left-[17px] top-2 w-3 h-3 rounded-full bg-[#27272A] dark:bg-stone-200 ring-4 ring-[#FCFBF7] dark:ring-[#1c1917] shadow-sm" aria-hidden="true"></span>
+          <span class="absolute left-[9px] md:left-[17px] top-3 w-3 h-3 rounded-full bg-[#fef08a]/90 ring-4 ring-[#1c1917] shadow-sm" aria-hidden="true"></span>
 
-          <article class="bg-white dark:bg-stone-900 rounded-xl shadow-sm border border-zinc-200/80 dark:border-stone-600 overflow-hidden">
-            <div class="px-5 py-5 sm:px-6 sm:py-6 border-b border-zinc-100 dark:border-stone-700 bg-zinc-50/50 dark:bg-stone-800/40">
-              <p class="text-sm font-semibold text-[#71717A] dark:text-stone-400 tracking-wide">{{ .period }}</p>
-              <h2 class="mt-1 text-xl sm:text-2xl font-bold text-[#27272A] dark:text-stone-50">
-                {{ .role }}
-                <span class="text-zinc-400 dark:text-stone-500 font-normal">@</span>
-                <span class="text-[#3f3f46] dark:text-stone-200">{{ .org }}</span>
+          <a href="{{ .RelPermalink }}" class="group block rounded-xl border border-zinc-200/80 dark:border-stone-600 bg-white dark:bg-stone-900 px-5 py-4 sm:px-6 sm:py-5 shadow-sm transition-colors hover:border-[#fef08a]/50 hover:bg-zinc-50/80 dark:hover:bg-stone-800/50 focus:outline-none focus-visible:ring-2 focus-visible:ring-[#fef08a]/60 focus-visible:ring-offset-2 focus-visible:ring-offset-[#1c1917]">
+            <div class="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-1 sm:gap-4">
+              <h2 class="text-lg sm:text-xl font-semibold text-[#27272A] dark:text-stone-100 group-hover:text-[#fef08a] transition-colors">
+                {{ .Title }}
               </h2>
-              {{ with .highlight }}
-              <p class="mt-3 text-sm text-[#3f3f46] dark:text-stone-200 bg-accent-highlight dark:bg-[rgba(254,240,138,0.12)] border border-zinc-200/60 dark:border-stone-600 rounded-lg px-3 py-2 inline-block">
-                {{ . }}
-              </p>
+              {{ with .Params.period }}
+              <span class="text-sm font-medium text-[#71717A] dark:text-stone-400 shrink-0">{{ . }}</span>
               {{ end }}
             </div>
-
-            <div class="px-5 py-6 sm:px-6 sm:py-8 space-y-6 text-[15px] leading-relaxed text-[#3f3f46] dark:text-stone-300">
-              <div>
-                <h3 class="text-xs font-bold uppercase tracking-wider text-[#71717A] dark:text-stone-500 mb-1.5">情境 · Situation</h3>
-                <p>{{ .star.situation }}</p>
-              </div>
-              <div>
-                <h3 class="text-xs font-bold uppercase tracking-wider text-[#71717A] dark:text-stone-500 mb-1.5">任務 · Task</h3>
-                <p>{{ .star.task }}</p>
-              </div>
-              <div>
-                <h3 class="text-xs font-bold uppercase tracking-wider text-[#71717A] dark:text-stone-500 mb-1.5">行動 · Action</h3>
-                <ul class="list-disc pl-5 space-y-2 marker:text-zinc-400 dark:marker:text-stone-500">
-                  {{ range .star.action }}
-                  <li>{{ . }}</li>
-                  {{ end }}
-                </ul>
-              </div>
-              <div>
-                <h3 class="text-xs font-bold uppercase tracking-wider text-[#71717A] dark:text-stone-500 mb-1.5">結果 · Result</h3>
-                <p>{{ .star.result }}</p>
-              </div>
-            </div>
-          </article>
+            <p class="mt-2 text-xs text-[#71717A] dark:text-stone-500">Open for details &amp; media →</p>
+          </a>
         </li>
         {{ end }}
       </ol>
     </div>
-    {{ else }}
-    <p class="text-center text-[#71717A] dark:text-stone-500">No achievement entries configured. Add <code class="text-sm bg-zinc-100 dark:bg-stone-800 px-1 rounded text-[#27272A] dark:text-stone-200">data/achievements.yaml</code>.</p>
-    {{ end }}
 
     <div class="mt-16 flex justify-center">
-      <a href="{{ "/" | relLangURL }}" class="inline-flex items-center text-[#71717A] hover:text-[#27272A] dark:text-stone-400 dark:hover:text-[#fef08a] transition-colors">
+      <a href="{{ "/" | relLangURL }}" class="inline-flex items-center text-[#71717A] hover:text-[#fef08a] dark:text-stone-400 transition-colors">
         <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
           <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 19l-7-7m0 0l7-7m-7 7h18" />
         </svg>
-        {{ i18n "back_to_home" | default "Back to Home" }}
+        Back to Home
       </a>
     </div>
   </div>
