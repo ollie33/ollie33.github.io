@@ -1,26 +1,21 @@
 <!DOCTYPE html>
-<html lang="en" dir="ltr" class="h-full">
+<html lang="en" dir="ltr" class="h-full dark">
 <head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
   <meta charset="utf-8">
 <meta name="viewport" content="width=device-width">
 <title>About | Ying-Hsien Lee | Portfolio</title>
 
 
-<meta name="color-scheme" content="light dark">
-<meta name="theme-color" media="(prefers-color-scheme: dark)" content="#0b1220">
+<meta name="color-scheme" content="dark">
+<meta name="theme-color" content="#1c1917">
 <script>
   (function() {
-    try {
-      var t = localStorage.getItem('theme');
-      var dark = t ? (t === 'dark') : (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches);
-      if (dark) document.documentElement.classList.add('dark');
-    } catch (_) {}
+    try { document.documentElement.classList.add('dark'); } catch (_) {}
   })();
   </script>
 <style>
-   
-  html.dark, html.dark body { background-color: #0b1220; }
-  html { color-scheme: light dark; }
+  html, body { background-color: #1c1917; color: #e7e5e4; }
+  html { color-scheme: dark; }
   </style>
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -56,16 +51,14 @@
 <link rel="stylesheet" href="/css/style.min.45a09e88a2a518c9d1679ae822a524aadda2811ac308f85991451353081badfd.css" media="screen" integrity="sha256-RaCeiKKlGMnRZ5roIqUkqt2igRrDCPhZkUUTUwgbrf0=">
 
 
-<link id="hljs-theme-light" rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css">
-<link id="hljs-theme-dark" rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github-dark.min.css" disabled>
+<link id="hljs-theme-light" rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css" disabled>
+<link id="hljs-theme-dark" rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github-dark.min.css">
 <script>
   (function(){
     try{
-      var t = localStorage.getItem('theme');
-      var dark = t ? (t === 'dark') : (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches);
       var l = document.getElementById('hljs-theme-light');
       var d = document.getElementById('hljs-theme-dark');
-      if(l && d){ l.disabled = dark; d.disabled = !dark; }
+      if(l && d){ l.disabled = true; d.disabled = false; }
     }catch(e){}
   })();
   </script>
@@ -201,51 +194,14 @@
   document.addEventListener('DOMContentLoaded', function () {
     
     (function themeInit() {
-      const storageKey = 'theme';
       const root = document.documentElement;
-      const btn = document.getElementById('theme-toggle');
+      root.classList.add('dark');
       const hlLight = document.getElementById('hljs-theme-light');
       const hlDark = document.getElementById('hljs-theme-dark');
-
-      function systemPrefersDark() {
-        return window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
+      if (hlLight && hlDark) {
+        hlLight.disabled = true;
+        hlDark.disabled = false;
       }
-
-      function currentPref() {
-        const v = localStorage.getItem(storageKey);
-        if (v === 'dark') return 'dark';
-        if (v === 'light') return 'light';
-        return systemPrefersDark() ? 'dark' : 'light';
-      }
-
-      function apply(theme) {
-        root.classList.toggle('dark', theme === 'dark');
-        if (btn) btn.setAttribute('aria-pressed', theme === 'dark' ? 'true' : 'false');
-        if (btn) btn.setAttribute('aria-label', theme === 'dark' ? 'Switch to light mode' : 'Switch to dark mode');
-        if (hlLight && hlDark) { hlLight.disabled = theme === 'dark'; hlDark.disabled = theme !== 'dark'; }
-      }
-
-      let theme = currentPref();
-      apply(theme);
-
-      if (btn) {
-        btn.addEventListener('click', function () {
-          theme = theme === 'dark' ? 'light' : 'dark';
-          localStorage.setItem(storageKey, theme);
-          apply(theme);
-        });
-      }
-
-      
-      try {
-        const media = window.matchMedia('(prefers-color-scheme: dark)');
-        const handler = function () {
-          const explicit = localStorage.getItem(storageKey);
-          if (!explicit) { theme = currentPref(); apply(theme); }
-        };
-        if (media && media.addEventListener) media.addEventListener('change', handler);
-        else if (media && media.addListener) media.addListener(handler);
-      } catch (_) {}
     })();
     let currentHighlighted = null;
     let scrollArmTimer = null;
@@ -466,12 +422,12 @@
 <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
 
 </head>
-<body class="flex flex-col bg-gray-50 font-bilingual">
+<body class="flex flex-col bg-[#1c1917] font-bilingual text-stone-200 antialiased">
   <header class="fixed top-0 left-0 z-30 w-full bg-white shadow-sm">
     <div class="w-full max-w-4xl mx-auto px-6 overflow-x-auto sm:overflow-visible">
       <div class="flex items-center justify-between py-3">
   <div class="text-lg sm:text-xl font-bold flex-shrink-0 max-w-[40%] sm:max-w-md truncate">
-    <a href="/" class="no-underline transition-colors text-gray-900 dark:text-gray-100 hover:text-blue-600 dark:hover:text-blue-300">
+    <a href="/" class="no-underline transition-colors text-stone-100 hover:text-[#fef08a]">
       Ying-Hsien Lee | Portfolio
     </a>
   </div>
@@ -479,43 +435,28 @@
     
   <nav class="flex justify-end w-full whitespace-nowrap">
     <ul class="list-none flex flex-row items-center space-x-2 sm:space-x-4 md:space-x-6 py-2">
-    <li class="text-gray-600 dark:text-gray-200 hover:text-gray-900 dark:hover:text-white text-base sm:text-lg">
+    <li class="text-[#52525b] dark:text-stone-300 hover:text-[#27272A] dark:hover:text-[#fef08a] text-base sm:text-lg">
       <a
-        class="px-2 py-1 sm:px-3 sm:py-2 rounded hover:bg-gray-100 dark:hover:bg-slate-800 transition-colors" href="/">Home</a>
+        class="px-2 py-1 sm:px-3 sm:py-2 rounded transition-colors hover:bg-[rgba(254,240,138,0.22)] dark:hover:bg-stone-800" href="/">Home</a>
     </li>
-    <li class="text-gray-600 dark:text-gray-200 hover:text-gray-900 dark:hover:text-white text-base sm:text-lg">
+    <li class="text-[#52525b] dark:text-stone-300 hover:text-[#27272A] dark:hover:text-[#fef08a] text-base sm:text-lg">
       <a
-        class="px-2 py-1 sm:px-3 sm:py-2 rounded hover:bg-gray-100 dark:hover:bg-slate-800 transition-colors" href="/posts/">Achievement</a>
+        class="px-2 py-1 sm:px-3 sm:py-2 rounded transition-colors hover:bg-[rgba(254,240,138,0.22)] dark:hover:bg-stone-800" href="/posts/">Achievement</a>
     </li>
-    <li class="text-gray-600 dark:text-gray-200 hover:text-gray-900 dark:hover:text-white text-base sm:text-lg">
+    <li class="text-[#52525b] dark:text-stone-300 hover:text-[#27272A] dark:hover:text-[#fef08a] text-base sm:text-lg">
       <a
-        class="px-2 py-1 sm:px-3 sm:py-2 rounded hover:bg-gray-100 dark:hover:bg-slate-800 transition-colors" aria-current="page" class="active font-bold" href="/about/">About</a>
+        class="px-2 py-1 sm:px-3 sm:py-2 rounded transition-colors hover:bg-[rgba(254,240,138,0.22)] dark:hover:bg-stone-800" aria-current="page" class="active font-bold" href="/about/">About</a>
     </li>
     </ul>
   </nav>
 
-    <button id="theme-toggle" type="button" class="theme-toggle theme-toggle-btn ml-2 relative inline-flex h-7 w-7 items-center justify-center p-0 bg-transparent border-0 text-gray-700 dark:text-gray-200 hover:text-blue-600 dark:hover:text-blue-300 focus:outline-none cursor-pointer" aria-label="Toggle dark mode" aria-pressed="false">
-      
-      <svg class="icon-sun h-full w-full" viewBox="0 0 1024 1024" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-        <path d="M512 192c179.2 0 320 140.8 320 320s-140.8 320-320 320-320-140.8-320-320S332.8 192 512 192M512 128C300.8 128 128 300.8 128 512s172.8 384 384 384 384-172.8 384-384S723.2 128 512 128L512 128z" fill="currentColor"></path>
-        <path d="M544 416l236.8 0C774.4 403.2 768 384 761.6 371.2L544 371.2 544 416z" fill="currentColor"></path>
-        <path d="M544 608l0 44.8 217.6 0c6.4-12.8 12.8-32 19.2-44.8L544 608z" fill="currentColor"></path>
-        <path d="M544 723.2 544 768 640 768c25.6-12.8 44.8-25.6 64-44.8L544 723.2z" fill="currentColor"></path>
-        <path d="M800 492.8l-256 0 0 44.8 256 0c0-6.4 0-12.8 0-25.6S800 499.2 800 492.8z" fill="currentColor"></path>
-        <path d="M544 300.8 704 300.8c-19.2-19.2-38.4-32-64-44.8L544 256 544 300.8z" fill="currentColor"></path>
-      </svg>
-      
-      <svg class="icon-moon h-full w-full" viewBox="0 0 1024 1024" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-        <path d="M512 832c-179.2 0-320-140.8-320-320s140.8-320 320-320 320 140.8 320 320S691.2 832 512 832M512 896c211.2 0 384-172.8 384-384s-172.8-384-384-384S128 300.8 128 512 300.8 896 512 896L512 896zM800 512c0-160-128-288-288-288l0 576C672 800 800 672 800 512zM480 608 243.2 608C249.6 620.8 256 640 262.4 652.8l217.6 0L480 608zM480 416 480 371.2 262.4 371.2C256 384 249.6 403.2 243.2 416L480 416zM480 300.8 480 256 384 256C358.4 268.8 339.2 281.6 320 300.8L480 300.8zM224 537.6l256 0L480 492.8l-256 0c0 6.4 0 12.8 0 19.2S224 524.8 224 537.6zM480 723.2 320 723.2c19.2 19.2 38.4 32 64 44.8l96 0L480 723.2z" fill="currentColor"></path>
-      </svg>
-    </button>
   </div>
 </div>
 
     </div>
   </header>
-  
-  <div class="flex-1 flex flex-col min-h-screen pt-24">
+
+  <div class="flex-1 flex flex-col min-h-screen pt-24 pb-16 md:pb-24">
     <main class="flex-1 w-full max-w-4xl mx-auto px-6 overflow-x-auto sm:overflow-visible">
       
   <article class="max-w-4xl mx-auto">
@@ -527,7 +468,7 @@
       
       <h1 class="text-3xl md:text-4xl font-bold text-gray-900 dark:text-gray-100">About</h1>
       
-      <p class="mt-2 text-lg text-blue-700 dark:text-blue-300 font-medium">Ying-Hsien Lee</p>
+      <p class="mt-2 text-lg text-[#71717A] dark:text-stone-400 font-medium">Ying-Hsien Lee</p>
       
       
       <div class="mt-4 flex items-center justify-center gap-4 text-gray-600 dark:text-gray-300">
@@ -592,11 +533,11 @@
 <li><strong>Email:</strong> <a href="mailto:hsien.yy@gmail.com">hsien.yy@gmail.com</a></li>
 <li><strong>Phone:</strong> <a href="tel:+886905032351">+886-905-032-351</a></li>
 </ul>
-<div class="not-prose flex flex-wrap justify-center gap-3 sm:gap-4 mt-10 pt-8 border-t border-gray-200 dark:border-slate-700">
-  <a href="/posts/" class="inline-flex items-center justify-center rounded-full px-6 py-2.5 text-sm font-semibold text-white bg-blue-600 hover:bg-blue-700 dark:bg-blue-500 dark:hover:bg-blue-600 shadow-sm transition-colors">
+<div class="not-prose flex flex-wrap justify-center gap-3 sm:gap-4 mt-10 pt-8 border-t border-zinc-200/80 dark:border-stone-700">
+  <a href="/posts/" class="inline-flex items-center justify-center rounded-full px-6 py-2.5 text-sm font-semibold text-[#27272A] dark:text-stone-100 bg-white dark:bg-stone-800 border border-zinc-300/90 dark:border-stone-600 hover:bg-zinc-50 dark:hover:bg-stone-700 shadow-sm transition-colors">
     View Achievements
   </a>
-  <a href="/resume.pdf" class="inline-flex items-center justify-center rounded-full px-6 py-2.5 text-sm font-semibold text-blue-700 dark:text-blue-300 bg-blue-50 hover:bg-blue-100 dark:bg-slate-800 dark:hover:bg-slate-700 border border-blue-200 dark:border-slate-600 transition-colors">
+  <a href="/resume.pdf" class="inline-flex items-center justify-center rounded-full px-6 py-2.5 text-sm font-semibold text-[#27272A] bg-[#FEF08A] hover:brightness-95 dark:hover:brightness-110 border border-zinc-900/5 dark:border-stone-600 shadow-sm transition-colors">
     Download Resume
   </a>
 </div>
@@ -621,88 +562,59 @@
 
     </main>
   </div>
-  
-  <footer class="w-full max-w-4xl mx-auto px-6 overflow-x-auto sm:overflow-visible">
-    <div class="py-8 border-t border-gray-200 bg-gray-50 shadow-inner mt-10">
+
+  <footer class="w-full max-w-4xl mx-auto px-6 overflow-x-auto sm:overflow-visible mt-4 md:mt-8">
+    <div class="py-12 md:py-14 border-t border-gray-200/80 dark:border-stone-700 bg-gray-50 dark:bg-transparent shadow-inner mt-12 md:mt-16">
   <div class="container mx-auto px-4 max-w-4xl">
     
-     
-     
-       
-         
-       
-     
-       
-         
-       
-     
-       
-         
-       
+    
+      
+        
+      
+    
+      
+        
+      
+    
+      
+        
+      
     
 
-    
     <div class="flex justify-center space-x-8">
-      
       
       <div class="transform transition duration-200 hover:scale-110">
         <a
           href="https://github.com/ollie33"
           target="_blank"
           rel="noopener noreferrer"
-          class="text-gray-600 hover:text-gray-900"
+          class="text-gray-600 hover:text-[#27272A] dark:text-stone-400 dark:hover:text-[#fef08a]"
           aria-label="GitHub"
         >
-          <svg
-            class="h-7 w-7"
-            fill="currentColor"
-            viewBox="0 0 24 24"
-            aria-hidden="true"
-          >
-            <path
-              fill-rule="evenodd"
-              d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.531 1.032 1.531 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z"
-              clip-rule="evenodd"
-            />
+          <svg class="h-7 w-7" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+            <path fill-rule="evenodd" d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.531 1.032 1.531 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z" clip-rule="evenodd" />
           </svg>
         </a>
       </div>
       
 
       
-      
 
-      
       
       <div class="transform transition duration-200 hover:scale-110">
-        <a
-          href="mailto:hsien.yy@gmail.com"
-          rel="noopener noreferrer"
-          class="text-gray-600 hover:text-gray-900"
-          aria-label="邮箱"
-        >
-          <svg
-            class="h-7 w-7"
-            fill="currentColor"
-            viewBox="0 0 24 24"
-            aria-hidden="true"
-          >
-            <path
-              d="M1.5 8.67v8.58a3 3 0 003 3h15a3 3 0 003-3V8.67l-8.928 5.493a3 3 0 01-3.144 0L1.5 8.67z"
-            />
-            <path
-              d="M22.5 6.908V6.75a3 3 0 00-3-3h-15a3 3 0 00-3 3v.158l9.714 5.978a1.5 1.5 0 001.572 0L22.5 6.908z"
-            />
+        <a href="mailto:hsien.yy@gmail.com" rel="noopener noreferrer" class="text-gray-600 hover:text-[#27272A] dark:text-stone-400 dark:hover:text-[#fef08a]" aria-label="Email">
+          <svg class="h-7 w-7" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+            <path d="M1.5 8.67v8.58a3 3 0 003 3h15a3 3 0 003-3V8.67l-8.928 5.493a3 3 0 01-3.144 0L1.5 8.67z" />
+            <path d="M22.5 6.908V6.75a3 3 0 00-3-3h-15a3 3 0 00-3 3v.158l9.714 5.978a1.5 1.5 0 001.572 0L22.5 6.908z" />
           </svg>
         </a>
       </div>
       
     </div>
 
-    <div class="text-center mt-6 text-sm text-gray-500">
-      &copy; 2026 Ying-Hsien Lee | Portfolio | Powered by <a href="https://github.com/Daucloud/hugo-theme-void" class="text-gray-600 hover:text-gray-900 hover:underline">hugo-theme-void</a> | <span id="busuanzi_container_site_pv" style="display: none;">Total visits: <span id="busuanzi_value_site_pv" class="text-gray-600"></span></span>
+    <div class="text-center mt-8 text-sm text-gray-500 dark:text-stone-500">
+      &copy; 2026 Ying-Hsien Lee | Portfolio | Powered by <a href="https://github.com/Daucloud/hugo-theme-void" class="text-gray-600 hover:text-[#27272A] dark:text-stone-400 dark:hover:text-[#fef08a] hover:underline">hugo-theme-void</a> | <span id="busuanzi_container_site_pv" style="display: none;">Total visits: <span id="busuanzi_value_site_pv" class="text-gray-600 dark:text-stone-400"></span></span>
     </div>
-    
   </div>
 </div>
 

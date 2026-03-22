@@ -1,82 +1,82 @@
 {{ define "main" }}
   {{ $h := site.Params.home }}
-  <div class="max-w-3xl mx-auto px-4 py-12 md:py-16 lg:py-20">
+  <div class="max-w-3xl mx-auto px-4 py-12 md:py-20 lg:py-24">
     <!-- 1. Conversational Hero -->
-    <header class="text-center mb-14 md:mb-16">
+    <header class="text-center mb-16 md:mb-20">
       {{ with site.Params.avatar }}
-      <div class="mx-auto mb-8 w-32 h-32 md:w-40 md:h-40 relative group">
-        <div class="rounded-full overflow-hidden border-2 border-gray-200 dark:border-slate-600 shadow-md hover:shadow-lg transition-shadow duration-300">
+      <div class="mx-auto mb-10 w-32 h-32 md:w-40 md:h-40 relative group">
+        <div class="rounded-full overflow-hidden border-2 border-zinc-200/80 dark:border-stone-600 shadow-sm hover:shadow-md transition-shadow duration-300 ring-1 ring-black/5">
           <img src="{{ .url }}" alt="{{ with $h }}{{ .display_name }}{{ else }}{{ $.Site.Title }}{{ end }}" class="w-full h-full object-cover transform transition-transform duration-500 group-hover:scale-[1.02]">
         </div>
       </div>
       {{ end }}
 
       {{ with $h }}
-      <p class="text-sm font-semibold uppercase tracking-[0.2em] text-blue-600 dark:text-blue-400 mb-3">{{ .hero_greeting }}</p>
-      <h1 class="text-3xl md:text-4xl lg:text-[2.5rem] font-bold text-gray-900 dark:text-gray-50 mb-2 leading-tight">{{ .display_name }}</h1>
-      <p class="text-lg md:text-xl text-blue-800/90 dark:text-blue-300/95 font-medium mb-8">{{ .role_line }}</p>
+      <p class="text-sm font-semibold uppercase tracking-[0.2em] text-[#71717A] dark:text-stone-400 mb-3">{{ .hero_greeting }}</p>
+      <h1 class="text-3xl md:text-4xl lg:text-[2.5rem] font-bold text-[#27272A] dark:text-stone-50 mb-2 leading-tight">{{ .display_name }}</h1>
+      <p class="text-lg md:text-xl text-[#27272A] dark:text-stone-200 font-medium mb-10">{{ .role_line }}</p>
 
-      <div class="text-left max-w-2xl mx-auto space-y-5 text-[17px] md:text-lg leading-relaxed text-gray-700 dark:text-gray-300">
+      <div class="text-left max-w-2xl mx-auto space-y-6 text-[17px] md:text-lg leading-relaxed text-[#3f3f46] dark:text-stone-300">
         <p>{{ .hero_intro }}</p>
-        <p class="pl-4 border-l-[3px] border-blue-400/80 dark:border-blue-500/70 italic text-gray-600 dark:text-gray-400">{{ .story_line }}</p>
+        <p class="pl-5 border-l-[3px] border-[#27272A]/25 dark:border-stone-500 italic text-[#71717A] dark:text-stone-400">{{ .story_line }}</p>
       </div>
       {{ else }}
-      <h1 class="text-3xl md:text-4xl font-bold text-gray-800 dark:text-gray-100 mb-6">{{ .Site.Title }}</h1>
+      <h1 class="text-3xl md:text-4xl font-bold text-[#27272A] dark:text-stone-50 mb-6">{{ .Site.Title }}</h1>
       {{ end }}
     </header>
 
     {{ with $h }}
-    <!-- 2. Keyword matrix -->
-    <section class="mb-14 md:mb-16" aria-labelledby="kw-heading">
+    <!-- 2. Keyword matrix (~10% accent: core skill tags) -->
+    <section class="mb-16 md:mb-20" aria-labelledby="kw-heading">
       <h2 id="kw-heading" class="sr-only">Core skills and focus areas</h2>
-      <p class="text-center text-xs font-bold uppercase tracking-widest text-gray-400 dark:text-gray-500 mb-5">Keyword matrix</p>
+      <p class="text-center text-xs font-bold uppercase tracking-widest text-[#71717A] dark:text-stone-500 mb-6">Keyword matrix</p>
       <div class="flex flex-wrap justify-center gap-2.5 md:gap-3">
         {{ range .keywords }}
-        <span class="inline-flex items-center rounded-full border border-gray-200 dark:border-slate-600 bg-white/80 dark:bg-slate-900/80 px-3.5 py-1.5 text-sm font-medium text-gray-800 dark:text-gray-200 shadow-sm hover:border-blue-300 dark:hover:border-blue-600 hover:bg-blue-50/50 dark:hover:bg-slate-800/80 transition-colors">{{ . }}</span>
+        <span class="inline-flex items-center rounded-full border border-zinc-200/90 dark:border-stone-600 bg-accent-highlight dark:bg-[rgba(254,240,138,0.12)] px-3.5 py-1.5 text-sm font-medium text-[#27272A] dark:text-stone-100 shadow-sm hover:border-zinc-300 dark:hover:border-stone-500 transition-colors">{{ . }}</span>
         {{ end }}
       </div>
     </section>
 
     <!-- 3. Philosophy -->
-    <section class="mb-14 md:mb-16" aria-labelledby="phil-heading">
-      <h2 id="phil-heading" class="text-center text-xs font-bold uppercase tracking-widest text-gray-400 dark:text-gray-500 mb-6">Philosophy</h2>
-      <ul class="space-y-5 text-left max-w-2xl mx-auto">
+    <section class="mb-16 md:mb-20" aria-labelledby="phil-heading">
+      <h2 id="phil-heading" class="text-center text-xs font-bold uppercase tracking-widest text-[#71717A] dark:text-stone-500 mb-8">Philosophy</h2>
+      <ul class="space-y-6 text-left max-w-2xl mx-auto">
         {{ range $i, $p := .philosophy }}
         <li class="flex gap-4">
-          <span class="flex-shrink-0 mt-1.5 flex h-7 w-7 items-center justify-center rounded-full bg-blue-600 text-xs font-bold text-white dark:bg-blue-500" aria-hidden="true">{{ add $i 1 }}</span>
-          <span class="text-[17px] leading-relaxed text-gray-700 dark:text-gray-300">{{ $p }}</span>
+          <span class="flex-shrink-0 mt-1.5 flex h-7 w-7 items-center justify-center rounded-full bg-[#27272A] text-xs font-bold text-[#FCFBF7] dark:bg-stone-100 dark:text-stone-900" aria-hidden="true">{{ add $i 1 }}</span>
+          <span class="text-[17px] leading-relaxed text-[#3f3f46] dark:text-stone-300">{{ $p }}</span>
         </li>
         {{ end }}
       </ul>
     </section>
 
-    <!-- 4. Vision pull quote -->
-    <blockquote class="mb-14 md:mb-16 rounded-2xl border border-blue-100 dark:border-blue-900/50 bg-gradient-to-br from-blue-50/90 to-white dark:from-slate-800/80 dark:to-slate-900/90 px-6 py-8 md:px-10 md:py-10 text-center shadow-sm">
-      <p class="text-lg md:text-xl font-medium text-blue-950 dark:text-blue-100 leading-snug tracking-tight">{{ .vision }}</p>
+    <!-- 4. Vision (neutral card — content is the focus) -->
+    <blockquote class="mb-16 md:mb-20 rounded-2xl border border-zinc-200/80 dark:border-stone-600 bg-white dark:bg-stone-900 px-6 py-8 md:px-10 md:py-10 text-center shadow-sm">
+      <p class="text-lg md:text-xl font-medium text-[#27272A] dark:text-stone-100 leading-snug tracking-tight">{{ .vision }}</p>
     </blockquote>
 
     <!-- 5. Highlights strip -->
-    <section class="mb-12 md:mb-14" aria-labelledby="hi-heading">
-      <h2 id="hi-heading" class="text-center text-xs font-bold uppercase tracking-widest text-gray-400 dark:text-gray-500 mb-5">Selected highlights</h2>
-      <ul class="flex flex-col sm:flex-row flex-wrap justify-center gap-3 sm:gap-4 text-center text-sm text-gray-600 dark:text-gray-400">
+    <section class="mb-14 md:mb-16" aria-labelledby="hi-heading">
+      <h2 id="hi-heading" class="text-center text-xs font-bold uppercase tracking-widest text-[#71717A] dark:text-stone-500 mb-6">Selected highlights</h2>
+      <ul class="flex flex-col sm:flex-row flex-wrap justify-center gap-3 sm:gap-4 text-center text-sm text-[#3f3f46] dark:text-stone-300">
         {{ range .highlights }}
-        <li class="inline-flex items-center justify-center rounded-lg bg-gray-100/90 dark:bg-slate-800/90 px-4 py-2.5 border border-gray-200/80 dark:border-slate-700">{{ . }}</li>
+        <li class="inline-flex items-center justify-center rounded-lg bg-zinc-100/90 dark:bg-stone-800/90 px-4 py-2.5 border border-zinc-200/80 dark:border-stone-600">{{ . }}</li>
         {{ end }}
       </ul>
     </section>
     {{ end }}
 
     {{ with .Content }}
-    <div class="prose prose-lg dark:prose-invert mx-auto mb-12 max-w-2xl text-center">
+    <div class="prose prose-lg dark:prose-invert mx-auto mb-14 max-w-2xl text-center">
       {{ . }}
     </div>
     {{ end }}
 
     {{ if .Site.Menus.main }}
-    <nav class="flex flex-wrap justify-center gap-3 pt-2" aria-label="Primary">
+    <nav class="flex flex-wrap justify-center gap-3 pt-4" aria-label="Primary">
       {{ range .Site.Menus.main }}
-      <a href="{{ .URL }}" class="relative px-5 py-2.5 rounded-full text-blue-700 dark:text-blue-300 group overflow-hidden">
-        <span class="absolute inset-0 w-full h-full bg-blue-50 dark:bg-slate-700/50 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></span>
+      <a href="{{ .URL }}" class="relative px-5 py-2.5 rounded-full text-[#27272A] dark:text-stone-200 group overflow-hidden border border-transparent hover:border-zinc-200/80 dark:hover:border-stone-600">
+        <span class="absolute inset-0 w-full h-full bg-zinc-100/0 dark:bg-stone-800/0 group-hover:bg-[rgba(254,240,138,0.35)] dark:group-hover:bg-[rgba(254,240,138,0.12)] transition-colors duration-300"></span>
         <span class="relative z-10 transition-colors duration-300">{{ .Name }}</span>
       </a>
       {{ end }}

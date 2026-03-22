@@ -1,3 +1,4 @@
+# Site is dark-only (no light theme). Color system (60/30/10): ~60% warm stone ground, ~30% body text, ~10% accent #FEF08A on CTAs & core skill tags.
 baseURL = 'https://ollie33.github.io/'
 languageCode = 'en'
 defaultContentLanguage = 'en'
