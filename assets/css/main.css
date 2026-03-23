@@ -509,11 +509,11 @@ div#disqus_thread iframe[sandbox] {
 /* -------- Inline code & blockquotes: light + dark adaptations -------- */
 /* Inline code (avoid pre>code) */
 .prose :not(pre) > code {
-  background-color: #f4f4f5;
-  color: #27272a;
+  background-color: #f3ebe4;
+  color: #3d2e26;
   padding: .125rem .35rem;
   border-radius: .375rem; /* rounded-md */
-  border: 1px solid rgba(39, 39, 42, 0.08);
+  border: 1px solid rgba(58, 46, 38, 0.12);
   box-shadow: inset 0 1px 0 rgba(0,0,0,.04);
   font-size: .95em;
   font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
@@ -531,104 +531,102 @@ div#disqus_thread iframe[sandbox] {
   background-color: rgba(28, 25, 23, 0.5); /* stone-900-ish */
 }
 
-/* ========== Portfolio palette ==========
-   One-line guide: 60% warm oat field #FCFBF7 as ground & whitespace,
-   30% charcoal #27272A + muted #71717A for content,
-   10% highlighter #FEF08A only on primary CTAs & core skill emphasis — never flood the UI with accent.
+/* ========== Portfolio palette (light only, coffee on oat) ==========
+   60% #FCFBF7 ground, 30% #2a1f18 / #4a3a32 / #6e5a4d text, 10% #FEF08A accent.
    ========== */
 :root {
   --color-page-bg: #FCFBF7;
   --color-surface: #ffffff;
-  --color-text-primary: #27272a;
-  --color-text-muted: #71717a;
+  --color-text-primary: #2a1f18;
+  --color-text-muted: #6e5a4d;
   --color-accent: #fef08a;
 }
 
-html:not(.dark) body {
+html body {
   background-color: var(--color-page-bg) !important;
   color: var(--color-text-primary);
 }
 
-html:not(.dark) .bg-gray-50 {
+html .bg-gray-50 {
   background-color: var(--color-page-bg) !important;
 }
 
-html:not(.dark) .bg-white {
+html .bg-white {
   background-color: var(--color-surface) !important;
 }
 
-html:not(.dark) .bg-gray-100 {
-  background-color: #f4f4f5 !important;
+html .bg-gray-100 {
+  background-color: #f3ebe4 !important;
 }
 
-html:not(.dark) .text-gray-900 {
-  color: #27272a !important;
+html .text-gray-900 {
+  color: #2a1f18 !important;
 }
 
-html:not(.dark) .text-gray-800 {
-  color: #27272a !important;
+html .text-gray-800 {
+  color: #2a1f18 !important;
 }
 
-html:not(.dark) .text-gray-700 {
-  color: #3f3f46 !important;
+html .text-gray-700 {
+  color: #4a3a32 !important;
 }
 
-html:not(.dark) .text-gray-600 {
-  color: #52525b !important;
+html .text-gray-600 {
+  color: #5c4a3f !important;
 }
 
-html:not(.dark) .text-gray-500 {
-  color: #71717a !important;
+html .text-gray-500 {
+  color: #6e5a4d !important;
 }
 
-html:not(.dark) .text-gray-400 {
-  color: #a1a1aa !important;
+html .text-gray-400 {
+  color: #8a7568 !important;
 }
 
-/* Demote incidental blues in light UI to neutrals + rare accent */
-html:not(.dark) .text-blue-600,
-html:not(.dark) .text-blue-700,
-html:not(.dark) .text-blue-800 {
-  color: #27272a !important;
+/* Demote incidental blues in UI to coffee neutrals */
+html .text-blue-600,
+html .text-blue-700,
+html .text-blue-800 {
+  color: #2a1f18 !important;
 }
 
-html:not(.dark) .hover\:text-blue-600:hover,
-html:not(.dark) .hover\:text-blue-700:hover {
-  color: #18181b !important;
+html .hover\:text-blue-600:hover,
+html .hover\:text-blue-700:hover {
+  color: #1a1410 !important;
 }
 
-html:not(.dark) .border-gray-100,
-html:not(.dark) .border-gray-200 {
-  border-color: rgba(39, 39, 42, 0.08) !important;
+html .border-gray-100,
+html .border-gray-200 {
+  border-color: rgba(58, 46, 38, 0.1) !important;
 }
 
-html:not(.dark) .border-blue-100 {
-  border-color: rgba(39, 39, 42, 0.06) !important;
+html .border-blue-100 {
+  border-color: rgba(58, 46, 38, 0.08) !important;
 }
 
-html:not(.dark) header.bg-white {
+html header.bg-white {
   background-color: rgba(252, 251, 247, 0.94) !important;
   -webkit-backdrop-filter: blur(10px);
   backdrop-filter: blur(10px);
-  border-bottom: 1px solid rgba(39, 39, 42, 0.06);
+  border-bottom: 1px solid rgba(58, 46, 38, 0.1);
   box-shadow: none !important;
 }
 
-html:not(.dark) .shadow-sm {
-  box-shadow: 0 1px 2px rgba(39, 39, 42, 0.045) !important;
+html .shadow-sm {
+  box-shadow: 0 1px 2px rgba(42, 31, 24, 0.06) !important;
 }
 
-html:not(.dark) .shadow-md,
-html:not(.dark) .shadow-lg {
-  box-shadow: 0 6px 24px rgba(39, 39, 42, 0.07) !important;
+html .shadow-md,
+html .shadow-lg {
+  box-shadow: 0 6px 24px rgba(42, 31, 24, 0.08) !important;
 }
 
-html:not(.dark) .shadow-inner {
-  box-shadow: inset 0 2px 6px rgba(39, 39, 42, 0.04) !important;
+html .shadow-inner {
+  box-shadow: inset 0 2px 6px rgba(42, 31, 24, 0.05) !important;
 }
 
-html:not(.dark) #TableOfContents a {
-  color: #3f3f46;
+html #TableOfContents a {
+  color: #4a3a32;
 }
 
 /* Warm dark mode: stone, not slate-blue */

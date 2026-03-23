@@ -5,23 +5,23 @@
     <header class="text-center mb-16 md:mb-20">
       {{ with site.Params.avatar }}
       <div class="mx-auto mb-10 w-32 h-32 md:w-40 md:h-40 relative group">
-        <div class="rounded-full overflow-hidden border-2 border-zinc-200/80 dark:border-stone-600 shadow-sm hover:shadow-md transition-shadow duration-300 ring-1 ring-black/5">
+        <div class="rounded-full overflow-hidden border-2 border-[rgba(58,46,38,0.18)] shadow-sm hover:shadow-md transition-shadow duration-300 ring-1 ring-[rgba(42,31,24,0.06)]">
           <img src="{{ .url }}" alt="{{ with $h }}{{ .display_name }}{{ else }}{{ $.Site.Title }}{{ end }}" class="w-full h-full object-cover transform transition-transform duration-500 group-hover:scale-[1.02]">
         </div>
       </div>
       {{ end }}
 
       {{ with $h }}
-      <p class="text-sm font-semibold uppercase tracking-[0.2em] text-[#71717A] dark:text-stone-400 mb-3">{{ .hero_greeting }}</p>
-      <h1 class="text-3xl md:text-4xl lg:text-[2.5rem] font-bold text-[#27272A] dark:text-stone-50 mb-2 leading-tight">{{ .display_name }}</h1>
-      <p class="text-lg md:text-xl text-[#27272A] dark:text-stone-200 font-medium mb-10">{{ .role_line }}</p>
+      <p class="text-sm font-semibold uppercase tracking-[0.2em] text-[#6e5a4d] mb-3">{{ .hero_greeting }}</p>
+      <h1 class="text-3xl md:text-4xl lg:text-[2.5rem] font-bold text-[#2a1f18] mb-2 leading-tight">{{ .display_name }}</h1>
+      <p class="text-lg md:text-xl text-[#2a1f18] font-medium mb-10">{{ .role_line }}</p>
 
-      <div class="text-left max-w-2xl mx-auto space-y-6 text-[17px] md:text-lg leading-relaxed text-[#3f3f46] dark:text-stone-300">
+      <div class="text-left max-w-2xl mx-auto space-y-6 text-[17px] md:text-lg leading-relaxed text-[#4a3a32]">
         <p>{{ .hero_intro }}</p>
-        <p class="pl-5 border-l-[3px] border-[#27272A]/25 dark:border-stone-500 italic text-[#71717A] dark:text-stone-400">{{ .story_line }}</p>
+        <p class="pl-5 border-l-[3px] border-[#2a1f18]/30 italic text-[#6e5a4d]">{{ .story_line }}</p>
       </div>
       {{ else }}
-      <h1 class="text-3xl md:text-4xl font-bold text-[#27272A] dark:text-stone-50 mb-6">{{ .Site.Title }}</h1>
+      <h1 class="text-3xl md:text-4xl font-bold text-[#2a1f18] mb-6">{{ .Site.Title }}</h1>
       {{ end }}
     </header>
 
@@ -29,45 +29,45 @@
     <!-- 2. Keyword matrix (~10% accent: core skill tags) -->
     <section class="mb-16 md:mb-20" aria-labelledby="kw-heading">
       <h2 id="kw-heading" class="sr-only">Core skills and focus areas</h2>
-      <p class="text-center text-xs font-bold uppercase tracking-widest text-[#71717A] dark:text-stone-500 mb-6">Keyword matrix</p>
+      <p class="text-center text-xs font-bold uppercase tracking-widest text-[#6e5a4d] mb-6">Keyword matrix</p>
       <div class="flex flex-wrap justify-center gap-2.5 md:gap-3">
         {{ range .keywords }}
-        <span class="inline-flex items-center rounded-full border border-zinc-200/90 dark:border-stone-600 bg-accent-highlight dark:bg-[rgba(254,240,138,0.12)] px-3.5 py-1.5 text-sm font-medium text-[#27272A] dark:text-stone-100 shadow-sm hover:border-zinc-300 dark:hover:border-stone-500 transition-colors">{{ . }}</span>
+        <span class="inline-flex items-center rounded-full border border-[rgba(58,46,38,0.15)] bg-accent-highlight px-3.5 py-1.5 text-sm font-medium text-[#2a1f18] shadow-sm hover:border-[rgba(58,46,38,0.28)] transition-colors">{{ . }}</span>
         {{ end }}
       </div>
     </section>
 
     <!-- 3. Philosophy -->
     <section class="mb-16 md:mb-20" aria-labelledby="phil-heading">
-      <h2 id="phil-heading" class="text-center text-xs font-bold uppercase tracking-widest text-[#71717A] dark:text-stone-500 mb-8">Philosophy</h2>
+      <h2 id="phil-heading" class="text-center text-xs font-bold uppercase tracking-widest text-[#6e5a4d] mb-8">Philosophy</h2>
       <ul class="space-y-6 text-left max-w-2xl mx-auto">
         {{ range $i, $p := .philosophy }}
         <li class="flex gap-4">
-          <span class="flex-shrink-0 mt-1.5 flex h-7 w-7 items-center justify-center rounded-full bg-[#27272A] text-xs font-bold text-[#FCFBF7] dark:bg-stone-100 dark:text-stone-900" aria-hidden="true">{{ add $i 1 }}</span>
-          <span class="text-[17px] leading-relaxed text-[#3f3f46] dark:text-stone-300">{{ $p }}</span>
+          <span class="flex-shrink-0 mt-1.5 flex h-7 w-7 items-center justify-center rounded-full bg-[#3d2e26] text-xs font-bold text-[#fffef8]" aria-hidden="true">{{ add $i 1 }}</span>
+          <span class="text-[17px] leading-relaxed text-[#4a3a32]">{{ $p }}</span>
         </li>
         {{ end }}
       </ul>
     </section>
 
     <!-- 4. Vision (neutral card — content is the focus) -->
-    <blockquote class="mb-16 md:mb-20 rounded-2xl border border-zinc-200/80 dark:border-stone-600 bg-white dark:bg-stone-900 px-6 py-8 md:px-10 md:py-10 text-center shadow-sm">
-      <p class="text-lg md:text-xl font-medium text-[#27272A] dark:text-stone-100 leading-snug tracking-tight">{{ .vision }}</p>
+    <blockquote class="mb-16 md:mb-20 rounded-2xl border border-[rgba(58,46,38,0.12)] bg-white px-6 py-8 md:px-10 md:py-10 text-center shadow-sm">
+      <p class="text-lg md:text-xl font-medium text-[#2a1f18] leading-snug tracking-tight">{{ .vision }}</p>
     </blockquote>
 
     <!-- 5. Highlights strip -->
     <section class="mb-14 md:mb-16" aria-labelledby="hi-heading">
-      <h2 id="hi-heading" class="text-center text-xs font-bold uppercase tracking-widest text-[#71717A] dark:text-stone-500 mb-6">Selected highlights</h2>
-      <ul class="flex flex-col sm:flex-row flex-wrap justify-center gap-3 sm:gap-4 text-center text-sm text-[#3f3f46] dark:text-stone-300">
+      <h2 id="hi-heading" class="text-center text-xs font-bold uppercase tracking-widest text-[#6e5a4d] mb-6">Selected highlights</h2>
+      <ul class="flex flex-col sm:flex-row flex-wrap justify-center gap-3 sm:gap-4 text-center text-sm text-[#4a3a32]">
         {{ range .highlights }}
-        <li class="inline-flex items-center justify-center rounded-lg bg-zinc-100/90 dark:bg-stone-800/90 px-4 py-2.5 border border-zinc-200/80 dark:border-stone-600">{{ . }}</li>
+        <li class="inline-flex items-center justify-center rounded-lg bg-[#f3ebe4]/90 px-4 py-2.5 border border-[rgba(58,46,38,0.12)]">{{ . }}</li>
         {{ end }}
       </ul>
     </section>
     {{ end }}
 
     {{ with .Content }}
-    <div class="prose prose-lg dark:prose-invert mx-auto mb-14 max-w-2xl text-center">
+    <div class="prose prose-lg max-w-2xl mx-auto mb-14 text-center prose-headings:text-[#2a1f18] prose-p:text-[#4a3a32] prose-a:text-[#5c3d2e] prose-strong:text-[#2a1f18]">
       {{ . }}
     </div>
     {{ end }}
@@ -75,8 +75,8 @@
     {{ if .Site.Menus.main }}
     <nav class="flex flex-wrap justify-center gap-3 pt-4" aria-label="Primary">
       {{ range .Site.Menus.main }}
-      <a href="{{ .URL }}" class="relative px-5 py-2.5 rounded-full text-[#27272A] dark:text-stone-200 group overflow-hidden border border-transparent hover:border-zinc-200/80 dark:hover:border-stone-600">
-        <span class="absolute inset-0 w-full h-full bg-zinc-100/0 dark:bg-stone-800/0 group-hover:bg-[rgba(254,240,138,0.35)] dark:group-hover:bg-[rgba(254,240,138,0.12)] transition-colors duration-300"></span>
+      <a href="{{ .URL }}" class="relative px-5 py-2.5 rounded-full text-[#2a1f18] group overflow-hidden border border-transparent hover:border-[rgba(58,46,38,0.15)]">
+        <span class="absolute inset-0 w-full h-full bg-transparent group-hover:bg-[rgba(254,240,138,0.4)] transition-colors duration-300"></span>
         <span class="relative z-10 transition-colors duration-300">{{ .Name }}</span>
       </a>
       {{ end }}

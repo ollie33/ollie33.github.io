@@ -132,17 +132,6 @@
 <!-- 页内跳转目标高亮（TOC/哈希链接） -->
 <script>
   document.addEventListener('DOMContentLoaded', function () {
-    // --- Theme: dark only (no light mode / no toggle) ---
-    (function themeInit() {
-      const root = document.documentElement;
-      root.classList.add('dark');
-      const hlLight = document.getElementById('hljs-theme-light');
-      const hlDark = document.getElementById('hljs-theme-dark');
-      if (hlLight && hlDark) {
-        hlLight.disabled = true;
-        hlDark.disabled = false;
-      }
-    })();
     let currentHighlighted = null;
     let scrollArmTimer = null;
 

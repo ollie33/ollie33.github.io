@@ -1,19 +1,19 @@
 {{ define "main" }}
-  <article class="max-w-4xl mx-auto bg-stone-900 rounded-xl border border-stone-700 shadow-sm overflow-hidden">
-    <header class="px-6 sm:px-8 pt-8 pb-6 border-b border-stone-700">
+  <article class="max-w-4xl mx-auto bg-white rounded-xl border border-[rgba(58,46,38,0.14)] shadow-sm overflow-hidden">
+    <header class="px-6 sm:px-8 pt-8 pb-6 border-b border-[rgba(58,46,38,0.12)]">
       {{ with .Params.period }}
-      <p class="text-sm font-semibold text-stone-400 tracking-wide mb-2">{{ . }}</p>
+      <p class="text-sm font-semibold text-[#6e5a4d] tracking-wide mb-2">{{ . }}</p>
       {{ end }}
-      <h1 class="text-2xl sm:text-3xl md:text-4xl font-bold text-stone-50 leading-tight">{{ .Title }}</h1>
+      <h1 class="text-2xl sm:text-3xl md:text-4xl font-bold text-[#2a1f18] leading-tight">{{ .Title }}</h1>
       {{ if or .Params.role .Params.org }}
-      <p class="mt-3 text-stone-300 text-sm sm:text-base">
+      <p class="mt-3 text-[#4a3a32] text-sm sm:text-base">
         {{ with .Params.role }}{{ . }}{{ end }}
-        {{ if and .Params.role .Params.org }}<span class="text-stone-500"> @ </span>{{ end }}
+        {{ if and .Params.role .Params.org }}<span class="text-[#8a7568]"> @ </span>{{ end }}
         {{ with .Params.org }}{{ . }}{{ end }}
       </p>
       {{ end }}
       {{ with .Params.highlight }}
-      <p class="mt-4 text-sm text-stone-200 bg-[rgba(254,240,138,0.12)] border border-stone-600 rounded-lg px-3 py-2 inline-block">
+      <p class="mt-4 text-sm text-[#2a1f18] bg-[rgba(254,240,138,0.42)] border border-[rgba(58,46,38,0.14)] rounded-lg px-3 py-2 inline-block">
         {{ . }}
       </p>
       {{ end }}
@@ -21,17 +21,17 @@
 
     {{ $gallery := .Params.gallery | default slice }}
     {{ if gt (len $gallery) 0 }}
-    <section class="px-6 sm:px-8 py-8 border-b border-stone-700" aria-labelledby="gallery-heading">
-      <h2 id="gallery-heading" class="text-xs font-bold uppercase tracking-widest text-stone-500 mb-4">Gallery</h2>
+    <section class="px-6 sm:px-8 py-8 border-b border-[rgba(58,46,38,0.12)]" aria-labelledby="gallery-heading">
+      <h2 id="gallery-heading" class="text-xs font-bold uppercase tracking-widest text-[#6e5a4d] mb-4">Gallery</h2>
       <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
         {{ range $gallery }}
         {{ $item := . }}
-        <figure class="rounded-lg overflow-hidden border border-stone-600 bg-stone-950/50">
+        <figure class="rounded-lg overflow-hidden border border-[rgba(58,46,38,0.14)] bg-[#faf6f0]">
           {{ with $item.image }}
           <img src="{{ . | relURL }}" alt="{{ with $item.caption }}{{ . }}{{ else }}Achievement image{{ end }}" class="w-full h-auto object-cover max-h-72 object-center" loading="lazy" decoding="async" />
           {{ end }}
           {{ with $item.caption }}
-          <figcaption class="px-3 py-2 text-sm text-stone-400">{{ . }}</figcaption>
+          <figcaption class="px-3 py-2 text-sm text-[#6e5a4d]">{{ . }}</figcaption>
           {{ end }}
         </figure>
         {{ end }}
@@ -39,37 +39,37 @@
     </section>
     {{ end }}
 
-    <div class="px-6 sm:px-8 py-8 prose prose-sm sm:prose dark:prose-invert max-w-none prose-headings:text-stone-100 prose-p:text-stone-300 prose-a:text-[#fef08a] prose-strong:text-stone-100">
+    <div class="px-6 sm:px-8 py-8 prose max-w-none prose-headings:text-[#2a1f18] prose-p:text-[#4a3a32] prose-a:text-[#5c3d2e] prose-strong:text-[#2a1f18] prose-li:marker:text-[#8a7568]">
       {{ .Content }}
     </div>
 
     {{ $prev := .PrevInSection }}
     {{ $next := .NextInSection }}
     {{ if or $prev $next }}
-    <nav class="px-6 sm:px-8 py-6 border-t border-stone-700 grid grid-cols-1 sm:grid-cols-2 gap-4">
+    <nav class="px-6 sm:px-8 py-6 border-t border-[rgba(58,46,38,0.12)] grid grid-cols-1 sm:grid-cols-2 gap-4">
       {{ if $next }}
-      <a href="{{ $next.RelPermalink }}" class="group block p-4 rounded-lg border border-stone-600 hover:border-[#fef08a]/40 bg-stone-950/30 transition-colors">
-        <div class="text-xs text-stone-500 mb-1">Next</div>
-        <div class="text-sm font-medium text-stone-200 group-hover:text-[#fef08a] line-clamp-2">{{ $next.Title }}</div>
+      <a href="{{ $next.RelPermalink }}" class="group block p-4 rounded-lg border border-[rgba(58,46,38,0.14)] hover:border-[#c9a227]/45 bg-[#faf6f0]/80 transition-colors">
+        <div class="text-xs text-[#6e5a4d] mb-1">Next</div>
+        <div class="text-sm font-medium text-[#2a1f18] group-hover:text-[#5c3d2e] line-clamp-2">{{ $next.Title }}</div>
       </a>
       {{ end }}
       {{ if $prev }}
-      <a href="{{ $prev.RelPermalink }}" class="group block p-4 rounded-lg border border-stone-600 hover:border-[#fef08a]/40 bg-stone-950/30 transition-colors sm:text-right sm:col-start-2">
-        <div class="text-xs text-stone-500 mb-1">Previous</div>
-        <div class="text-sm font-medium text-stone-200 group-hover:text-[#fef08a] line-clamp-2">{{ $prev.Title }}</div>
+      <a href="{{ $prev.RelPermalink }}" class="group block p-4 rounded-lg border border-[rgba(58,46,38,0.14)] hover:border-[#c9a227]/45 bg-[#faf6f0]/80 transition-colors sm:text-right sm:col-start-2">
+        <div class="text-xs text-[#6e5a4d] mb-1">Previous</div>
+        <div class="text-sm font-medium text-[#2a1f18] group-hover:text-[#5c3d2e] line-clamp-2">{{ $prev.Title }}</div>
       </a>
       {{ end }}
     </nav>
     {{ end }}
 
-    <footer class="px-6 sm:px-8 py-6 border-t border-stone-700 flex flex-wrap justify-center gap-4">
-      <a href="{{ "/posts/" | relLangURL }}" class="inline-flex items-center text-stone-400 hover:text-[#fef08a] text-sm transition-colors">
+    <footer class="px-6 sm:px-8 py-6 border-t border-[rgba(58,46,38,0.12)] flex flex-wrap justify-center gap-4">
+      <a href="{{ "/posts/" | relLangURL }}" class="inline-flex items-center text-[#6e5a4d] hover:text-[#5c3d2e] text-sm transition-colors">
         <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
           <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7" />
         </svg>
         All achievements
       </a>
-      <a href="{{ "/" | relLangURL }}" class="inline-flex items-center text-stone-400 hover:text-[#fef08a] text-sm transition-colors">
+      <a href="{{ "/" | relLangURL }}" class="inline-flex items-center text-[#6e5a4d] hover:text-[#5c3d2e] text-sm transition-colors">
         <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
           <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6" />
         </svg>
@@ -78,7 +78,7 @@
     </footer>
   </article>
 
-  <div class="max-w-4xl mx-auto mt-8 bg-stone-900 rounded-xl border border-stone-700 overflow-hidden theme-card">
+  <div class="max-w-4xl mx-auto mt-8 bg-white rounded-xl border border-[rgba(58,46,38,0.14)] overflow-hidden theme-card">
     {{ partial "disqus_lazy.html" . }}
   </div>
 {{ end }}

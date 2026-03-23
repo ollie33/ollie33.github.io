@@ -21,18 +21,8 @@
 {{ $styles := $css | resources.Minify | fingerprint }}
 <link rel="stylesheet" href="{{ $styles.RelPermalink }}" media="screen" integrity="{{ $styles.Data.Integrity }}">
 
-<!-- Code Highlighting — dark theme only -->
-<link id="hljs-theme-light" rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css" disabled>
-<link id="hljs-theme-dark" rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github-dark.min.css">
-<script>
-  (function(){
-    try{
-      var l = document.getElementById('hljs-theme-light');
-      var d = document.getElementById('hljs-theme-dark');
-      if(l && d){ l.disabled = true; d.disabled = false; }
-    }catch(e){}
-  })();
-  </script>
+<!-- Code highlighting (light only) -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css">
 <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
 
 <!-- Responsive Font Support -->

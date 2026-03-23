@@ -24,9 +24,9 @@
         {{- $name = . }}
       {{- end }}
     {{- end }}
-    <li class="text-[#52525b] dark:text-stone-300 hover:text-[#27272A] dark:hover:text-[#fef08a] text-base sm:text-lg">
+    <li class="text-[#5c4a3f] hover:text-[#2a1f18] text-base sm:text-lg">
       <a
-        class="px-2 py-1 sm:px-3 sm:py-2 rounded transition-colors hover:bg-[rgba(254,240,138,0.22)] dark:hover:bg-stone-800"
+        class="px-2 py-1 sm:px-3 sm:py-2 rounded transition-colors hover:bg-[rgba(254,240,138,0.28)]"
         {{- range $k, $v := $attrs }}
           {{- with $v }}
             {{- printf " %s=%q" $k $v | safeHTMLAttr }}
