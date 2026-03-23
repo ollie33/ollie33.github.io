@@ -3,7 +3,9 @@ title: "System Analysis & Development Intern @ SYSTEX"
 date: 2025-09-01
 params:
   period: "Sep 2025 – Present"
-  role: "System Analysis & Development Intern"
+  role:
+    - title: "System Analysis & Development Intern"
+      module: "Translated client requirements into scoped SRS/FSD docs; validated bugs against specifications."
   org: "SYSTEX"
 ---
 

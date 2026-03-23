@@ -3,7 +3,9 @@ title: "CTO & CDO @ European Innovation Academy (EIA)"
 date: 2025-07-01
 params:
   period: "Jul 2025 – Aug 2025"
-  role: "CTO & CDO"
+  role:
+    - title: "CTO & CDO"
+      module: "Led multinational product delivery; designed matching algorithms, UX flows, and security verification for social trust."
   org: "European Innovation Academy (EIA)"
 ---
 

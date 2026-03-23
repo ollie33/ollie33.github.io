@@ -3,7 +3,9 @@ title: "Founder — Independent Handmade Dessert Brand"
 date: 2023-08-01
 params:
   period: "Aug 2023 – Dec 2024"
-  role: "Founder"
+  role:
+    - title: "Founder"
+      module: "Owned end-to-end brand operations; automated admin workflows via n8n + Gmail/Sheets (AI email parsing)."
   org: "Independent Handmade Dessert Brand"
 ---
 

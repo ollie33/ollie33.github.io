@@ -32,6 +32,8 @@
               </h2>
               {{ with .Params.period }}
               <span class="text-sm font-medium text-[#6e5a4d] shrink-0">{{ . }}</span>
+              {{ else }}
+              <span class="text-sm font-medium text-[#6e5a4d] shrink-0">{{ .Date.Format "Jan 2006" }}</span>
               {{ end }}
             </div>
             <p class="mt-2 text-xs text-[#6e5a4d]">Open for details &amp; media →</p>
