@@ -6,5 +6,20 @@
   </div>
   <div class="flex items-center gap-2">
     {{ partial "menu.html" (dict "menuID" "main" "page" .) }}
+
+    {{/* Language switcher: link to this page's translation, falling back to the other language's home. */}}
+    {{ $label := cond (eq .Language.Lang "en") "中文" "EN" }}
+    {{ $target := "" }}
+    {{ range .Translations }}{{ $target = .RelPermalink }}{{ end }}
+    {{ if not $target }}
+      {{ range site.Home.AllTranslations }}
+        {{ if ne .Language.Lang $.Language.Lang }}{{ $target = .RelPermalink }}{{ end }}
+      {{ end }}
+    {{ end }}
+    {{ with $target }}
+    <a href="{{ . }}"
+       class="shrink-0 text-sm font-semibold text-[#5c4a3f] hover:text-[#2a1f18] border border-[rgba(58,46,38,0.18)] rounded-full px-3 py-1 transition-colors hover:bg-[rgba(254,240,138,0.28)]"
+       aria-label="{{ $label }}">{{ $label }}</a>
+    {{ end }}
   </div>
 </div>

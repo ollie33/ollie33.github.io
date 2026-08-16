@@ -1,60 +1,129 @@
 # Light only: oat #FCFBF7; coffee text #2a1f18 / body #4a3a32 / muted #6e5a4d; accent #FEF08A (~10%).
 baseURL = 'https://ollie33.github.io/'
-languageCode = 'en'
 defaultContentLanguage = 'en'
 title = 'Ying-Hsien Lee | Portfolio'
 theme = "void"
 
+# ---------- Languages ----------
+[languages]
+  [languages.en]
+    languageCode = 'en'
+    languageName = 'English'
+    weight = 1
+
+    [[languages.en.menus.main]]
+      name = 'Home'
+      pageRef = '/'
+      weight = 10
+    [[languages.en.menus.main]]
+      name = 'Achievement'
+      pageRef = '/posts'
+      weight = 20
+    [[languages.en.menus.main]]
+      name = 'About'
+      pageRef = '/about'
+      weight = 30
+
+  [languages.zh-tw]
+    languageCode = 'zh-tw'
+    languageName = '中文'
+    title = '李映嫻 | Portfolio'
+    weight = 2
+
+    [[languages.zh-tw.menus.main]]
+      name = '首頁'
+      pageRef = '/'
+      weight = 10
+    [[languages.zh-tw.menus.main]]
+      name = '經歷'
+      pageRef = '/posts'
+      weight = 20
+    [[languages.zh-tw.menus.main]]
+      name = '關於我'
+      pageRef = '/about'
+      weight = 30
+
+    [languages.zh-tw.params.home]
+      display_name = "李映嫻 Ying-Hsien Lee"
+      role_line = "產品，帶著工程的底子"
+      hero_intro = "我把講不清楚的需求，變成工程端做得出來的規格。"
+      story_line = "開過 17 個月的甜點店、寫過一年的企業級軟體規格、發過一篇 RAG 論文。不同的房間、同一份工作：搞清楚什麼才值得被做出來。"
+      story_parts = [
+        { text = "開過 17 個月的甜點店", url = "/posts/dessert-brand-founder/", sep = "、" },
+        { text = "寫過一年的企業級軟體規格", url = "/posts/systex-intern/", sep = "、" },
+        { text = "發過一篇 RAG 論文", url = "/posts/rag-virtual-anchor/", sep = "。" },
+        { text = "不同的房間、同一份工作：搞清楚什麼才值得被做出來。" },
+      ]
+      vision = "先定義問題，再打造解法。"
+      keywords = [
+        "需求訪談與收斂",
+        "SRS / FSD",
+        "產品思維",
+        "RAG 與 LLM 系統",
+        "系統分析",
+        "n8n 自動化",
+      ]
+      philosophy = [
+        { text = "需求是問題的證據，不是問題的描述。", source = "出自：精誠十個月的需求訪談", url = "/posts/systex-intern/" },
+        { text = "自己先把代價講出來——討論才推得動。", source = "出自：Kairoo——一次沒推動成的提案", url = "/posts/kairoo-eia/" },
+        { text = "體感問題和實際問題是兩回事，先弄清楚被要求解的是哪一個。", source = "出自：AI 導入案——老闆與現場說的像兩家公司", url = "/posts/ai-adoption-discovery/" },
+      ]
+      highlights = [
+        "系統分析實習 — 精誠資訊 SYSTEX（10 個月）",
+        "Project Leader — RAG 系統，TCSE 2025 論文發表",
+        "創辦人 — 獨立甜點品牌（0→1）",
+      ]
+      now_title = "現在"
+      now_items = [
+        "Gap year 申請季：準備 2027 年海外碩士。",
+        "剛把兩個月 AI 導入案的做法，整理成可複用的需求探索方法——寫在案例頁的「我帶走了什麼」。",
+        "讓這個網站誠實地跟著工作更新。",
+      ]
+      now_looking = "開放產品相關的工作與合作——尤其是還模糊到寫不成規格的問題。"
+
+# ---------- Shared params (EN home + social) ----------
 [params]
   [params.home]
     display_name = "Ying-Hsien Lee"
-    role_line = "AI Software Engineer with a Product Mindset"
-    hero_greeting = "Hey — thanks for stopping by."
-    hero_intro = "I'm an engineer who ships AI systems the way a good PM thinks about products: clear requirements, measurable outcomes, and automation that still works on a Tuesday three months later."
-    story_line = "My path has wandered from zero-to-one dessert entrepreneurship and PM/QA trenches at SYSTEX, to leading a multinational build as CTO at the European Innovation Academy in Portugal — same thread, different scale: use technology to remove real operational pain."
-    vision = "Crafting AI solutions that solve real-world business pain points."
+    role_line = "Product, with an engineering background"
+    hero_intro = "I turn vague requirements into specs engineers can actually build."
+    story_line = "Seventeen months running a dessert brand. A year specifying enterprise software. One published RAG paper. Different rooms, same job: figuring out what is actually worth building."
+    story_parts = [
+      { text = "Seventeen months running a dessert brand.", url = "/posts/dessert-brand-founder/", sep = " " },
+      { text = "A year specifying enterprise software.", url = "/posts/systex-intern/", sep = " " },
+      { text = "One published RAG paper.", url = "/posts/rag-virtual-anchor/", sep = " " },
+      { text = "Different rooms, same job: figuring out what is actually worth building." },
+    ]
+    vision = "Define the problem before building the solution."
     keywords = [
-      "RAG",
-      "Prompt Engineering",
-      "Python",
+      "Requirement Discovery",
+      "SRS / FSD",
+      "Product Thinking",
+      "RAG & LLM Systems",
       "System Analysis",
       "n8n Automation",
-      "Product Thinking",
-      "LLM Systems",
-      "Requirements & QA Mindset",
     ]
     philosophy = [
-      "Start from the bottleneck, not the buzzword — I anchor generative AI in workflows people actually use: retrieval you can trust, prompts you can version, and guardrails that keep answers on-spec.",
-      "Automate the repetitive, elevate the human — I wire APIs, data pipelines, and agents so teams spend time on judgment calls, not copy-paste — whether that's n8n glue code or LLM orchestration.",
-      "Prove value where it hurts — I measure success by whether the business problem got smaller: clearer specs, shorter release loops, fewer surprise defects, faster time-to-yes for stakeholders.",
+      { text = "A request is evidence of a problem, not a description of one.", source = "from: ten months of requirement interviews at SYSTEX", url = "/posts/systex-intern/" },
+      { text = "Name the cost yourself — stating what you give up is what lets a discussion move.", source = "from: Kairoo — a proposal I couldn't land in the room", url = "/posts/kairoo-eia/" },
+      { text = "Perceived and actual are different problems. Know which one you're being asked to fix.", source = "from: an AI-adoption project where the owner and the floor described two different companies", url = "/posts/ai-adoption-discovery/" },
     ]
     highlights = [
-      "CTO — European Innovation Academy (Portugal)",
-      "PM / QA Intern — SYSTEX",
+      "Systems Analysis Intern — SYSTEX (10 months)",
+      "Project Leader — RAG system, published at TCSE 2025",
       "Founder — independent dessert brand (0→1)",
     ]
+    now_title = "Now"
+    now_items = [
+      "Gap-year application season: preparing for a 2027 master's abroad.",
+      "Just distilled two months of AI-adoption fieldwork into a reusable discovery method — written up in the case study.",
+      "Keeping this site honest: it updates as the work does.",
+    ]
+    now_looking = "Open to product roles, collaborations, and problems still too vague to have a spec."
   [params.social]
     github = "https://github.com/ollie33"
-    # 這裡可以加上 LinkedIn，展現專業形象
-    linkedin = "https://www.linkedin.com/feed/" 
+    linkedin = "https://www.linkedin.com/in/olivia-lee-858031353/"
     email = "hsien.yy@gmail.com"
-  [params.avatar]
-    # 先隨便放一個圖片連結，之後可以換成你放在 static 裡的專業頭像
-    url = "https://i.pinimg.com/736x/a3/dc/6e/a3dc6e533bc7c643cd0746079b3034cd.jpg" 
-
-# 導覽列設定
-[[menus.main]]
-  name = 'Home'
-  pageRef = '/'
-  weight = 10
-[[menus.main]]
-  name = 'Achievement'
-  pageRef = '/posts'
-  weight = 20
-[[menus.main]]
-  name = 'About'
-  pageRef = '/about'
-  weight = 30
 
 [markup.goldmark.renderer]
   unsafe = true  # 允許在 Markdown 中使用 HTML（主題需求）

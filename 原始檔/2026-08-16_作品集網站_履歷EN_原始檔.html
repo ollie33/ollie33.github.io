@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Lee, Ying-Hsien — Resume</title>
+<style>
+  @page { size: A4; margin: 0; }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  html, body { width: 210mm; }
+  body {
+    font-family: "Helvetica Neue", Arial, "PingFang TC", sans-serif;
+    color: #2a1f18;
+    background: #fff;
+    padding: 11mm 15mm 9mm;
+    font-size: 9.1pt;
+    line-height: 1.36;
+  }
+  a { color: #5c3d2e; text-decoration: none; }
+
+  /* Header */
+  .head { display: flex; justify-content: space-between; align-items: flex-end; margin-bottom: 4mm; }
+  h1 { font-size: 19pt; letter-spacing: -0.3px; }
+  h1 .zh { font-weight: 600; font-size: 13pt; color: #4a3a32; margin-left: 6px; }
+  .tagline { font-size: 9.5pt; color: #6e5a4d; font-weight: 600; margin-top: 1mm; }
+  .contact { text-align: right; font-size: 8.6pt; color: #4a3a32; line-height: 1.55; }
+
+  .intro {
+    border-left: 2.5px solid #e8c96a;
+    padding-left: 4mm;
+    margin: 3mm 0 4.5mm;
+    color: #4a3a32;
+    font-size: 9.3pt;
+  }
+
+  h2 {
+    font-size: 8.3pt; text-transform: uppercase; letter-spacing: 1.6px;
+    color: #6e5a4d; border-bottom: 1px solid #e5dcd2;
+    padding-bottom: 1mm; margin: 3.4mm 0 2.2mm;
+  }
+  .entry { margin-bottom: 2.6mm; }
+  .entry-head { display: flex; justify-content: space-between; align-items: baseline; }
+  .entry-head h3 { font-size: 10pt; font-weight: 700; }
+  .entry-head h3 .role-note { font-weight: 500; color: #6e5a4d; }
+  .dates { font-size: 8.6pt; color: #6e5a4d; font-weight: 600; white-space: nowrap; margin-left: 6mm; }
+  ul { list-style: none; margin-top: 1.2mm; }
+  li { padding-left: 4mm; position: relative; margin-bottom: 0.6mm; color: #3b2d24; }
+  li::before { content: ""; position: absolute; left: 0.8mm; top: 0.62em; width: 1.3mm; height: 1.3mm; border-radius: 50%; background: #d9b64a; }
+  strong { color: #2a1f18; }
+
+  .skills-grid { display: grid; grid-template-columns: max-content 1fr; column-gap: 5mm; row-gap: 1mm; }
+  .skills-grid dt { font-weight: 700; font-size: 9pt; }
+  .skills-grid dd { color: #3b2d24; }
+
+  .edu-line { display: flex; justify-content: space-between; align-items: baseline; }
+  .edu-detail { color: #4a3a32; margin-top: 0.8mm; }
+</style>
+</head>
+<body>
+
+<div class="head">
+  <div>
+    <h1>Lee, Ying-Hsien<span class="zh">李映嫻</span></h1>
+    <p class="tagline">Product, with an engineering background</p>
+  </div>
+  <div class="contact">
+    <a href="mailto:hsien.yy@gmail.com">hsien.yy@gmail.com</a><br>
+    <a href="https://ollie33.github.io">ollie33.github.io</a> · <a href="https://github.com/ollie33">github.com/ollie33</a><br>
+    <a href="https://www.linkedin.com/in/olivia-lee-858031353/">linkedin.com/in/olivia-lee</a>
+  </div>
+</div>
+
+<p class="intro">
+  Computer Science graduate (Feng Chia University) working at the point where product meets engineering.
+  I turn vague requirements into specs engineers can actually build — practiced across enterprise system
+  analysis, a cross-national MVP sprint, a published RAG system, and seventeen months running my own brand.
+</p>
+
+<h2>Work Experience</h2>
+
+<div class="entry">
+  <div class="entry-head">
+    <h3>Requirement Discovery Intern <span class="role-note">· AI-adoption project, mid-sized manufacturer</span></h3>
+    <span class="dates">Jul 2026 – Aug 2026</span>
+  </div>
+  <ul>
+    <li>Ran the discovery phase of an AI-adoption initiative: interviewed working staff <strong>role by role</strong> and converged scattered asks into a concrete scope.</li>
+    <li>Mapped the <strong>as-is quote-to-drawing workflow</strong> and confirmed it line by line with the people doing the work — before any AI design was discussed.</li>
+    <li>Prepared rollout groundwork: <strong>role-specific operation manuals</strong> and pre-launch <strong>permission tests</strong>; locked scope and decisions with written summaries after every meeting.</li>
+  </ul>
+</div>
+
+<div class="entry">
+  <div class="entry-head">
+    <h3>Systems Analysis &amp; Development Intern <span class="role-note">· SYSTEX Corporation</span></h3>
+    <span class="dates">Sep 2025 – Jun 2026</span>
+  </div>
+  <ul>
+    <li>Authored <strong>SRS / FSD specifications</strong> for e-commerce back-office systems — page flows, field logic, and exception scenarios — serving as the collaboration baseline across APM, design, and engineering.</li>
+    <li>Conducted <strong>client interviews</strong> and translated needs into flowcharts and functional design documents, enabling rapid convergence at the ambiguous stage of requirements.</li>
+    <li>Executed <strong>SIT / UAT scripts</strong> against specifications: logic validation, bug analysis, and tracked resolution of deviations from expected behavior.</li>
+  </ul>
+</div>
+
+<div class="entry">
+  <div class="entry-head">
+    <h3>Founder <span class="role-note">· Independent handmade dessert brand</span></h3>
+    <span class="dates">Aug 2023 – Dec 2024</span>
+  </div>
+  <ul>
+    <li>Built and ran the brand solo for seventeen months — product development, cost management, and customer relationships.</li>
+    <li>After closing, rebuilt the manual order workflow with <strong>n8n + AI email parsing</strong> (Gmail → Sheets) as an automation exercise — validating roughly <strong>60% less admin time</strong>, slack that was never available while operating.</li>
+    <li>Refined recipes through iterative testing, carrying the <strong>data-feedback → rapid-iteration</strong> habit into later technical work.</li>
+  </ul>
+</div>
+
+<h2>Projects &amp; Competitions</h2>
+
+<div class="entry">
+  <div class="entry-head">
+    <h3>RAG-Based Virtual Anchor System <span class="role-note">· Capstone, Project Leader · published at TCSE 2025</span></h3>
+    <span class="dates">Feb 2025 – Dec 2025</span>
+  </div>
+  <ul>
+    <li>Led a four-person team to design an end-to-end automated virtual-anchor pipeline — news scraping to video generation with <strong>zero manual steps</strong>; <strong>Top 7 / 80</strong>, Departmental Excellence Award.</li>
+    <li>Grounded LLM output with a <strong>RAG pipeline</strong> (FAISS, embedding-model selection); verified the effect by <strong>comparing generated scripts with and without retrieval grounding</strong>, measurably reducing hallucinated content.</li>
+    <li>Compressed a traditionally hours-long production process to automated output <strong>within 10 minutes</strong>.</li>
+  </ul>
+</div>
+
+<div class="entry">
+  <div class="entry-head">
+    <h3>Kairoo — destination-driven companion platform <span class="role-note">· EIA (Portugal), Product &amp; UX</span></h3>
+    <span class="dates">Jul 2025 – Aug 2025</span>
+  </div>
+  <ul>
+    <li>Defined and shipped an interactive <strong>MVP in 15 days</strong> with a five-person, four-country team, working entirely in English; pitched at Demo Day to investors and mentors.</li>
+    <li>Designed core <strong>user flows and wireframes</strong> — activity-based matching, itinerary sync, and verified student login.</li>
+  </ul>
+</div>
+
+<h2>Skills</h2>
+<dl class="skills-grid">
+  <dt>Product &amp; Requirements</dt><dd>Requirement interviews, scope convergence, SRS / FSD specification, flow &amp; field-logic design, wireframing, SIT / UAT scripting</dd>
+  <dt>AI &amp; Automation</dt><dd>RAG system design (FAISS, embedding selection), Prompt Engineering, n8n, Cursor</dd>
+  <dt>Programming</dt><dd>C, SQL, Python, Java</dd>
+  <dt>Languages</dt><dd>Mandarin (native), English (IELTS 6.5)</dd>
+</dl>
+
+<h2>Education</h2>
+<div class="entry">
+  <div class="edu-line">
+    <h3 style="font-size:10pt;">Feng Chia University — B.S. in Computer Science &amp; Information Engineering</h3>
+    <span class="dates">Sep 2022 – Jun 2026</span>
+  </div>
+  <p class="edu-detail">GPA 3.8 / 4.3 · FCU Honor Student · Relevant: Systems Analysis &amp; Design, Database Systems, Linux Administration (TQC certified)</p>
+</div>
+
+</body>
+</html>

@@ -1,6 +1,6 @@
 {{ define "main" }}
   {{ $projectTitle := default .Title .Params.title }}
-  <div class="max-w-4xl mx-auto space-y-4">
+  <div class="max-w-6xl mx-auto space-y-4">
     <!-- Header Card -->
     <div class="bg-white border border-gray-100 shadow-sm rounded-2xl p-6 sm:p-7">
       <div class="flex flex-col gap-4 md:flex-row md:items-start md:justify-between">
@@ -46,22 +46,21 @@
       {{ end }}
     </div>
 
-    <!-- Bento Grid -->
-    <section class="grid grid-cols-1 md:grid-cols-3 gap-4">
-      <!-- Left Column (1/3) -->
-      <div class="md:col-span-1 space-y-4">
+    <!-- Stacked sections (no fixed columns → no orphan gaps) -->
+    <section class="space-y-4">
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
         {{ with .Params.overview }}
         <!-- 1. Overview -->
-        <div class="bg-white border border-gray-100 shadow-sm rounded-2xl p-5">
+        <div class="md:col-span-1 bg-white border border-gray-100 shadow-sm rounded-2xl p-5">
           <p class="italic text-[#4a3a32] text-lg leading-relaxed">{{ . }}</p>
         </div>
         {{ end }}
 
         {{ with .Params.role }}
-        <!-- 2. My Role -->
-        <div class="bg-white border border-gray-100 shadow-sm rounded-2xl p-5">
+        <!-- 2. My Role (fills remaining width; items flow in 2 columns) -->
+        <div class="md:col-span-2 bg-white border border-gray-100 shadow-sm rounded-2xl p-5">
           <h2 class="text-sm font-bold uppercase tracking-widest text-[#6e5a4d] mb-4">My Role</h2>
-          <ul class="space-y-3">
+          <ul class="grid grid-cols-1 sm:grid-cols-2 gap-3">
             {{ range . }}
             <li class="flex items-start gap-3">
               <span class="mt-0.5 inline-flex h-8 w-8 items-center justify-center rounded-xl bg-[#f3ebe4] border border-[rgba(58,46,38,0.1)]">
@@ -81,11 +80,13 @@
         </div>
         {{ end }}
 
-        {{ with .Params.learnings }}
-        <!-- 3. Key Learnings -->
-        <div class="bg-white border border-gray-100 shadow-sm rounded-2xl p-5">
-          <h2 class="text-sm font-bold uppercase tracking-widest text-[#6e5a4d] mb-4">Key Learnings</h2>
-          <ul class="space-y-3">
+      </div>
+
+      {{ with .Params.learnings }}
+      <!-- 3. Key Learnings (optional; full width) -->
+      <div class="bg-white border border-gray-100 shadow-sm rounded-2xl p-5">
+        <h2 class="text-sm font-bold uppercase tracking-widest text-[#6e5a4d] mb-4">Key Learnings</h2>
+        <ul class="grid grid-cols-1 md:grid-cols-3 gap-3">
             {{ range . }}
             <li class="flex items-start gap-3">
               <span class="mt-0.5 inline-flex h-8 w-8 items-center justify-center rounded-xl bg-[#f3ebe4] border border-[rgba(58,46,38,0.1)]">
@@ -102,14 +103,11 @@
               </div>
             </li>
             {{ end }}
-          </ul>
-        </div>
-        {{ end }}
+        </ul>
       </div>
+      {{ end }}
 
-      <!-- Right Column (2/3) -->
-      <div class="md:col-span-2 space-y-4">
-        <!-- 4. Challenge vs Solution -->
+      <!-- 4. Challenge vs Solution -->
         <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
           {{ with .Params.challenge_points }}
           <div class="bg-white border border-gray-100 shadow-sm rounded-2xl p-5 border-l-4 border-red-400">
@@ -157,35 +155,27 @@
           {{ end }}
         </div>
 
-        <!-- 5. System Architecture (big card) -->
+        <!-- 5. Pipeline / Architecture (big card) -->
+        {{ if or .Params.flow .Params.image }}
         <div class="bg-white border border-gray-100 shadow-sm rounded-2xl p-5 sm:p-6">
-          <h3 class="text-sm font-bold uppercase tracking-widest text-[#6e5a4d] mb-4">System Architecture</h3>
+          <h3 class="text-sm font-bold uppercase tracking-widest text-[#6e5a4d] mb-4">
+            {{ .Params.architecture_title | default "System Architecture" }}
+          </h3>
 
-          <!-- Flow (pure CSS layout) -->
-          <div class="flex items-center gap-3 mb-5">
-            <div class="flex items-center gap-3 w-full">
-              <div class="flex items-center gap-2 whitespace-nowrap">
-                <span class="inline-flex h-9 w-9 items-center justify-center rounded-xl bg-[#f3ebe4] border border-[rgba(58,46,38,0.12)] text-[#5c3d2e] font-bold text-sm">1</span>
-                <span class="text-sm font-semibold text-[#2a1f18]">Step 1</span>
+          <!-- Flow (driven by .Params.flow) -->
+          {{ with .Params.flow }}
+          <ol class="flex flex-wrap items-stretch gap-2 mb-5 list-none p-0">
+            {{ range $i, $s := . }}
+            <li class="flex-1 min-w-[140px] rounded-xl bg-[#faf6f0] border border-[rgba(58,46,38,0.12)] p-3">
+              <div class="flex items-center gap-2 mb-1">
+                <span class="inline-flex h-6 w-6 shrink-0 items-center justify-center rounded-lg bg-[#f3ebe4] border border-[rgba(58,46,38,0.12)] text-[#5c3d2e] font-bold text-xs">{{ add $i 1 }}</span>
+                <span class="text-sm font-semibold text-[#2a1f18] leading-snug">{{ $s.title }}</span>
               </div>
-              <div class="flex-1 flex items-center justify-center">
-                <div class="w-full h-px bg-[rgba(58,46,38,0.18)]"></div>
-                <div class="ml-[-6px] w-3 h-3 border-t-2 border-r-2 border-[rgba(58,46,38,0.25)] rotate-45"></div>
-              </div>
-              <div class="flex items-center gap-2 whitespace-nowrap">
-                <span class="inline-flex h-9 w-9 items-center justify-center rounded-xl bg-[#f3ebe4] border border-[rgba(58,46,38,0.12)] text-[#5c3d2e] font-bold text-sm">2</span>
-                <span class="text-sm font-semibold text-[#2a1f18]">Step 2</span>
-              </div>
-              <div class="flex-1 flex items-center justify-center">
-                <div class="w-full h-px bg-[rgba(58,46,38,0.18)]"></div>
-                <div class="ml-[-6px] w-3 h-3 border-t-2 border-r-2 border-[rgba(58,46,38,0.25)] rotate-45"></div>
-              </div>
-              <div class="flex items-center gap-2 whitespace-nowrap">
-                <span class="inline-flex h-9 w-9 items-center justify-center rounded-xl bg-[#f3ebe4] border border-[rgba(58,46,38,0.12)] text-[#5c3d2e] font-bold text-sm">3</span>
-                <span class="text-sm font-semibold text-[#2a1f18]">Step 3</span>
-              </div>
-            </div>
-          </div>
+              {{ with $s.detail }}<p class="text-xs text-[#6e5a4d] leading-relaxed m-0">{{ . }}</p>{{ end }}
+            </li>
+            {{ end }}
+          </ol>
+          {{ end }}
 
           {{ with .Params.image }}
           <div class="rounded-xl bg-[#1c1917] border border-white/10 overflow-hidden">
@@ -202,39 +192,72 @@
                   decoding="async"
                 />
               </div>
+              {{ with $.Params.image_caption }}
+              <p class="mt-3 mb-0 text-xs text-white/60 leading-relaxed">{{ . }}</p>
+              {{ end }}
             </div>
           </div>
           {{ end }}
         </div>
-      </div>
+        {{ end }}
+
+        <!-- 6. Decisions & Trade-offs -->
+        {{ with .Params.decisions }}
+        <div class="bg-white border border-gray-100 shadow-sm rounded-2xl p-5 sm:p-6">
+          <h3 class="text-sm font-bold uppercase tracking-widest text-[#6e5a4d] mb-4">Decisions &amp; Trade-offs</h3>
+          <ul class="space-y-4 list-none p-0 m-0">
+            {{ range $i, $d := . }}
+            <li class="rounded-xl border border-gray-100 bg-[#faf6f0]/70 border-l-4 border-l-[#fef08a] p-4">
+              <div class="flex items-start gap-3 mb-2">
+                <span class="mt-0.5 inline-flex h-7 w-7 shrink-0 items-center justify-center rounded-lg bg-[rgba(254,240,138,0.55)] border border-[rgba(58,46,38,0.14)] text-[#5c3d2e] font-bold text-xs">{{ add $i 1 }}</span>
+                <h4 class="text-base font-semibold text-[#2a1f18] leading-snug m-0">{{ $d.title }}</h4>
+              </div>
+              <p class="text-sm text-[#4a3a32] leading-relaxed m-0">{{ $d.body }}</p>
+              {{ with $d.tradeoff }}
+              <details class="mt-3 pt-3 border-t border-dashed border-[rgba(58,46,38,0.18)]">
+                <summary class="cursor-pointer select-none list-none text-sm font-semibold text-[#4a3a32] hover:text-[#5c3d2e] transition-colors [&::-webkit-details-marker]:hidden">
+                  {{ if eq $.Language.Lang "zh-tw" }}代價是什麼 ▾{{ else }}What it cost ▾{{ end }}
+                </summary>
+                <p class="mt-2 text-sm text-[#6e5a4d] leading-relaxed m-0">{{ . }}</p>
+              </details>
+              {{ end }}
+            </li>
+            {{ end }}
+          </ul>
+        </div>
+        {{ end }}
     </section>
 
     <!-- Full STAR Breakdown (kept for real content) -->
     {{ if .Content }}
     <div class="bg-white border border-gray-100 shadow-sm rounded-2xl p-6 sm:p-7">
-      <h2 class="text-sm font-bold uppercase tracking-widest text-[#6e5a4d] mb-4">Full STAR Breakdown</h2>
+      <h2 class="text-sm font-bold uppercase tracking-widest text-[#6e5a4d] mb-4">{{ .Params.content_title | default "Full STAR Breakdown" }}</h2>
       <div class="prose max-w-none prose-headings:text-[#2a1f18] prose-p:text-[#4a3a32] prose-a:text-[#5c3d2e] prose-strong:text-[#2a1f18] prose-li:marker:text-[#8a7568]">
         {{ .Content }}
       </div>
     </div>
     {{ end }}
 
-    <!-- Prev / Next -->
-    {{ $prev := .PrevInSection }}
-    {{ $next := .NextInSection }}
-    {{ if or $prev $next }}
+    <!-- Prev / Next (same order as the timeline: newest first) -->
+    {{ $pages := .CurrentSection.RegularPages.ByDate.Reverse }}
+    {{ $idx := -1 }}
+    {{ range $i, $p := $pages }}{{ if eq $p.RelPermalink $.RelPermalink }}{{ $idx = $i }}{{ end }}{{ end }}
+    {{ $newer := "" }}{{ $older := "" }}
+    {{ if gt $idx 0 }}{{ $newer = index $pages (sub $idx 1) }}{{ end }}
+    {{ if and (ge $idx 0) (lt $idx (sub (len $pages) 1)) }}{{ $older = index $pages (add $idx 1) }}{{ end }}
+    {{ if or $newer $older }}
       <div class="bg-white border border-gray-100 shadow-sm rounded-2xl p-4 sm:p-5">
         <nav class="grid grid-cols-1 sm:grid-cols-2 gap-4">
-          {{ if $next }}
-          <a href="{{ $next.RelPermalink }}" class="group block p-4 rounded-xl border border-gray-100 hover:border-[#c9a227]/45 bg-[#faf6f0]/80 transition-colors">
-            <div class="text-xs text-[#6e5a4d] mb-1">Next</div>
-            <div class="text-sm font-medium text-[#2a1f18] group-hover:text-[#5c3d2e] line-clamp-2">{{ $next.Title }}</div>
+          {{ with $newer }}
+          <a href="{{ .RelPermalink }}" class="group block p-4 rounded-xl border border-gray-100 hover:border-[#c9a227]/45 bg-[#faf6f0]/80 transition-colors">
+            <div class="text-xs text-[#6e5a4d] mb-1">{{ if eq $.Language.Lang "zh-tw" }}← 較新的經歷{{ else }}← Newer{{ end }}</div>
+            <div class="text-sm font-medium text-[#2a1f18] group-hover:text-[#5c3d2e] line-clamp-2">{{ .Title }}</div>
           </a>
           {{ end }}
-          {{ if $prev }}
-          <a href="{{ $prev.RelPermalink }}" class="group block p-4 rounded-xl border border-gray-100 hover:border-[#c9a227]/45 bg-[#faf6f0]/80 transition-colors sm:text-right sm:col-start-2">
-            <div class="text-xs text-[#6e5a4d] mb-1">Previous</div>
-            <div class="text-sm font-medium text-[#2a1f18] group-hover:text-[#5c3d2e] line-clamp-2">{{ $prev.Title }}</div>
+          {{ with $older }}
+          <a href="{{ .RelPermalink }}" class="group block p-4 rounded-xl border border-gray-100 hover:border-[#c9a227]/45 bg-[#faf6f0]/80 transition-colors sm:text-right sm:col-start-2">
+            <div class="text-xs text-[#6e5a4d] mb-1">{{ if eq $.Language.Lang "zh-tw" }}較早的經歷 →{{ else }}Older →{{ end }}</div>
+            <div class="text-sm font-medium text-[#2a1f18] group-hover:text-[#5c3d2e] line-clamp-2">{{ .Title }}</div>
           </a>
           {{ end }}
         </nav>
@@ -265,7 +288,7 @@
     </div>
   </div>
 
-  <div class="max-w-4xl mx-auto mt-8 bg-white rounded-2xl border border-gray-100 shadow-sm overflow-hidden theme-card">
+  <div class="max-w-6xl mx-auto mt-8 bg-white rounded-2xl border border-gray-100 shadow-sm overflow-hidden theme-card">
     {{ partial "disqus_lazy.html" . }}
   </div>
 {{ end }}

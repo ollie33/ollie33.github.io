@@ -12,13 +12,26 @@
       {{ end }}
 
       {{ with $h }}
-      <p class="text-sm font-semibold uppercase tracking-[0.2em] text-[#6e5a4d] mb-3">{{ .hero_greeting }}</p>
+      {{ with .hero_greeting }}<p class="text-sm font-semibold uppercase tracking-[0.2em] text-[#6e5a4d] mb-3">{{ . }}</p>{{ end }}
       <h1 class="text-3xl md:text-4xl lg:text-[2.5rem] font-bold text-[#2a1f18] mb-2 leading-tight">{{ .display_name }}</h1>
       <p class="text-lg md:text-xl text-[#2a1f18] font-medium mb-10">{{ .role_line }}</p>
 
       <div class="text-left max-w-2xl mx-auto space-y-6 text-[17px] md:text-lg leading-relaxed text-[#4a3a32]">
         <p>{{ .hero_intro }}</p>
+        {{ with .story_parts }}
+        <p class="pl-5 border-l-[3px] border-[#2a1f18]/30 italic text-[#6e5a4d]">
+          {{- range . -}}
+            {{- if .url -}}
+              <a href="{{ .url | relLangURL }}" class="underline decoration-[#d9cfc4] decoration-2 underline-offset-4 hover:decoration-[#e8c96a] hover:text-[#4a3a32] transition-colors">{{ .text }}</a>
+            {{- else -}}
+              {{ .text }}
+            {{- end -}}
+            {{- .sep -}}
+          {{- end -}}
+        </p>
+        {{ else }}
         <p class="pl-5 border-l-[3px] border-[#2a1f18]/30 italic text-[#6e5a4d]">{{ .story_line }}</p>
+        {{ end }}
       </div>
       {{ else }}
       <h1 class="text-3xl md:text-4xl font-bold text-[#2a1f18] mb-6">{{ .Site.Title }}</h1>
@@ -44,7 +57,12 @@
         {{ range $i, $p := .philosophy }}
         <li class="flex gap-4">
           <span class="flex-shrink-0 mt-1.5 flex h-7 w-7 items-center justify-center rounded-full bg-[#3d2e26] text-xs font-bold text-[#fffef8]" aria-hidden="true">{{ add $i 1 }}</span>
-          <span class="text-[17px] leading-relaxed text-[#4a3a32]">{{ $p }}</span>
+          <div class="min-w-0">
+            <p class="text-[17px] leading-relaxed text-[#4a3a32] m-0">{{ $p.text | default $p }}</p>
+            {{ with $p.source }}
+            <a href="{{ $p.url | relLangURL }}" class="mt-1 inline-block text-[13px] text-[#8a7568] hover:text-[#5c3d2e] underline-offset-2 hover:underline transition-colors">↳ {{ . }}</a>
+            {{ end }}
+          </div>
         </li>
         {{ end }}
       </ul>
@@ -64,6 +82,24 @@
         {{ end }}
       </ul>
     </section>
+
+    <!-- 6. Now -->
+    {{ with .now_items }}
+    <section class="mb-14 md:mb-16" aria-labelledby="now-heading">
+      <h2 id="now-heading" class="text-center text-xs font-bold uppercase tracking-widest text-[#6e5a4d] mb-6">{{ $h.now_title | default "Now" }}</h2>
+      <ul class="max-w-2xl mx-auto space-y-3 text-left">
+        {{ range . }}
+        <li class="flex items-start gap-3 text-[15px] md:text-base leading-relaxed text-[#4a3a32]">
+          <span class="mt-2.5 inline-block h-1.5 w-1.5 shrink-0 rounded-full bg-[#e8c96a]" aria-hidden="true"></span>
+          <span>{{ . }}</span>
+        </li>
+        {{ end }}
+      </ul>
+      {{ with $h.now_looking }}
+      <p class="mt-6 text-center text-[15px] md:text-base font-medium text-[#2a1f18]">{{ . }}</p>
+      {{ end }}
+    </section>
+    {{ end }}
     {{ end }}
 
     {{ with .Content }}
