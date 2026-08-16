@@ -3,7 +3,7 @@ title: "AI Adoption, Before the AI"
 subtitle: "Requirement discovery for a manufacturer's quote-to-drawing workflow"
 period: "Jul 2026 – Aug 2026"
 status: "Discovery phase complete"
-impact: "Process maps · working prototype · role-based manuals"
+impact: "Process maps · working prototype · frontline feedback"
 date: 2026-08-08
 kind: "Internship"
 hook: "The client asked for AI. I started by drawing how they work today."
@@ -31,7 +31,7 @@ challenge_points:
 solution_points:
   - "Interviewed role by role, then drew the current state before proposing any future state."
   - "Wrote back after every meeting to lock scope and decisions on paper."
-  - "One manual per role, not one manual per system."
+  - "Built something operable so frontline staff could react by walking it, not by imagining it."
 
 decisions:
   - title: "Draw the current state before proposing AI"
@@ -70,7 +70,6 @@ What these two months left behind isn't a deck — it's a set of methods I'll ke
 - **Current-state map** — mark inputs, outputs, and sticking points for every step; nothing counts until the person who does the work has confirmed it line by line. Anything unverified stays a dashed line.
 - **Write-backs** — a fixed three-part note after every meeting: what was decided, what's in scope, what I do next. Sent in writing, corrections invited.
 - **Prototype first** — get a version people can actually operate end to end; the AI part can be mocked. What's being tested is the flow, not the precision.
-- **Role-based manuals** — each covers only that role's own path; one page completes one task.
 - **Permission tests** — walk each role's daily actions on their own account before launch, logging two kinds of findings: *can but shouldn't*, and *should but can't*.
 
 ### Reflection
