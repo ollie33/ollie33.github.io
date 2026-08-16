@@ -3,7 +3,7 @@ title: "AI Adoption, Before the AI"
 subtitle: "Requirement discovery for a manufacturer's quote-to-drawing workflow"
 period: "Jul 2026 – Aug 2026"
 status: "Discovery phase complete"
-impact: "Process maps · role-based manuals · permission tests"
+impact: "Process maps · working prototype · role-based manuals"
 date: 2026-08-08
 kind: "Internship"
 hook: "The client asked for AI. I started by drawing how they work today."
@@ -11,13 +11,15 @@ weight: 5
 
 overview: "Two months inside an AI adoption project for a mid-sized manufacturer — where I learned that the model is never the bottleneck. The people who must change how they work have the least slack to learn."
 
-highlight: "Ran the discovery phase: role-by-role interviews, current-state process mapping, manuals, and permission testing."
+highlight: "Product Manager Intern — AI adoption at a mid-sized manufacturer. Ran the discovery phase: role-by-role interviews, current-state process mapping, a working prototype, and rollout groundwork."
 
 role:
   - title: "Requirement Discovery"
     module: "Interviewed working staff role by role; converged scattered asks into a concrete scope."
   - title: "Process Mapping"
     module: "Mapped the as-is quote-to-drawing workflow before any AI design was discussed."
+  - title: "Prototype & Feedback"
+    module: "Built a working prototype with AI assistance so frontline staff could walk the whole flow and react to it."
   - title: "Rollout Groundwork"
     module: "Wrote role-specific operation manuals and ran permission tests ahead of deployment."
 
@@ -38,6 +40,9 @@ decisions:
   - title: "Write back after every meeting"
     body: "Verbal alignment decays. After each discussion I sent a short written summary — what was decided, what's in scope, what I'd do next — and invited corrections."
     tradeoff: "It can read as bureaucratic. But it converts memory into record, and record is what survives a disagreement."
+  - title: "Fake the AI, validate the real flow"
+    body: "The question to answer was whether the workflow held up, not whether the model was accurate. So I built a working prototype with a parametric mock standing in for generation, and let frontline staff walk it end to end: enter the requirement, see the draft, revise it in one sentence, sign off. The real model was left as a single swap point behind the same interface."
+    tradeoff: "The output wasn't really AI-generated, which had to be said plainly in every demo — and it invited the question of whether this counted as finished. What it bought was workflow-level feedback: which step was missing, where people got stuck. A real API wouldn't have surfaced any of that."
   - title: "One manual per role, not per system"
     body: "A manager, a salesperson, and a drafter touch the same system in completely different ways. I wrote each of them their own manual covering only their path."
     tradeoff: "Three documents to keep in sync instead of one. Adoption happens per person, though — not per feature list."
@@ -48,8 +53,10 @@ flow:
     detail: "Role by role, on the floor"
   - title: "Map"
     detail: "As-is process, confirmed line by line"
-  - title: "Write back"
-    detail: "Lock scope and decisions on paper"
+  - title: "Prototype"
+    detail: "A working version of the whole flow"
+  - title: "Feedback"
+    detail: "Frontline walkthroughs, fix the gaps"
   - title: "Prepare"
     detail: "Role-based manuals, permission tests"
 
@@ -65,6 +72,7 @@ What these two months left behind isn't a deck — it's a set of methods I'll ke
 - **Interview guide** — interview role by role, starting from "walk me through what you actually did yesterday," never from "what features do you want."
 - **Current-state map** — mark inputs, outputs, and sticking points for every step; nothing counts until the person who does the work has confirmed it line by line. Anything unverified stays a dashed line.
 - **Write-backs** — a fixed three-part note after every meeting: what was decided, what's in scope, what I do next. Sent in writing, corrections invited.
+- **Prototype first** — get a version people can actually operate end to end; the AI part can be mocked. What's being tested is the flow, not the precision.
 - **Role-based manuals** — each covers only that role's own path; one page completes one task.
 - **Permission tests** — walk each role's daily actions on their own account before launch, logging two kinds of findings: *can but shouldn't*, and *should but can't*.
 
