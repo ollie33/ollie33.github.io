@@ -83,6 +83,9 @@ theme = "void"
 
 # ---------- Shared params (EN home + social) ----------
 [params]
+  [params.avatar]
+    # 先隨便放一個圖片連結，之後可以換成你放在 static 裡的專業頭像
+    url = "https://i.pinimg.com/736x/a3/dc/6e/a3dc6e533bc7c643cd0746079b3034cd.jpg"
   [params.home]
     display_name = "Ying-Hsien Lee"
     role_line = "Product, with an engineering background"
