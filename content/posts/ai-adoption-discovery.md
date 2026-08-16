@@ -43,9 +43,6 @@ decisions:
   - title: "Fake the AI, validate the real flow"
     body: "The question to answer was whether the workflow held up, not whether the model was accurate. So I built a working prototype with a parametric mock standing in for generation, and let frontline staff walk it end to end: enter the requirement, see the draft, revise it in one sentence, sign off. The real model was left as a single swap point behind the same interface."
     tradeoff: "The output wasn't really AI-generated, which had to be said plainly in every demo — and it invited the question of whether this counted as finished. What it bought was workflow-level feedback: which step was missing, where people got stuck. A real API wouldn't have surfaced any of that."
-  - title: "One manual per role, not per system"
-    body: "A manager, a salesperson, and a drafter touch the same system in completely different ways. I wrote each of them their own manual covering only their path."
-    tradeoff: "Three documents to keep in sync instead of one. Adoption happens per person, though — not per feature list."
 
 architecture_title: "Discovery Workflow"
 flow:
