@@ -1,262 +1,205 @@
 {{ define "main" }}
   {{ $projectTitle := default .Title .Params.title }}
-  <div class="max-w-6xl mx-auto space-y-4">
-    <!-- Header Card -->
+  {{ $zh := eq .Language.Lang "zh-tw" }}
+  {{/* `context` 存在 = 已遷移到四段式模板；否則走下方 legacy 分支，避免改版過程中頁面空白。 */}}
+  {{ $migrated := .Params.context }}
+
+  <div class="max-w-4xl mx-auto space-y-5">
+    <!-- Header -->
     <div class="bg-white border border-gray-100 shadow-sm rounded-2xl p-6 sm:p-7">
-      <div class="flex flex-col gap-4 md:flex-row md:items-start md:justify-between">
-        <div class="min-w-0">
-          {{ with .Params.period }}
-          <p class="text-sm font-semibold text-[#6e5a4d] tracking-wide mb-2">{{ . }}</p>
-          {{ else }}
-          <p class="text-sm font-semibold text-[#6e5a4d] tracking-wide mb-2">{{ .Date.Format "January 2, 2006" }}</p>
-          {{ end }}
-          <h1 class="text-3xl sm:text-4xl lg:text-5xl font-bold text-[#2a1f18] leading-tight break-words">
-            {{ $projectTitle }}
-          </h1>
-          {{ with .Params.subtitle }}
-          <p class="mt-3 text-[#6e5a4d] text-sm sm:text-base font-medium">{{ . }}</p>
-          {{ end }}
-        </div>
-
-        <!-- Two small data cards (right side) -->
-        <div class="grid grid-cols-1 sm:grid-cols-2 gap-3 w-full sm:w-auto md:w-[280px]">
-          {{ with .Params.status }}
-          <div class="bg-white border border-gray-100 rounded-xl shadow-sm p-3.5">
-            <div class="text-xs font-semibold text-[#6e5a4d]">Status</div>
-            <div class="mt-1 text-sm font-bold text-[#2a1f18]">{{ . }}</div>
-          </div>
-          {{ end }}
-
-          {{ with .Params.impact }}
-          <div class="bg-white border border-gray-100 rounded-xl shadow-sm p-3.5">
-            <div class="text-xs font-semibold text-[#6e5a4d]">Impact</div>
-            <div class="mt-1 text-sm font-bold text-[#2a1f18]">{{ . }}</div>
-          </div>
-          {{ end }}
-        </div>
-      </div>
-
-      {{ with .Params.highlight }}
-      <div class="mt-4">
-        <p class="inline-flex items-center gap-2 text-sm text-[#2a1f18] bg-[rgba(254,240,138,0.42)] border border-[rgba(58,46,38,0.14)] rounded-lg px-3 py-2">
-          <span class="inline-block h-2 w-2 rounded-full bg-[#fef08a]" aria-hidden="true"></span>
-          {{ . }}
-        </p>
-      </div>
+      {{ with .Params.period }}
+      <p class="text-sm font-semibold text-[#6e5a4d] tracking-wide mb-2">{{ . }}</p>
+      {{ else }}
+      <p class="text-sm font-semibold text-[#6e5a4d] tracking-wide mb-2">{{ .Date.Format "January 2, 2006" }}</p>
+      {{ end }}
+      <h1 class="text-3xl sm:text-4xl font-bold text-[#2a1f18] leading-tight break-words">
+        {{ $projectTitle }}
+      </h1>
+      {{ with .Params.subtitle }}
+      <p class="mt-3 text-[#6e5a4d] text-sm sm:text-base font-medium">{{ . }}</p>
       {{ end }}
     </div>
 
-    <!-- Stacked sections (no fixed columns → no orphan gaps) -->
-    <section class="space-y-4">
-      <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
-        {{ with .Params.overview }}
-        <!-- 1. Overview -->
-        <div class="md:col-span-1 bg-white border border-gray-100 shadow-sm rounded-2xl p-5">
-          <p class="italic text-[#4a3a32] text-lg leading-relaxed">{{ . }}</p>
-        </div>
-        {{ end }}
-
-        {{ with .Params.role }}
-        <!-- 2. My Role (fills remaining width; items flow in 2 columns) -->
-        <div class="md:col-span-2 bg-white border border-gray-100 shadow-sm rounded-2xl p-5">
-          <h2 class="text-sm font-bold uppercase tracking-widest text-[#6e5a4d] mb-4">My Role</h2>
-          <ul class="grid grid-cols-1 sm:grid-cols-2 gap-3">
-            {{ range . }}
-            <li class="flex items-start gap-3">
-              <span class="mt-0.5 inline-flex h-8 w-8 items-center justify-center rounded-xl bg-[#f3ebe4] border border-[rgba(58,46,38,0.1)]">
-                <!-- user icon -->
-                <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 text-[#5c3d2e]" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 7a4 4 0 11-8 0 4 4 0 018 0z" />
-                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 14c4.418 0 8 2.239 8 5v1H4v-1c0-2.761 3.582-5 8-5z" />
-                </svg>
-              </span>
-              <div>
-                <div class="font-semibold text-[#2a1f18]">{{ .title | default .name }}</div>
-                <div class="text-sm text-[#6e5a4d]">{{ .module | default .responsibility }}</div>
-              </div>
-            </li>
-            {{ end }}
-          </ul>
-        </div>
-        {{ end }}
-
-      </div>
-
-      {{ with .Params.learnings }}
-      <!-- 3. Key Learnings (optional; full width) -->
-      <div class="bg-white border border-gray-100 shadow-sm rounded-2xl p-5">
-        <h2 class="text-sm font-bold uppercase tracking-widest text-[#6e5a4d] mb-4">Key Learnings</h2>
-        <ul class="grid grid-cols-1 md:grid-cols-3 gap-3">
-            {{ range . }}
-            <li class="flex items-start gap-3">
-              <span class="mt-0.5 inline-flex h-8 w-8 items-center justify-center rounded-xl bg-[#f3ebe4] border border-[rgba(58,46,38,0.1)]">
-                <!-- lightbulb icon -->
-                <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 text-[#5c3d2e]" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 18h6" />
-                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 22h4" />
-                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 14c-1.5-1.5-2-3-2-4a6 6 0 0112 0c0 1-.5 2.5-2 4l-1 1H9l-1-1z" />
-                </svg>
-              </span>
-              <div>
-                <div class="font-semibold text-[#2a1f18]">{{ .title | default .heading }}</div>
-                <div class="text-sm text-[#6e5a4d]">{{ .description | default .detail }}</div>
-              </div>
-            </li>
-            {{ end }}
-        </ul>
-      </div>
-      {{ end }}
-
-      <!-- 4. Challenge vs Solution -->
-        <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
-          {{ with .Params.challenge_points }}
-          <div class="bg-white border border-gray-100 shadow-sm rounded-2xl p-5 border-l-4 border-red-400">
-            <div class="flex items-center gap-2 mb-3">
-              <span class="inline-flex h-9 w-9 items-center justify-center rounded-xl bg-[rgba(248,113,113,0.18)] border border-[rgba(248,113,113,0.35)]">
-                <!-- alert icon -->
-                <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 text-red-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 9v2m0 4h.01M10.29 3.86l-8 14A2 2 0 004 21h16a2 2 0 001.71-3.14l-8-14a2 2 0 00-3.42 0z" />
-                </svg>
-              </span>
-              <h3 class="text-sm font-bold text-[#2a1f18]">The Challenge</h3>
-            </div>
-            <ul class="space-y-2 text-sm">
-              {{ range . }}
-              <li class="flex items-start gap-3">
-                <span class="mt-2 inline-block h-1.5 w-1.5 rounded-full bg-red-400"></span>
-                <span class="text-[#4a3a32]">{{ . }}</span>
-              </li>
-              {{ end }}
-            </ul>
+    {{ if $migrated }}
+    {{/* ---------- 1. 頁首摘要框（四行） ---------- */}}
+    <div class="bg-white border border-gray-100 shadow-sm rounded-2xl p-5 sm:p-6">
+      <dl class="space-y-3.5 m-0">
+        {{ range $row := slice
+            (dict "k" .Params.context "en" "Context"     "zh" "情境")
+            (dict "k" .Params.role    "en" "My role"     "zh" "我的角色")
+            (dict "k" .Params.did     "en" "What I did"  "zh" "我做了什麼")
+            (dict "k" .Params.result  "en" "Result"      "zh" "結果") }}
+          {{ with $row.k }}
+          <div class="flex flex-col sm:flex-row sm:gap-5">
+            <dt class="shrink-0 sm:w-32 text-xs font-bold uppercase tracking-widest text-[#6e5a4d] pt-0.5 mb-1 sm:mb-0">
+              {{ if $zh }}{{ $row.zh }}{{ else }}{{ $row.en }}{{ end }}
+            </dt>
+            <dd class="m-0 text-[15px] sm:text-base leading-relaxed text-[#4a3a32]">{{ . }}</dd>
           </div>
           {{ end }}
-
-          {{ with .Params.solution_points }}
-          <div class="bg-white border border-gray-100 shadow-sm rounded-2xl p-5 border-l-4 border-emerald-400">
-            <div class="flex items-center gap-2 mb-3">
-              <span class="inline-flex h-9 w-9 items-center justify-center rounded-xl bg-[rgba(52,211,153,0.18)] border border-[rgba(52,211,153,0.35)]">
-                <!-- check circle icon -->
-                <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 text-emerald-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4" />
-                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
-                </svg>
-              </span>
-              <h3 class="text-sm font-bold text-[#2a1f18]">The Solution</h3>
-            </div>
-            <ul class="space-y-2 text-sm">
-              {{ range . }}
-              <li class="flex items-start gap-3">
-                <span class="mt-2 inline-block h-1.5 w-1.5 rounded-full bg-emerald-400"></span>
-                <span class="text-[#4a3a32]">{{ . }}</span>
-              </li>
-              {{ end }}
-            </ul>
-          </div>
-          {{ end }}
-        </div>
-
-        <!-- 5. Pipeline / Architecture (big card) -->
-        {{ if or .Params.flow .Params.image }}
-        <div class="bg-white border border-gray-100 shadow-sm rounded-2xl p-5 sm:p-6">
-          <h3 class="text-sm font-bold uppercase tracking-widest text-[#6e5a4d] mb-4">
-            {{ .Params.architecture_title | default "System Architecture" }}
-          </h3>
-
-          <!-- Flow (driven by .Params.flow) -->
-          {{ with .Params.flow }}
-          <ol class="flex flex-wrap items-stretch gap-2 mb-5 list-none p-0">
-            {{ range $i, $s := . }}
-            <li class="flex-1 min-w-[140px] rounded-xl bg-[#faf6f0] border border-[rgba(58,46,38,0.12)] p-3">
-              <div class="flex items-center gap-2 mb-1">
-                <span class="inline-flex h-6 w-6 shrink-0 items-center justify-center rounded-lg bg-[#f3ebe4] border border-[rgba(58,46,38,0.12)] text-[#5c3d2e] font-bold text-xs">{{ add $i 1 }}</span>
-                <span class="text-sm font-semibold text-[#2a1f18] leading-snug">{{ $s.title }}</span>
-              </div>
-              {{ with $s.detail }}<p class="text-xs text-[#6e5a4d] leading-relaxed m-0">{{ . }}</p>{{ end }}
-            </li>
-            {{ end }}
-          </ol>
-          {{ end }}
-
-          {{ with .Params.image }}
-          <div class="rounded-xl bg-[#1c1917] border border-white/10 overflow-hidden">
-            <div class="p-4 sm:p-5 border-b border-white/10 flex items-center justify-between gap-4">
-              <div class="hidden sm:block" aria-hidden="true"></div>
-            </div>
-            <div class="p-4 sm:p-5">
-              <div class="w-full aspect-[16/9] rounded-lg border border-white/10 bg-black/20 overflow-hidden">
-                <img
-                  src="{{ . | relURL }}"
-                  alt="{{ $projectTitle }} architecture diagram"
-                  class="h-full w-full object-contain"
-                  loading="lazy"
-                  decoding="async"
-                />
-              </div>
-              {{ with $.Params.image_caption }}
-              <p class="mt-3 mb-0 text-xs text-white/60 leading-relaxed">{{ . }}</p>
-              {{ end }}
-            </div>
-          </div>
-          {{ end }}
-        </div>
         {{ end }}
+      </dl>
+    </div>
 
-        <!-- 6. Decisions & Trade-offs -->
-        {{ with .Params.decisions }}
-        <div class="bg-white border border-gray-100 shadow-sm rounded-2xl p-5 sm:p-6">
-          <h3 class="text-sm font-bold uppercase tracking-widest text-[#6e5a4d] mb-4">Decisions &amp; Trade-offs</h3>
-          <ul class="space-y-4 list-none p-0 m-0">
-            {{ range $i, $d := . }}
-            <li class="rounded-xl border border-gray-100 bg-[#faf6f0]/70 border-l-4 border-l-[#fef08a] p-4">
-              <div class="flex items-start gap-3 mb-2">
-                <span class="mt-0.5 inline-flex h-7 w-7 shrink-0 items-center justify-center rounded-lg bg-[rgba(254,240,138,0.55)] border border-[rgba(58,46,38,0.14)] text-[#5c3d2e] font-bold text-xs">{{ add $i 1 }}</span>
-                <h4 class="text-base font-semibold text-[#2a1f18] leading-snug m-0">{{ $d.title }}</h4>
-              </div>
-              <p class="text-sm text-[#4a3a32] leading-relaxed m-0">{{ $d.body }}</p>
-              {{ with $d.tradeoff }}
-              <details class="mt-3 pt-3 border-t border-dashed border-[rgba(58,46,38,0.18)]">
-                <summary class="cursor-pointer select-none list-none text-sm font-semibold text-[#4a3a32] hover:text-[#5c3d2e] transition-colors [&::-webkit-details-marker]:hidden">
-                  {{ if eq $.Language.Lang "zh-tw" }}代價是什麼 ▾{{ else }}What it cost ▾{{ end }}
-                </summary>
-                <p class="mt-2 text-sm text-[#6e5a4d] leading-relaxed m-0">{{ . }}</p>
-              </details>
-              {{ end }}
-            </li>
-            {{ end }}
-          </ul>
-        </div>
-        {{ end }}
-    </section>
-
-    <!-- Full STAR Breakdown (kept for real content) -->
-    {{ if .Content }}
+    {{/* ---------- 2. 一個關鍵場景 ---------- */}}
+    {{ with .Content }}
     <div class="bg-white border border-gray-100 shadow-sm rounded-2xl p-6 sm:p-7">
-      <h2 class="text-sm font-bold uppercase tracking-widest text-[#6e5a4d] mb-4">{{ .Params.content_title | default "Full STAR Breakdown" }}</h2>
+      <h2 class="text-sm font-bold uppercase tracking-widest text-[#6e5a4d] mb-4">
+        {{ $.Params.scene_title | default (cond $zh "關鍵場景" "What happened") }}
+      </h2>
       <div class="prose max-w-none prose-headings:text-[#2a1f18] prose-p:text-[#4a3a32] prose-a:text-[#5c3d2e] prose-strong:text-[#2a1f18] prose-li:marker:text-[#8a7568]">
-        {{ .Content }}
+        {{ . }}
       </div>
     </div>
     {{ end }}
 
-    <!-- Prev / Next (same order as the timeline: newest first) -->
-    {{ $pages := .CurrentSection.RegularPages.ByDate.Reverse }}
+    {{/* ---------- 3. 一張證據圖 ---------- */}}
+    {{ with .Params.image }}
+    <figure class="bg-white border border-gray-100 shadow-sm rounded-2xl p-5 sm:p-6 m-0">
+      <div class="rounded-xl border border-[rgba(58,46,38,0.12)] bg-[#faf6f0] overflow-hidden">
+        <img
+          src="{{ . | relURL }}"
+          alt="{{ $.Params.image_caption | default $projectTitle }}"
+          class="w-full h-auto object-contain"
+          loading="lazy"
+          decoding="async"
+        />
+      </div>
+      {{ with $.Params.image_caption }}
+      <figcaption class="mt-3 text-sm text-[#6e5a4d] leading-relaxed">{{ . }}</figcaption>
+      {{ end }}
+    </figure>
+    {{ end }}
+
+    {{/* ---------- 3b. 選用的第二張圖 ---------- */}}
+    {{ with .Params.image2 }}
+    <figure class="bg-white border border-gray-100 shadow-sm rounded-2xl p-5 sm:p-6 m-0">
+      <div class="rounded-xl border border-[rgba(58,46,38,0.12)] bg-[#faf6f0] overflow-hidden">
+        <img
+          src="{{ . | relURL }}"
+          alt="{{ $.Params.image2_caption | default $projectTitle }}"
+          class="w-full h-auto object-contain"
+          loading="lazy"
+          decoding="async"
+        />
+      </div>
+      {{ with $.Params.image2_caption }}
+      <figcaption class="mt-3 text-sm text-[#6e5a4d] leading-relaxed">{{ . }}</figcaption>
+      {{ end }}
+    </figure>
+    {{ end }}
+
+    {{/* ---------- 4. 反思 ---------- */}}
+    {{ with .Params.reflection }}
+    <div class="bg-white border border-gray-100 shadow-sm rounded-2xl p-6 sm:p-7 border-l-4 border-l-[#fef08a]">
+      <h2 class="text-sm font-bold uppercase tracking-widest text-[#6e5a4d] mb-3">
+        {{ if $zh }}反思{{ else }}What I took from it{{ end }}
+      </h2>
+      <p class="m-0 text-[15px] sm:text-base leading-relaxed text-[#4a3a32]">{{ . }}</p>
+    </div>
+    {{ end }}
+
+    {{ else }}
+    {{/* ================= LEGACY（尚未遷移的頁面，遷移完成後整段刪除） ================= */}}
+    {{ with .Params.highlight }}
+    <div class="bg-white border border-gray-100 shadow-sm rounded-2xl p-5">
+      <p class="inline-flex items-center gap-2 text-sm text-[#2a1f18] bg-[rgba(254,240,138,0.42)] border border-[rgba(58,46,38,0.14)] rounded-lg px-3 py-2 m-0">
+        <span class="inline-block h-2 w-2 rounded-full bg-[#fef08a]" aria-hidden="true"></span>
+        {{ . }}
+      </p>
+    </div>
+    {{ end }}
+
+    {{ with .Params.overview }}
+    <div class="bg-white border border-gray-100 shadow-sm rounded-2xl p-5">
+      <p class="italic text-[#4a3a32] text-lg leading-relaxed m-0">{{ . }}</p>
+    </div>
+    {{ end }}
+
+    {{ with .Params.role }}
+    <div class="bg-white border border-gray-100 shadow-sm rounded-2xl p-5">
+      <h2 class="text-sm font-bold uppercase tracking-widest text-[#6e5a4d] mb-4">My Role</h2>
+      <ul class="grid grid-cols-1 sm:grid-cols-2 gap-3 list-none p-0 m-0">
+        {{ range . }}
+        <li>
+          <div class="font-semibold text-[#2a1f18]">{{ .title | default .name }}</div>
+          <div class="text-sm text-[#6e5a4d]">{{ .module | default .responsibility }}</div>
+        </li>
+        {{ end }}
+      </ul>
+    </div>
+    {{ end }}
+
+    <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+      {{ with .Params.challenge_points }}
+      <div class="bg-white border border-gray-100 shadow-sm rounded-2xl p-5 border-l-4 border-l-red-400">
+        <h3 class="text-sm font-bold text-[#2a1f18] mb-3">The Challenge</h3>
+        <ul class="space-y-2 text-sm list-none p-0 m-0">
+          {{ range . }}<li class="text-[#4a3a32]">{{ . }}</li>{{ end }}
+        </ul>
+      </div>
+      {{ end }}
+      {{ with .Params.solution_points }}
+      <div class="bg-white border border-gray-100 shadow-sm rounded-2xl p-5 border-l-4 border-l-emerald-400">
+        <h3 class="text-sm font-bold text-[#2a1f18] mb-3">The Solution</h3>
+        <ul class="space-y-2 text-sm list-none p-0 m-0">
+          {{ range . }}<li class="text-[#4a3a32]">{{ . }}</li>{{ end }}
+        </ul>
+      </div>
+      {{ end }}
+    </div>
+
+    {{ with .Params.image }}
+    <figure class="bg-white border border-gray-100 shadow-sm rounded-2xl p-5 m-0">
+      <img src="{{ . | relURL }}" alt="{{ $projectTitle }}" class="w-full h-auto rounded-xl" loading="lazy" decoding="async" />
+      {{ with $.Params.image_caption }}<figcaption class="mt-3 text-sm text-[#6e5a4d]">{{ . }}</figcaption>{{ end }}
+    </figure>
+    {{ end }}
+
+    {{ with .Params.decisions }}
+    <div class="bg-white border border-gray-100 shadow-sm rounded-2xl p-5 sm:p-6">
+      <h3 class="text-sm font-bold uppercase tracking-widest text-[#6e5a4d] mb-4">Decisions &amp; Trade-offs</h3>
+      <ul class="space-y-4 list-none p-0 m-0">
+        {{ range . }}
+        <li class="rounded-xl border border-gray-100 bg-[#faf6f0]/70 border-l-4 border-l-[#fef08a] p-4">
+          <h4 class="text-base font-semibold text-[#2a1f18] leading-snug mt-0 mb-2">{{ .title }}</h4>
+          <p class="text-sm text-[#4a3a32] leading-relaxed m-0">{{ .body }}</p>
+        </li>
+        {{ end }}
+      </ul>
+    </div>
+    {{ end }}
+
+    {{ with .Content }}
+    <div class="bg-white border border-gray-100 shadow-sm rounded-2xl p-6 sm:p-7">
+      <div class="prose max-w-none prose-headings:text-[#2a1f18] prose-p:text-[#4a3a32] prose-a:text-[#5c3d2e] prose-strong:text-[#2a1f18] prose-li:marker:text-[#8a7568]">
+        {{ . }}
+      </div>
+    </div>
+    {{ end }}
+    {{/* ================= /LEGACY ================= */}}
+    {{ end }}
+
+    {{/* Prev / Next — 依 weight 排序，和首頁、Work 頁一致 */}}
+    {{ $pages := where .CurrentSection.RegularPages "Params.hidden" "!=" true }}
+    {{ $pages = $pages.ByWeight }}
     {{ $idx := -1 }}
     {{ range $i, $p := $pages }}{{ if eq $p.RelPermalink $.RelPermalink }}{{ $idx = $i }}{{ end }}{{ end }}
-    {{ $newer := "" }}{{ $older := "" }}
-    {{ if gt $idx 0 }}{{ $newer = index $pages (sub $idx 1) }}{{ end }}
-    {{ if and (ge $idx 0) (lt $idx (sub (len $pages) 1)) }}{{ $older = index $pages (add $idx 1) }}{{ end }}
-    {{ if or $newer $older }}
+    {{ $prev := "" }}{{ $next := "" }}
+    {{ if gt $idx 0 }}{{ $prev = index $pages (sub $idx 1) }}{{ end }}
+    {{ if and (ge $idx 0) (lt $idx (sub (len $pages) 1)) }}{{ $next = index $pages (add $idx 1) }}{{ end }}
+    {{ if or $prev $next }}
       <div class="bg-white border border-gray-100 shadow-sm rounded-2xl p-4 sm:p-5">
         <nav class="grid grid-cols-1 sm:grid-cols-2 gap-4">
-          {{ with $newer }}
+          {{ with $prev }}
           <a href="{{ .RelPermalink }}" class="group block p-4 rounded-xl border border-gray-100 hover:border-[#c9a227]/45 bg-[#faf6f0]/80 transition-colors">
-            <div class="text-xs text-[#6e5a4d] mb-1">{{ if eq $.Language.Lang "zh-tw" }}← 較新的經歷{{ else }}← Newer{{ end }}</div>
+            <div class="text-xs text-[#6e5a4d] mb-1">{{ if $zh }}← 上一個{{ else }}← Previous{{ end }}</div>
             <div class="text-sm font-medium text-[#2a1f18] group-hover:text-[#5c3d2e] line-clamp-2">{{ .Title }}</div>
           </a>
           {{ end }}
-          {{ with $older }}
+          {{ with $next }}
           <a href="{{ .RelPermalink }}" class="group block p-4 rounded-xl border border-gray-100 hover:border-[#c9a227]/45 bg-[#faf6f0]/80 transition-colors sm:text-right sm:col-start-2">
-            <div class="text-xs text-[#6e5a4d] mb-1">{{ if eq $.Language.Lang "zh-tw" }}較早的經歷 →{{ else }}Older →{{ end }}</div>
+            <div class="text-xs text-[#6e5a4d] mb-1">{{ if $zh }}下一個 →{{ else }}Next →{{ end }}</div>
             <div class="text-sm font-medium text-[#2a1f18] group-hover:text-[#5c3d2e] line-clamp-2">{{ .Title }}</div>
           </a>
           {{ end }}
@@ -264,12 +207,12 @@
       </div>
     {{ end }}
 
-    <!-- Footer Links / CTA -->
-    <div class="bg-white border border-gray-100 shadow-sm rounded-2xl p-4 sm:p-5 flex flex-wrap justify-center gap-4">
+    <!-- Footer links -->
+    <div class="bg-white border border-gray-100 shadow-sm rounded-2xl p-4 sm:p-5 flex flex-wrap items-center justify-center gap-4">
       {{ with .Params.demo_link }}
-      <a href="{{ . }}" class="inline-flex items-center gap-2 px-4 py-2 rounded-xl bg-[#fef08a] border border-[rgba(58,46,38,0.14)] text-[#2a1f18] font-semibold hover:bg-[#fcd34d] transition-colors text-sm">
-        <span aria-hidden="true" class="inline-flex h-6 w-6 items-center justify-center rounded-lg bg-[rgba(42,31,24,0.08)]">↗</span>
-        Live Demo
+      <a href="{{ . }}" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-2 px-4 py-2 rounded-xl bg-[#fef08a] border border-[rgba(58,46,38,0.14)] text-[#2a1f18] font-semibold hover:bg-[#fcd34d] transition-colors text-sm">
+        <span aria-hidden="true">↗</span>
+        {{ $.Params.demo_label | default (cond $zh "線上展示" "Live Demo") }}
       </a>
       {{ end }}
 
@@ -277,18 +220,14 @@
         <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
           <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7" />
         </svg>
-        All achievements
+        {{ if $zh }}所有經歷{{ else }}All work{{ end }}
       </a>
       <a href="{{ "/" | relLangURL }}" class="inline-flex items-center text-[#6e5a4d] hover:text-[#5c3d2e] text-sm transition-colors">
         <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
           <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6" />
         </svg>
-        Home
+        {{ if $zh }}首頁{{ else }}Home{{ end }}
       </a>
     </div>
-  </div>
-
-  <div class="max-w-6xl mx-auto mt-8 bg-white rounded-2xl border border-gray-100 shadow-sm overflow-hidden theme-card">
-    {{ partial "disqus_lazy.html" . }}
   </div>
 {{ end }}

@@ -705,3 +705,15 @@ html.dark #TableOfContents a:hover {
 .ring-page {
   --tw-ring-color: rgba(39, 39, 42, 0.12);
 }
+
+/* ---- 首頁與 Work 頁共用：卡片插圖 hover 與進場動畫（redesign 2026-11） ---- */
+.featured-card .art-accent { transition: fill .25s ease; }
+.featured-card:hover .art-accent { fill: #fcd34d; }
+@media (prefers-reduced-motion: no-preference) {
+  .rise { opacity: 0; animation: rise .55s ease-out forwards; }
+  .rise-d1 { animation-delay: .08s; }
+  .rise-d2 { animation-delay: .16s; }
+  .rise-d3 { animation-delay: .24s; }
+  .rise-d4 { animation-delay: .32s; }
+  @keyframes rise { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: none; } }
+}

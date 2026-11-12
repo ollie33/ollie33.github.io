@@ -1,93 +1,106 @@
 {{ define "main" }}
   {{ $h := site.Params.home }}
-  <div class="max-w-3xl mx-auto px-4 py-12 md:py-20 lg:py-24">
-    <!-- 1. Conversational Hero -->
-    <header class="text-center mb-16 md:mb-20">
+  {{ $zh := eq .Language.Lang "zh-tw" }}
+  {{ $posts := where site.RegularPages "Section" "posts" }}
+  {{ $featured := where $posts "Params.featured" true }}
+  {{ $other := where $posts "Params.featured" "!=" true }}
+
+  {{/* 卡片 hover 與進場動畫的 CSS 在 assets/css/main.css（與 Work 頁共用） */}}
+  <div class="max-w-3xl mx-auto px-4 py-12 md:py-16">
+    <!-- 1. Hero -->
+    <header class="text-center mb-14 md:mb-16 rise">
       {{ with site.Params.avatar }}
-      <div class="mx-auto mb-10 w-32 h-32 md:w-40 md:h-40 relative group">
-        <div class="rounded-full overflow-hidden border-2 border-[rgba(58,46,38,0.18)] shadow-sm hover:shadow-md transition-shadow duration-300 ring-1 ring-[rgba(42,31,24,0.06)]">
-          <img src="{{ .url }}" alt="{{ with $h }}{{ .display_name }}{{ else }}{{ $.Site.Title }}{{ end }}" class="w-full h-full object-cover transform transition-transform duration-500 group-hover:scale-[1.02]">
+      <div class="mx-auto mb-8 w-28 h-28 md:w-32 md:h-32">
+        <div class="rounded-full overflow-hidden border-2 border-[rgba(58,46,38,0.18)] shadow-sm ring-1 ring-[rgba(42,31,24,0.06)]">
+          <img src="{{ .url }}" alt="{{ with $h }}{{ .display_name }}{{ else }}{{ $.Site.Title }}{{ end }}" class="w-full h-full object-cover">
         </div>
       </div>
       {{ end }}
 
       {{ with $h }}
-      {{ with .hero_greeting }}<p class="text-sm font-semibold uppercase tracking-[0.2em] text-[#6e5a4d] mb-3">{{ . }}</p>{{ end }}
-      <h1 class="text-3xl md:text-4xl lg:text-[2.5rem] font-bold text-[#2a1f18] mb-2 leading-tight">{{ .display_name }}</h1>
-      <p class="text-lg md:text-xl text-[#2a1f18] font-medium mb-10">{{ .role_line }}</p>
+      <h1 class="text-3xl md:text-4xl font-bold text-[#2a1f18] mb-5 leading-tight">{{ .display_name }}</h1>
+      <p class="max-w-2xl mx-auto text-xl md:text-2xl font-semibold text-[#2a1f18] leading-snug mb-2">{{ .tagline_1 | default .tagline }}</p>
+      {{ with .tagline_2 }}<p class="max-w-2xl mx-auto text-base md:text-lg text-[#6e5a4d] leading-relaxed mb-3">{{ . }}</p>{{ end }}
+      <p class="text-[15px] md:text-base text-[#6e5a4d] mb-8 mt-4">{{ .current_line }}</p>
 
-      <div class="text-left max-w-2xl mx-auto space-y-6 text-[17px] md:text-lg leading-relaxed text-[#4a3a32]">
-        <p>{{ .hero_intro }}</p>
-        {{ with .story_parts }}
-        <p class="pl-5 border-l-[3px] border-[#2a1f18]/30 italic text-[#6e5a4d]">
-          {{- range . -}}
-            {{- if .url -}}
-              <a href="{{ .url | relLangURL }}" class="underline decoration-[#d9cfc4] decoration-2 underline-offset-4 hover:decoration-[#e8c96a] hover:text-[#4a3a32] transition-colors">{{ .text }}</a>
-            {{- else -}}
-              {{ .text }}
-            {{- end -}}
-            {{- .sep -}}
-          {{- end -}}
-        </p>
-        {{ else }}
-        <p class="pl-5 border-l-[3px] border-[#2a1f18]/30 italic text-[#6e5a4d]">{{ .story_line }}</p>
-        {{ end }}
+      <div class="flex flex-wrap justify-center gap-3">
+        <a href="{{ "/posts/" | relLangURL }}" class="inline-flex items-center justify-center rounded-full px-6 py-2.5 text-sm font-semibold text-[#27272A] bg-[#FEF08A] hover:brightness-95 border border-zinc-900/5 shadow-sm transition-colors">
+          {{ if $zh }}看作品{{ else }}View work{{ end }}
+        </a>
+        <a href="/resume.pdf" class="inline-flex items-center justify-center rounded-full px-6 py-2.5 text-sm font-semibold text-[#27272A] bg-white border border-zinc-300/90 hover:bg-zinc-50 shadow-sm transition-colors">
+          {{ if $zh }}下載履歷{{ else }}Download resume{{ end }}
+        </a>
       </div>
       {{ else }}
       <h1 class="text-3xl md:text-4xl font-bold text-[#2a1f18] mb-6">{{ .Site.Title }}</h1>
       {{ end }}
     </header>
 
-    {{ with $h }}
-    <!-- 2. Keyword matrix (~10% accent: core skill tags) -->
-    <section class="mb-16 md:mb-20" aria-labelledby="kw-heading">
-      <h2 id="kw-heading" class="sr-only">Core skills and focus areas</h2>
-      <p class="text-center text-xs font-bold uppercase tracking-widest text-[#6e5a4d] mb-6">Keyword matrix</p>
-      <div class="flex flex-wrap justify-center gap-2.5 md:gap-3">
-        {{ range .keywords }}
-        <span class="inline-flex items-center rounded-full border border-[rgba(58,46,38,0.15)] bg-accent-highlight px-3.5 py-1.5 text-sm font-medium text-[#2a1f18] shadow-sm hover:border-[rgba(58,46,38,0.28)] transition-colors">{{ . }}</span>
+    <!-- 2. Featured work -->
+    {{ with $featured.ByWeight }}
+    <section class="mb-14 md:mb-16" aria-labelledby="featured-heading">
+      <h2 id="featured-heading" class="text-center text-xs font-bold uppercase tracking-widest text-[#6e5a4d] mb-6">
+        {{ if $zh }}主要作品{{ else }}Featured work{{ end }}
+      </h2>
+      <div class="space-y-5">
+        {{ range $i, $p := . }}
+        <a href="{{ $p.RelPermalink }}" class="featured-card group flex rounded-2xl border border-[rgba(58,46,38,0.14)] bg-white shadow-sm overflow-hidden transition-all duration-200 hover:border-[#fef08a]/60 hover:shadow-md hover:-translate-y-0.5 rise rise-d{{ add $i 1 }}">
+          {{/* 左側小插圖：依 card_art 選（flow / benchmark / layers），沒有就不顯示 */}}
+          {{ with $p.Params.card_art }}
+          <div class="shrink-0 w-24 sm:w-32 flex items-center justify-center p-3 sm:p-4 bg-[#faf6f0] border-r border-[rgba(58,46,38,0.1)]">
+            {{ partial "card-art.html" . }}
+          </div>
+          {{ end }}
+          <div class="p-4 sm:p-5 flex-1 min-w-0">
+            <div class="flex flex-col sm:flex-row sm:items-baseline sm:justify-between gap-0.5 mb-1.5">
+              <h3 class="text-base sm:text-lg font-semibold text-[#2a1f18] group-hover:text-[#5c3d2e] transition-colors m-0">{{ $p.Title }}</h3>
+              {{ with $p.Params.period }}<span class="text-xs sm:text-sm font-medium text-[#6e5a4d] shrink-0">{{ . }}</span>{{ end }}
+            </div>
+            {{ with $p.Params.claim }}
+            <p class="text-sm sm:text-[15px] text-[#4a3a32] leading-relaxed m-0">{{ . }}</p>
+            {{ end }}
+            {{ with $p.Params.proof }}
+            <p class="mt-2.5 mb-0 flex flex-wrap gap-1.5">
+              {{ range split . "·" }}
+              <span class="inline-flex items-center text-xs font-medium text-[#2a1f18] bg-[rgba(254,240,138,0.42)] border border-[rgba(58,46,38,0.14)] rounded-full px-2.5 py-1">{{ trim . " " }}</span>
+              {{ end }}
+            </p>
+            {{ end }}
+          </div>
+        </a>
         {{ end }}
       </div>
     </section>
+    {{ end }}
 
-    <!-- 3. Philosophy -->
-    <section class="mb-16 md:mb-20" aria-labelledby="phil-heading">
-      <h2 id="phil-heading" class="text-center text-xs font-bold uppercase tracking-widest text-[#6e5a4d] mb-8">Philosophy</h2>
-      <ul class="space-y-6 text-left max-w-2xl mx-auto">
-        {{ range $i, $p := .philosophy }}
-        <li class="flex gap-4">
-          <span class="flex-shrink-0 mt-1.5 flex h-7 w-7 items-center justify-center rounded-full bg-[#3d2e26] text-xs font-bold text-[#fffef8]" aria-hidden="true">{{ add $i 1 }}</span>
-          <div class="min-w-0">
-            <p class="text-[17px] leading-relaxed text-[#4a3a32] m-0">{{ $p.text | default $p }}</p>
-            {{ with $p.source }}
-            <a href="{{ $p.url | relLangURL }}" class="mt-1 inline-block text-[13px] text-[#8a7568] hover:text-[#5c3d2e] underline-offset-2 hover:underline transition-colors">↳ {{ . }}</a>
-            {{ end }}
-          </div>
+    <!-- 3. Other work -->
+    {{ with $other.ByWeight }}
+    <section class="mb-14 md:mb-16 rise rise-d4" aria-labelledby="other-heading">
+      <h2 id="other-heading" class="text-center text-xs font-bold uppercase tracking-widest text-[#6e5a4d] mb-6">
+        {{ if $zh }}其他經歷{{ else }}Other work{{ end }}
+      </h2>
+      <ul class="space-y-3 list-none p-0 m-0">
+        {{ range . }}
+        <li>
+          <a href="{{ .RelPermalink }}" class="group flex flex-col sm:flex-row sm:items-baseline gap-0.5 sm:gap-4 rounded-xl border border-[rgba(58,46,38,0.14)] bg-white px-4 py-3 sm:px-5 shadow-sm transition-colors hover:border-[#fef08a]/55 hover:bg-[#faf6f0]">
+            <span class="font-semibold text-[#2a1f18] group-hover:text-[#5c3d2e] transition-colors shrink-0">{{ .Title }}</span>
+            {{ with .Params.claim }}<span class="text-sm text-[#4a3a32] leading-relaxed sm:flex-1">{{ . }}</span>{{ end }}
+            {{ with .Params.period }}<span class="text-sm text-[#6e5a4d] shrink-0">{{ . }}</span>{{ end }}
+          </a>
         </li>
         {{ end }}
       </ul>
     </section>
+    {{ end }}
 
-    <!-- 4. Vision (neutral card — content is the focus) -->
-    <blockquote class="mb-16 md:mb-20 rounded-2xl border border-[rgba(58,46,38,0.12)] bg-white px-6 py-8 md:px-10 md:py-10 text-center shadow-sm">
-      <p class="text-lg md:text-xl font-medium text-[#2a1f18] leading-snug tracking-tight">{{ .vision }}</p>
-    </blockquote>
-
-    <!-- 5. Highlights strip -->
-    <section class="mb-14 md:mb-16" aria-labelledby="hi-heading">
-      <h2 id="hi-heading" class="text-center text-xs font-bold uppercase tracking-widest text-[#6e5a4d] mb-6">Selected highlights</h2>
-      <ul class="flex flex-col sm:flex-row flex-wrap justify-center gap-3 sm:gap-4 text-center text-sm text-[#4a3a32]">
-        {{ range .highlights }}
-        <li class="inline-flex items-center justify-center rounded-lg bg-[#f3ebe4]/90 px-4 py-2.5 border border-[rgba(58,46,38,0.12)]">{{ . }}</li>
-        {{ end }}
-      </ul>
-    </section>
-
-    <!-- 6. Now -->
+    <!-- 4. Now -->
+    {{ with $h }}
     {{ with .now_items }}
-    <section class="mb-14 md:mb-16" aria-labelledby="now-heading">
-      <h2 id="now-heading" class="text-center text-xs font-bold uppercase tracking-widest text-[#6e5a4d] mb-6">{{ $h.now_title | default "Now" }}</h2>
-      <ul class="max-w-2xl mx-auto space-y-3 text-left">
+    <section class="mb-6 rise rise-d4" aria-labelledby="now-heading">
+      <h2 id="now-heading" class="text-center text-xs font-bold uppercase tracking-widest text-[#6e5a4d] mb-5">
+        {{ if $zh }}現在{{ else }}Now{{ end }}
+      </h2>
+      <ul class="max-w-2xl mx-auto space-y-2.5 text-left list-none p-0 m-0">
         {{ range . }}
         <li class="flex items-start gap-3 text-[15px] md:text-base leading-relaxed text-[#4a3a32]">
           <span class="mt-2.5 inline-block h-1.5 w-1.5 shrink-0 rounded-full bg-[#e8c96a]" aria-hidden="true"></span>
@@ -95,28 +108,8 @@
         </li>
         {{ end }}
       </ul>
-      {{ with $h.now_looking }}
-      <p class="mt-6 text-center text-[15px] md:text-base font-medium text-[#2a1f18]">{{ . }}</p>
-      {{ end }}
     </section>
     {{ end }}
-    {{ end }}
-
-    {{ with .Content }}
-    <div class="prose prose-lg max-w-2xl mx-auto mb-14 text-center prose-headings:text-[#2a1f18] prose-p:text-[#4a3a32] prose-a:text-[#5c3d2e] prose-strong:text-[#2a1f18]">
-      {{ . }}
-    </div>
-    {{ end }}
-
-    {{ if .Site.Menus.main }}
-    <nav class="flex flex-wrap justify-center gap-3 pt-4" aria-label="Primary">
-      {{ range .Site.Menus.main }}
-      <a href="{{ .URL }}" class="relative px-5 py-2.5 rounded-full text-[#2a1f18] group overflow-hidden border border-transparent hover:border-[rgba(58,46,38,0.15)]">
-        <span class="absolute inset-0 w-full h-full bg-transparent group-hover:bg-[rgba(254,240,138,0.4)] transition-colors duration-300"></span>
-        <span class="relative z-10 transition-colors duration-300">{{ .Name }}</span>
-      </a>
-      {{ end }}
-    </nav>
     {{ end }}
   </div>
 {{ end }}
