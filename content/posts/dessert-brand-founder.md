@@ -2,73 +2,29 @@
 title: "Seayou — A Dessert Brand from Zero"
 subtitle: "Owning a whole value chain alone: recipe, costing, pricing, marketing, customers"
 period: "Aug 2023 – Dec 2024"
-status: "Closed by choice"
-impact: "~500 online orders · NT$10–30k / month"
 date: 2024-12-31
 kind: "Founder"
-hook: "Business ownership: pricing, customers, and knowing when to stop."
-weight: 20
+hook: "Business ownership: pricing, customers, and a whole value chain alone."
+weight: 40
+claim: "I ran the whole value chain alone, and found improvements in the daily repeated work."
 
-overview: "A handmade dessert brand I ran solo for seventeen months — and where I learned that the hard part of a bad process isn't noticing it, it's having the slack to fix it."
+context: "A handmade dessert brand I built from zero and ran alone for seventeen months, from August 2023 to December 2024. The brand ended in late 2024."
+role: "Founder and sole operator. Recipes, costing, pricing, marketing, orders, and delivery were all mine."
+did: "I ran four product lines, lemon tarts, soft cookies, biscuits, and cakes, selling through Instagram and in-person markets. After the brand ended, I built an n8n flow to automate the order admin."
+result: "About 500 online orders and NT$10,000–30,000 in monthly revenue. The automation test showed my two hours of daily order work could become about fifteen minutes of review."
+reflection: "I put up with that admin burden the whole time the shop ran, and only had room to fix it after it ended. Since then, when I look at any workflow, I start from the task someone repeats every day."
 
-highlight: "Founder, sole operator — four product lines, sold through Instagram and in-person markets."
-
-role:
-  - title: "Founder & Sole Operator"
-    module: "Product, costing, pricing, marketing, fulfilment, customers — all of it, alone."
-  - title: "Automation (post-closure)"
-    module: "Self-taught n8n; rebuilt the order-admin process and validated it on historical emails."
-
-challenge_points:
-  - "Every function of a business, alone, alongside full-time study."
-  - "Order emails arrived in inconsistent formats — ~2 hours of manual retyping a day."
-  - "By late 2024, coursework and an incoming internship made quality impossible to hold."
-
-solution_points:
-  - "Priced from ingredient cost up: NT$45 entry biscuit → NT$60 premium variants."
-  - "Markets for face-to-face feedback; Instagram for repeat purchase."
-  - "Closed while the product was still good, rather than let it decay."
-
-decisions:
-  - title: "Two channels, two different jobs"
-    body: "Markets weren't for volume — they were the only place I could watch a customer's face at the first bite. That fed recipes and packaging. Instagram turned those people into repeat buyers."
-    tradeoff: "A market day often earned less than the same hours filling orders. I booked it as research cost, not sales cost."
-  - title: "A price ladder, not a flat price"
-    body: "NT$45 plain biscuit made trying the brand a low-stakes decision; NT$60 variants and a two-tart bundle (NT$140) lifted the basket once someone said yes."
-    tradeoff: "More SKUs means more prep and leftover risk for one person — I capped it at four lines."
-  - title: "Close it rather than let it decay"
-    body: "Handmade quality is bound to hours invested. Pushing through senior year would have meant slower shipping, worse product, and a reputation spent down by me."
-    tradeoff: "I gave up a stable customer base. But a brand run badly was worth nothing to them or me."
-
-architecture_title: "Order Automation (built after closing)"
-flow:
-  - title: "Gmail Trigger"
-    detail: "Filter order notifications"
-  - title: "AI Agent"
-    detail: "Extract structured data from messy text"
-  - title: "Code Node"
-    detail: "Validate & reshape to schema"
-  - title: "Sheets"
-    detail: "Append clean rows"
-
-image: "/images/seayou-market.jpg"
-image_caption: "The market stall — four product lines, handwritten price tags."
+image: "/images/seayou-n8n.png"
+image_caption: "The n8n flow, validated on historical order emails. Gmail trigger, AI extraction, a JavaScript validation step, and clean rows appended to Google Sheets."
+image2: "/images/seayou-market.jpg"
+image2_caption: "The market stall, with all four product lines."
 
 demo_link: "https://www.instagram.com/seayou_dessert/"
-
-content_title: "Results & Reflection"
+demo_label: "Instagram"
 ---
 
-> **On the automation:** built **after the brand closed**, as a self-teaching exercise. Validated on historical order emails — **never ran in live operations**. The estimate: my ~2 hours a day of order admin would have become ~15 minutes of review.
+Order emails came in inconsistent formats. Every day I spent about two hours retyping them into my records by hand. While the shop was running, I never had the time to fix this.
 
-### Results
+After the brand ended, I taught myself n8n and rebuilt the order admin process. A Gmail trigger picks up order emails, Gemini and GPT extract the structured data, a JavaScript validation node reshapes it into a fixed schema, and the clean rows go into Google Sheets. I chose n8n over pure no-code tools because AI-extracted data does not reliably match the destination schema, and I needed that custom validation step after the AI.
 
-- **~500 online orders** over 17 months, plus in-person market sales.
-- **NT$10–30k monthly revenue**, sustained alongside full-time study.
-- **Why n8n over Zapier/Make:** AI-extracted data doesn't reliably match the destination schema — I needed a custom JS validation node after the AI step, which pure no-code tools can't do.
-
-### Reflection
-
-I tolerated that admin burden for over a year, and only had the slack to systematise it **after** I stopped. What separates noticing a pain point from fixing one is usually not skill — it's slack.
-
-That's why, in requirement interviews, "what feels inconvenient?" rarely surfaces anything. What works is watching which motions someone repeats every single day.
+I validated the flow on historical order emails only. It never ran in live operations. The test showed that about two hours of daily order admin would have become about fifteen minutes of review.

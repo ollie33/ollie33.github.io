@@ -1,0 +1,38 @@
+<svg viewBox="0 0 1180 420" xmlns="http://www.w3.org/2000/svg" font-family="Roboto, sans-serif">
+<rect width="1180" height="420" fill="#fffef8"/>
+<text x="590.0" y="46" text-anchor="middle" font-size="20" font-weight="700" fill="#2a1f18" font-family="Roboto, 'Noto Sans TC', sans-serif"><tspan x="590.0" dy="0">My work at SYSTEX: from client interview to verified spec</tspan></text>
+<rect x="28" y="120" width="250" height="190" rx="14" fill="#f3ebe4" stroke="#a08874" stroke-width="1.5"/>
+<circle cx="56" cy="150" r="14" fill="#fffef8" stroke="#a08874" stroke-width="1.5"/>
+<text x="56" y="155" text-anchor="middle" font-size="14" font-weight="700" fill="#5c3d2e" font-family="Roboto, 'Noto Sans TC', sans-serif"><tspan x="56" dy="0">1</tspan></text>
+<text x="163.0" y="155" text-anchor="middle" font-size="16" font-weight="700" fill="#2a1f18" font-family="Roboto, 'Noto Sans TC', sans-serif"><tspan x="163.0" dy="0">Client interviews</tspan></text>
+<text x="153.0" y="196" text-anchor="middle" font-size="14" font-weight="500" fill="#4a3a32" font-family="Roboto, 'Noto Sans TC', sans-serif"><tspan x="153.0" dy="0">Find the goal behind</tspan><tspan x="153.0" dy="20">the request</tspan></text>
+<path d="M52 248 H254" stroke="#d9cfc4" stroke-width="1.5"/>
+<text x="153.0" y="272" text-anchor="middle" font-size="13" font-weight="400" fill="#6e5a4d" font-family="Roboto, 'Noto Sans TC', sans-serif"><tspan x="153.0" dy="0">about 6 interviews</tspan></text>
+<path d="M283 215.0 H303" stroke="#8a7568" stroke-width="2" stroke-linecap="round"/><path d="M303 215.0 l-8 -5 v10 z" fill="#8a7568"/>
+<rect x="318" y="120" width="250" height="190" rx="14" fill="#f3ebe4" stroke="#a08874" stroke-width="1.5"/>
+<circle cx="346" cy="150" r="14" fill="#fffef8" stroke="#a08874" stroke-width="1.5"/>
+<text x="346" y="155" text-anchor="middle" font-size="14" font-weight="700" fill="#5c3d2e" font-family="Roboto, 'Noto Sans TC', sans-serif"><tspan x="346" dy="0">2</tspan></text>
+<text x="453.0" y="155" text-anchor="middle" font-size="16" font-weight="700" fill="#2a1f18" font-family="Roboto, 'Noto Sans TC', sans-serif"><tspan x="453.0" dy="0">Analysis</tspan></text>
+<text x="443.0" y="196" text-anchor="middle" font-size="14" font-weight="500" fill="#4a3a32" font-family="Roboto, 'Noto Sans TC', sans-serif"><tspan x="443.0" dy="0">Break needs into flows</tspan><tspan x="443.0" dy="20">and buildable steps</tspan></text>
+<path d="M342 248 H544" stroke="#d9cfc4" stroke-width="1.5"/>
+<text x="443.0" y="272" text-anchor="middle" font-size="13" font-weight="400" fill="#6e5a4d" font-family="Roboto, 'Noto Sans TC', sans-serif"><tspan x="443.0" dy="0">with design &amp; engineering</tspan></text>
+<path d="M573 215.0 H593" stroke="#8a7568" stroke-width="2" stroke-linecap="round"/><path d="M593 215.0 l-8 -5 v10 z" fill="#8a7568"/>
+<rect x="608" y="120" width="250" height="190" rx="14" fill="#FEF08A" stroke="#a08874" stroke-width="1.5"/>
+<rect x="659.0" y="86" width="148" height="26" rx="13" fill="#5c3d2e"/>
+<text x="733.0" y="104" text-anchor="middle" font-size="12" font-weight="700" fill="#fffef8" font-family="Roboto, 'Noto Sans TC', sans-serif"><tspan x="733.0" dy="0">MY CORE WORK</tspan></text>
+<circle cx="636" cy="150" r="14" fill="#fffef8" stroke="#a08874" stroke-width="1.5"/>
+<text x="636" y="155" text-anchor="middle" font-size="14" font-weight="700" fill="#5c3d2e" font-family="Roboto, 'Noto Sans TC', sans-serif"><tspan x="636" dy="0">3</tspan></text>
+<text x="743.0" y="155" text-anchor="middle" font-size="16" font-weight="700" fill="#2a1f18" font-family="Roboto, 'Noto Sans TC', sans-serif"><tspan x="743.0" dy="0">Specification</tspan></text>
+<text x="733.0" y="196" text-anchor="middle" font-size="14" font-weight="500" fill="#4a3a32" font-family="Roboto, 'Noto Sans TC', sans-serif"><tspan x="733.0" dy="0">Field logic, edge cases,</tspan><tspan x="733.0" dy="20">per-role flows</tspan></text>
+<path d="M632 248 H834" stroke="#d9cfc4" stroke-width="1.5"/>
+<text x="733.0" y="272" text-anchor="middle" font-size="13" font-weight="400" fill="#6e5a4d" font-family="Roboto, 'Noto Sans TC', sans-serif"><tspan x="733.0" dy="0">400–500 pages, co-written</tspan><tspan x="733.0" dy="18">with my mentor</tspan></text>
+<path d="M863 215.0 H883" stroke="#8a7568" stroke-width="2" stroke-linecap="round"/><path d="M883 215.0 l-8 -5 v10 z" fill="#8a7568"/>
+<rect x="898" y="120" width="250" height="190" rx="14" fill="#f3ebe4" stroke="#a08874" stroke-width="1.5"/>
+<circle cx="926" cy="150" r="14" fill="#fffef8" stroke="#a08874" stroke-width="1.5"/>
+<text x="926" y="155" text-anchor="middle" font-size="14" font-weight="700" fill="#5c3d2e" font-family="Roboto, 'Noto Sans TC', sans-serif"><tspan x="926" dy="0">4</tspan></text>
+<text x="1033.0" y="155" text-anchor="middle" font-size="16" font-weight="700" fill="#2a1f18" font-family="Roboto, 'Noto Sans TC', sans-serif"><tspan x="1033.0" dy="0">SIT / UAT</tspan></text>
+<text x="1023.0" y="196" text-anchor="middle" font-size="14" font-weight="500" fill="#4a3a32" font-family="Roboto, 'Noto Sans TC', sans-serif"><tspan x="1023.0" dy="0">AI generates cases,</tspan><tspan x="1023.0" dy="20">I check each one</tspan></text>
+<path d="M922 248 H1124" stroke="#d9cfc4" stroke-width="1.5"/>
+<text x="1023.0" y="272" text-anchor="middle" font-size="13" font-weight="400" fill="#6e5a4d" font-family="Roboto, 'Noto Sans TC', sans-serif"><tspan x="1023.0" dy="0">about two weeks</tspan><tspan x="1023.0" dy="18">to about two days</tspan></text>
+<text x="590.0" y="366" text-anchor="middle" font-size="14" font-weight="500" fill="#4a3a32" font-family="Roboto, 'Noto Sans TC', sans-serif"><tspan x="590.0" dy="0">Deliverables: a functional specification, flow diagrams, thousands of SIT/UAT cases, and user manuals for the client.</tspan></text>
+</svg>

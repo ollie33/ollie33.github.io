@@ -1,78 +1,31 @@
 ---
 title: "Virtual Anchor Generation System"
-subtitle: "Using RAG to move a financial video pipeline from fluent to factual"
+subtitle: "A RAG system that turns a stock ticker into a financial news video"
 period: "Feb 2025 – Dec 2025"
-status: "Published — TCSE 2025"
-impact: "Top 7 / 80 · +80% factual density"
 date: 2025-12-31
 kind: "Capstone · Published"
-hook: "Technical depth: led an AI system from architecture to published paper."
+hook: "I led a four-person team from system architecture to a published paper."
 weight: 10
+featured: true
+card_art: "benchmark"
+claim: "I picked the model by testing under real constraints, and led a four-person team."
+proof: "10 models benchmarked · bge-m3 79.59% · TCSE 2025"
 
-overview: "Stock ticker in, finished broadcast video out in under 10 minutes — with retrieval grounding the script in what actually happened that day."
+context: "Capstone project, February to December 2025. Our four-person team built a system that turns a stock ticker into a finished news broadcast video."
+role: "Team lead. I owned the RAG retrieval framework and the Flask backend, and integrated four members' modules: news collection, script generation, voice, and video rendering."
+did: "I built a financial Q/A test set, benchmarked 10 embedding models on it, and added a normalization layer for financial terms."
+result: "bge-m3 scored a 79.59% hit rate and 65.54% MRR. With RAG, verifiable facts in the scripts rose by 80%. We placed 7th of 80 teams and published at TCSE 2025."
+reflection: "In school I thought the model mattered most. At work I found that the framework, the tools, and the context matter more. The testing habit from this project is the part I still use every week."
 
-highlight: "Led a four-person team; owned the retrieval framework and backend architecture."
-
-role:
-  - title: "Project Leader"
-    module: "Set goal and scope; integrated four members' modules and fixed the seams between them."
-  - title: "RAG Retrieval Framework"
-    module: "News filtering, model selection, and a hand-built semantic database for financial terms."
-  - title: "Backend Architecture"
-    module: "Flask control hub, job management, SSE streaming."
-
-challenge_points:
-  - "Markets move daily; a professional video takes hours to make."
-  - "Without retrieval, the LLM wrote fluently and said nothing — zero verifiable facts."
-  - "Generic embeddings can't link 'death cross' in news to the indicator that produced it."
-
-solution_points:
-  - "Benchmarked 5 embedding models on a self-built financial Q/A set."
-  - "Hand-built a semantic layer aligning news language with technical indicators."
-  - "SSE streaming: first progress signal within 5 seconds."
-
-decisions:
-  - title: "Choose the embedding model with a benchmark, not a hunch"
-    body: "No benchmark existed for Chinese financial retrieval, so I built a Q/A set and compared five models. BAAI/bge-m3 won — 73.59% hit rate, 65.54% MRR."
-    tradeoff: "The eval set cost time we could have spent on features, but without it every later quality drop would be unattributable."
-  - title: "Add a semantic standardisation layer"
-    body: "Even the best model couldn't match news phrases to indicator values — they don't align in vector space. I hand-built a database normalising both into one shared vocabulary."
-    tradeoff: "Hand-built means it doesn't scale to new domains. Right for a semester project; would need to be self-extending to productise."
-  - title: "Switch to SSE — a UX decision, not a technical one"
-    body: "Long generation jobs meant users stared at a blank screen — where they leave. SSE streams progress back within 5 seconds."
-    tradeoff: "Total generation time didn't drop one second. Only perceived performance changed — which turned out to be the one that mattered."
-
-architecture_title: "System Architecture"
-flow:
-  - title: "Scrape"
-    detail: "MoneyDJ / Anue / Yahoo Finance + yfinance"
-  - title: "Standardise"
-    detail: "News language ↔ technical indicators"
-  - title: "Retrieve"
-    detail: "bge-m3 + FAISS"
-  - title: "Generate"
-    detail: "Indicators + top-5 passages → OpenAI"
-  - title: "Speak"
-    detail: "Google Cloud TTS"
-  - title: "Render"
-    detail: "Unity + Live2D, pushed over SSE"
-
-image: "/images/rag-architecture.jpg"
-image_caption: "Five layers, 11 pipeline steps, no human in the loop."
+image: "/images/rag-benchmark-en.svg"
+image_caption: "My benchmark of 10 embedding models on a self-built financial Q/A set. BAAI/bge-m3 scored highest on both hit rate and MRR, so we used it."
 
 demo_link: "https://github.com/ollie33/Virtual-Anchor-Generation-System"
-
-content_title: "Results & Reflection"
+demo_label: "Source Code"
 ---
 
-### Results
+The first embedding model we tried worked badly, and that is when I started studying embedding models. We had three constraints. The content was in Chinese, the domain was finance, and we had no budget, so we could only use general open-source models.
 
-- **+80% factual density** — counted verifiable facts across paired scripts, with and without RAG, on the same tickers.
-- **Hours → under 10 minutes**, fully automated.
-- **Top 7 of 80**, FCU CS Capstone Competition · **full paper published** at TCSE 2025.
+So I built a financial Q/A test set of our own and compared 10 embedding models on it. BAAI/bge-m3 scored highest, with a 79.59% hit rate and 65.54% MRR. I also added a normalization layer for financial terms, so a phrase in the news can match the technical indicator behind it. After RAG went in, verifiable facts in our scripts rose by 80%.
 
-### Reflection
-
-If I rebuilt it, I'd rebuild it **as agents**. Our pipeline treats every story the same way — but an earnings call, a sudden shock, and a quiet consolidation need different retrieval and different narrative shapes.
-
-An agent architecture would let the system decide what to look for and how to tell it. That's this project's clearest ceiling — and I only saw it after finishing.
+A full video takes about 10 to 15 minutes to generate. Our professor suggested generating it in segments, and the team discussed it and agreed. I implemented the SSE streaming, so users see a progress signal within 5 seconds and can start watching the first segment after about 3 minutes.

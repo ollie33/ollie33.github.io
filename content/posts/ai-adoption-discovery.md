@@ -2,78 +2,27 @@
 title: "AI Adoption, Before the AI"
 subtitle: "Requirement discovery for a manufacturer's quote-to-drawing workflow"
 period: "Jul 2026 – Aug 2026"
-status: "Discovery phase complete"
-impact: "Process maps · working prototype · frontline feedback"
 date: 2026-08-08
 kind: "Internship"
 hook: "The client asked for AI. I started by drawing how they work today."
 weight: 5
+featured: true
+card_art: "flow"
+claim: "I mapped how people work, then chose the steps AI should do."
+proof: "Process map · Working prototype · Role manuals"
 
-overview: "Two months inside an AI adoption project for a mid-sized manufacturer — where I learned that the model is never the bottleneck. The people who must change how they work have the least slack to learn."
+context: "A one-month project with an AI startup, July to August 2026. The client was a mid-sized manufacturer, and the scope ran from quote requests to engineering drawings."
+role: "Product Manager Intern. I owned the interviews, the process map, and the AI step design. Engineers built most of the prototype and connected the real AI model."
+did: "I interviewed the owner and frontline staff role by role, mapped the current workflow, and marked the steps AI would take over."
+result: "A process map confirmed line by line, a working prototype connected to a real model, role-based operation manuals, and permission tests done before rollout."
+reflection: "I used to think AI adoption depends on the model. In this project engineers handled the model, and the hard part was the workflow. The design that worked let AI do the repeated steps while the user makes the final call. My job as a PM was to make that split clear."
 
-highlight: "Product Manager Intern — AI adoption at a mid-sized manufacturer. Ran the discovery phase: role-by-role interviews, current-state process mapping, a working prototype, and rollout groundwork."
-
-role:
-  - title: "Requirement Discovery"
-    module: "Interviewed working staff role by role; converged scattered asks into a concrete scope."
-  - title: "Process Mapping"
-    module: "Mapped the as-is quote-to-drawing workflow before any AI design was discussed."
-  - title: "Prototype & Feedback"
-    module: "Built a working prototype with AI assistance so frontline staff could walk the whole flow and react to it."
-  - title: "Rollout Groundwork"
-    module: "Wrote role-specific operation manuals and ran permission tests ahead of deployment."
-
-challenge_points:
-  - "The users are working sales staff — zero slack to learn a new tool mid-quarter."
-  - "The owner's goals and the floor's daily reality described two different companies."
-  - "Decisions made verbally drifted between meetings."
-
-solution_points:
-  - "Interviewed role by role, then drew the current state before proposing any future state."
-  - "Wrote back after every meeting to lock scope and decisions on paper."
-  - "Built something operable so frontline staff could react by walking it, not by imagining it."
-
-decisions:
-  - title: "Draw the current state before proposing AI"
-    body: "The client asked for AI; I started with a diagram of how work flows today, confirmed line by line with the people doing it. An AI proposal built on a wrong map fails at rollout, quietly and expensively."
-    tradeoff: "Weeks where nothing visibly 'AI' happened — which takes explaining. Slower to demo, faster to adopt."
-  - title: "Write back after every meeting"
-    body: "Verbal alignment decays. After each discussion I sent a short written summary — what was decided, what's in scope, what I'd do next — and invited corrections."
-    tradeoff: "It can read as bureaucratic. But it converts memory into record, and record is what survives a disagreement."
-  - title: "Fake the AI, validate the real flow"
-    body: "The question to answer was whether the workflow held up, not whether the model was accurate. So I built a working prototype with a parametric mock standing in for generation, and let frontline staff walk it end to end: enter the requirement, see the draft, revise it in one sentence, sign off. The real model was left as a single swap point behind the same interface."
-    tradeoff: "The output wasn't really AI-generated, which had to be said plainly in every demo — and it invited the question of whether this counted as finished. What it bought was workflow-level feedback: which step was missing, where people got stuck. A real API wouldn't have surfaced any of that."
-
-architecture_title: "Discovery Workflow"
-flow:
-  - title: "Interview"
-    detail: "Role by role, on the floor"
-  - title: "Map"
-    detail: "As-is process, confirmed line by line"
-  - title: "Prototype"
-    detail: "A working version of the whole flow"
-  - title: "Feedback"
-    detail: "Frontline walkthroughs, fix the gaps"
-  - title: "Prepare"
-    detail: "Role-based manuals, permission tests"
-
-content_title: "What I Took From It"
+image: "/images/ai-adoption-flow-en.svg"
+image_caption: "Before, every drawing and every revision went through the drafting specialist. In the flow I designed, AI takes those steps and she confirms the final drawing can be delivered."
 ---
 
-> Client name and system details are confidential and deliberately not described here.
+One drafting specialist handles all the drawings. The other sales staff pass their orders to her, so requests pile up at her desk. Many client changes are small, and one client went through ten versions before returning to the first. She hoped AI could take over this simple but repeated work.
 
-### The Reusable Part
+In our interviews she worried about two things. How would her work change, and would the AI's output be good enough? She mentioned that AI could maybe handle the middle steps while she stayed at the end. It was an idea, not a request. I designed the flow from it. AI makes the first drawing and the later revisions, and she confirms at the last step whether the drawing can be delivered. I drew the process map and marked each step AI would take over.
 
-What these two months left behind isn't a deck — it's a set of methods I'll keep using:
-
-- **Interview guide** — interview role by role, starting from "walk me through what you actually did yesterday," never from "what features do you want."
-- **Current-state map** — mark inputs, outputs, and sticking points for every step; nothing counts until the person who does the work has confirmed it line by line. Anything unverified stays a dashed line.
-- **Write-backs** — a fixed three-part note after every meeting: what was decided, what's in scope, what I do next. Sent in writing, corrections invited.
-- **Prototype first** — get a version people can actually operate end to end; the AI part can be mocked. What's being tested is the flow, not the precision.
-- **Permission tests** — walk each role's daily actions on their own account before launch, logging two kinds of findings: *can but shouldn't*, and *should but can't*.
-
-### Reflection
-
-The clearest thing I took from these two months: **AI adoption fails at the workflow, not the model.** Everyone in the building agreed the technology was impressive. What decided adoption was whether the person doing quotes at 4pm on a Tuesday could fit it into how they already work.
-
-Which is the same lesson my dessert brand taught me from the other side — the people living inside a broken process have the least slack to change it. This time my job was to be the outside person who brings the slack: to watch, draw, confirm, and only then propose.
+Engineers built most of the prototype and connected a real AI model, and I helped put it together. The prototype could revise a drawing from one sentence of feedback, though the first run on each machine type was slow. She walked through the prototype with her real cases, and I also checked with her how she and the other sales staff hand work to each other.

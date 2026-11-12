@@ -1,72 +1,27 @@
 ---
 title: "Kairoo — Destination-Driven Companionship"
-subtitle: "Making the unit of matching a thing you want to do, not a person"
+subtitle: "A companion-matching app built in 15 days at a startup competition in Portugal"
 period: "Jul 2025 – Aug 2025"
-status: "MVP shipped · Demo Day"
-impact: "0 → interactive MVP in 15 days"
 date: 2025-08-15
 kind: "Startup Competition"
-hook: "0→1 product definition, in English, with a team from four countries."
+hook: "0→1 product definition, in English, with a team from five countries."
 weight: 30
+claim: "I made our ideas visible as user flows and a prototype when the team disagreed."
 
-overview: "Fifteen days in Porto, five people, four countries. First decision: stop matching people to people. Second: deliberately shrink our own market."
+context: "European Innovation Academy, a 15-day startup competition in Portugal, July to August 2025. Our five-person team came from five countries and worked in English."
+role: "Product & UX. I turned the team's ideas into user flows and built the interactive prototype with Cursor. Teammates owned the market validation and the Demo Day pitch."
+did: "I converged the ideas into three core flows and made them into a prototype people could click through."
+result: "An interactive MVP in 15 days. The team presented at Demo Day; we did not reach the top ten."
+reflection: "When I failed to convince the team, I see two reasons. The English environment, and my low confidence in my own business judgment. Making ideas visible helped me make my case, but the confidence is the part I am still building."
 
-highlight: "Product & UX — European Innovation Academy, Portugal. Team of five, working entirely in English."
-
-role:
-  - title: "Product & UX"
-    module: "Converged the team's ideas, designed the flows, built the interactive prototype myself."
-  - title: "Validation & Pitch"
-    module: "Market validation and the Demo Day pitch to investors and mentors."
-
-challenge_points:
-  - "People new to a city have somewhere to go and nobody to go with — almost nothing serves this."
-  - "Profile-based apps demand self-presentation before you ever reach 'let's go do this thing.'"
-  - "Safety was everyone's first objection: the premise is strangers meeting in person."
-
-solution_points:
-  - "Swipe on activities and destinations, not on people."
-  - "Launch audience restricted to students — university email is the identity layer."
-  - "MVP scoped to three flows: discover & match, itinerary sync, verified login."
-
-decisions:
-  - title: "Match on activities, not people"
-    body: "Users swipe through things to do, not profiles. That lowers social pressure — the reason to connect is a shared destination — and makes intent explicit from the start. We were addressing loneliness, not dating; once that was clear, half the features we'd argued about became unnecessary."
-    tradeoff: "We gave up the retention mechanic dating apps live on. No ongoing conversation means no reason to return without a steady supply of new activities — a harder problem we didn't solve."
-  - title: "Buy trust by shrinking the audience"
-    body: "Identity infrastructure — verification, ratings, emergency contacts — couldn't be built in 15 days. Restricting launch to students made university email a free, credible identity layer."
-    tradeoff: "We dropped the newly-relocated residents we'd originally targeted, arguably the loneliest group. But the size of a market you can't validate is meaningless."
-  - title: "Use AI to buy thinking time"
-    body: "I built the prototype fast with Cursor, redirecting implementation hours back into problem definition and user flow."
-    tradeoff: "The prototype wouldn't survive real users at scale — the correct thing to be bad at, at this stage."
-
-architecture_title: "Core Product Flow"
-flow:
-  - title: "Verify"
-    detail: "University email login"
-  - title: "Choose"
-    detail: "Bar, restaurant, or activity"
-  - title: "Match"
-    detail: "Swipe destinations, match on intent"
-  - title: "Sync"
-    detail: "Align itineraries, confirm the outing"
-
-image: "/images/kairoo-mvp.jpg"
-image_caption: "The entry point — you choose what to do before you see anyone at all."
+image: "/images/kairoo-screens-en.png"
+image_caption: "Three screens from the live prototype. You pick an activity, swipe destinations to match, and land in a group chat where the AI assistant starts the planning."
 
 demo_link: "https://kairoo-prototype.vercel.app/"
-
-content_title: "Results & Reflection"
 ---
 
-### Results
+Before the program, an investor at a pre-program pitch told me my target users were not clear. I did not insist on my original idea. At EIA I chose a direction that was close in theme but better defined. The product matches people by activity, not by profile. Our key decision was to start with students only, using university email as the identity layer.
 
-- **15 days** from nothing to validation, business model, and a working MVP.
-- **Pitched at Demo Day** to investors and industry mentors.
-- **Prototype live:** [kairoo-prototype.vercel.app](https://kairoo-prototype.vercel.app/)
+Inside the team we disagreed about the target users and the feature priorities. The root was that we defined "good" differently. Some of us wanted to keep polishing features, and others felt the product had enough and should move forward. When we chose which market to validate, I could not convince our CEO in the room. I respected the decision and kept building the prototype, and afterwards I organized my argument, my reasons, and the costs.
 
-### Reflection
-
-The real lesson wasn't the product. I disagreed with our CEO once and failed to move my position. I still think the judgement was sound — but in a fast-moving discussion, being right isn't enough. If the argument isn't organised at the moment it's needed, the proposal simply passes by.
-
-Now, before making a case, I write down three things: **the claim, the reasoning, and the cost.** Naming the cost yourself is what tells people you've thought it through — and what lets the discussion actually move.
+What worked was making ideas visible. When I turned an idea into a user flow and a clickable prototype, the team reached agreement faster than by talking. The core flows were university email login, destination matching, and itinerary sync. The team presented at Demo Day. We did not reach the top ten, and I think one reason is that we never aligned on what "good" meant.

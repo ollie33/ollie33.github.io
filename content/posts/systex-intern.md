@@ -2,63 +2,26 @@
 title: "Systems Analysis at SYSTEX"
 subtitle: "Ten months as the link between client, design, and engineering"
 period: "Sep 2025 – Jun 2026"
-status: "Completed — 10 months"
-impact: "3 projects · 400–500 page SRS/FSD"
 date: 2026-06-30
 kind: "Internship"
-hook: "Where I learned enterprise delivery: specs, QA, and the discipline of 1→100."
-weight: 40
+hook: "Ten months of enterprise delivery, from specifications to testing."
+weight: 20
+claim: "I turned client needs into flow diagrams and specs engineers could build from."
 
-overview: "The first place I saw a software project end to end — and learned that converging a requirement means finding the business logic underneath the feature someone asked for."
+context: "A ten-month internship at SYSTEX, a Taiwanese IT services company, across three enterprise software projects. The first months were mostly testing; later I focused on requirements work."
+role: "Systems Analysis & Project Management Intern. I worked with the design and engineering teams and did not write code myself."
+did: "I turned client needs into flow diagrams and functional specifications, and brought an AI skill into my own test-case work."
+result: "A 400–500 page functional specification co-written with my mentor, flow diagrams from about 6 client interviews, thousands of SIT/UAT cases, and user manuals for the client. The AI skill cut about two weeks of test writing to about two days."
+reflection: "I started in testing and moved to requirements work. I also found that I enjoy talking with different people and solving problems together. A mentor there pushed me to share my views instead of holding my questions, and that changed how I work."
 
-highlight: "Systems Analysis & Development Intern, SYSTEX Corporation — enterprise software delivery."
-
-role:
-  - title: "Requirements & Specification"
-    module: "Co-authored a 400–500 page SRS/FSD with my mentor; wrote two more independently on cross-role notification and settings logic."
-  - title: "Client Interviews"
-    module: "Documented ~6 requirement interviews into flow diagrams and functional specs."
-  - title: "QA & Verification"
-    module: "Thousands of SIT/UAT cases — AI-generated at volume, each one quality-reviewed by me."
-
-challenge_points:
-  - "Clients describe solutions, not problems — the request and the objective often differ."
-  - "A spec must let an engineer build from any single page without asking a question."
-  - "Verifying against a 400-page spec needs more test cases than hands can write."
-
-solution_points:
-  - "Traced every request back to its business objective before it entered a document."
-  - "Resolved ambiguity on paper: field logic, edge cases, wireframes, per-role flows."
-  - "AI for test volume, human review for every case."
-
-decisions:
-  - title: "Converge on the objective before agreeing on the feature"
-    body: "Accepting a stated requirement at face value is the commonest failure I saw: you can deliver exactly what was asked and still miss the need. I traced every request to the objective behind it first."
-    tradeoff: "Longer interviews, and it can read as resistance to a client who's already decided. Correctness bought at the cost of appearing slower in the room."
-  - title: "AI for volume, human review for every case"
-    body: "A plausible-looking test case that doesn't verify the spec is worse than none — it produces a false pass. I reviewed every generated case myself."
-    tradeoff: "Reviewing thousands of cases erased most of the speed gain. Deliberately — an unreviewed suite gives you confidence you haven't earned."
-
-architecture_title: "Delivery Lifecycle I Worked Across"
-flow:
-  - title: "Intake"
-    detail: "Requirement interviews"
-  - title: "Spec"
-    detail: "SRS/FSD, flows, wireframes"
-  - title: "Build"
-    detail: "With design & engineering"
-  - title: "QA"
-    detail: "SIT, security scan"
-  - title: "UAT"
-    detail: "Client acceptance"
-  - title: "Launch"
-    detail: "Release & maintain"
-
-content_title: "What I Took From It"
+image: "/images/systex-workflow-en.svg"
+image_caption: "My work across the delivery flow. Specification was the core: settle the logic on paper before engineering starts, then verify it with SIT/UAT."
 ---
 
-> Client names, system details, and business logic are confidential and deliberately not described here.
+Client names, system details, and business logic are confidential, so this page stays general.
 
-Seeing a **complete** lifecycle — sales intake through post-launch maintenance — showed me how every early-stage decision resurfaces as a later-stage cost or saving. You can't see that from inside a single stage.
+In client interviews, the request on the table was often not the goal behind it. I documented about 6 interviews and turned each into flow diagrams and functional specifications. My CS background helped me judge early whether a request was technically possible, and break it into steps engineers could build.
 
-The part I still use daily: **a request is evidence of a problem, not a description of one.** Write it straight into a spec and you'll deliver precisely what was asked — and still not solve what was needed. My CS background let me break client intent into structure engineers could execute directly, instead of passing ambiguity down the line. That's where I found the work I want to keep doing: not writing the code, but making sure the right thing gets built.
+My rule for a specification was simple. An engineer should be able to build from any page without coming back to ask. That meant settling the field logic, the edge cases, and the per-role flows on paper, before anything reached the engineering team.
+
+With my mentor I co-wrote a 400–500 page functional specification. In a practice assignment from another mentor, I worked out the cross-role notification and settings logic on my own. For testing, I used an AI skill to generate SIT/UAT cases in batches, then checked every case by hand. It cut about two weeks of writing to about two days.
