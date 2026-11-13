@@ -6,6 +6,8 @@ date: 2025-08-15
 kind: "創新創業競賽"
 hook: "0→1 產品定義，團隊成員來自五個國家。"
 weight: 30
+card_art: "swipe"
+proof: "15 天 · 五國團隊 · 線上原型"
 claim: "團隊有分歧時，把想法做成看得見的使用者流程和原型。"
 
 context: "European Innovation Academy，葡萄牙的 15 天創業競賽，2025 年 7 到 8 月。五人團隊來自五個國家，全程用英文工作。"

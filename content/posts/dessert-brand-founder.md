@@ -6,6 +6,8 @@ date: 2024-12-31
 kind: "Founder"
 hook: "Business ownership: pricing, customers, and a whole value chain alone."
 weight: 40
+card_art: "automation"
+proof: "About 500 online orders · 17 months solo · n8n automation"
 claim: "I ran the whole value chain alone, and found improvements in the repeated work."
 
 context: "A handmade dessert brand I built from zero and ran alone for seventeen months, from August 2023 to December 2024. The brand ended in late 2024."

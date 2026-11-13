@@ -44,30 +44,7 @@
       </h2>
       <div class="space-y-5">
         {{ range $i, $p := . }}
-        <a href="{{ $p.RelPermalink }}" class="featured-card group flex rounded-2xl border border-[rgba(58,46,38,0.14)] bg-white shadow-sm overflow-hidden transition-all duration-200 hover:border-[#fef08a]/60 hover:shadow-md hover:-translate-y-0.5 rise rise-d{{ add $i 1 }}">
-          {{/* 左側小插圖：依 card_art 選（flow / benchmark / layers），沒有就不顯示 */}}
-          {{ with $p.Params.card_art }}
-          <div class="shrink-0 w-24 sm:w-32 flex items-center justify-center p-3 sm:p-4 bg-[#faf6f0] border-r border-[rgba(58,46,38,0.1)]">
-            {{ partial "card-art.html" . }}
-          </div>
-          {{ end }}
-          <div class="p-4 sm:p-5 flex-1 min-w-0">
-            <div class="flex flex-col sm:flex-row sm:items-baseline sm:justify-between gap-0.5 mb-1.5">
-              <h3 class="text-base sm:text-lg font-semibold text-[#2a1f18] group-hover:text-[#5c3d2e] transition-colors m-0">{{ $p.Title }}</h3>
-              {{ with $p.Params.period }}<span class="text-xs sm:text-sm font-medium text-[#6e5a4d] shrink-0">{{ . }}</span>{{ end }}
-            </div>
-            {{ with $p.Params.claim }}
-            <p class="text-sm sm:text-[15px] text-[#4a3a32] leading-relaxed m-0">{{ . }}</p>
-            {{ end }}
-            {{ with $p.Params.proof }}
-            <p class="mt-2.5 mb-0 flex flex-wrap gap-1.5">
-              {{ range split . "·" }}
-              <span class="inline-flex items-center text-xs font-medium text-[#2a1f18] bg-[rgba(254,240,138,0.42)] border border-[rgba(58,46,38,0.14)] rounded-full px-2.5 py-1">{{ trim . " " }}</span>
-              {{ end }}
-            </p>
-            {{ end }}
-          </div>
-        </a>
+        {{ partial "work-card.html" (dict "page" $p "index" $i "showKind" false) }}
         {{ end }}
       </div>
     </section>

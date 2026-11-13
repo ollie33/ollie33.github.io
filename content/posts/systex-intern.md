@@ -6,6 +6,8 @@ date: 2026-06-30
 kind: "Internship"
 hook: "Ten months of enterprise delivery, from specifications to testing."
 weight: 20
+card_art: "spec"
+proof: "400–500 page spec · About 6 client interviews · About two weeks to two days"
 claim: "I turned client needs into flow diagrams and specs engineers could build from."
 
 context: "A ten-month internship at SYSTEX, a Taiwanese IT services company, across three enterprise software projects. The first months were mostly testing; later I focused on requirements work."

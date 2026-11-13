@@ -6,6 +6,8 @@ date: 2025-08-15
 kind: "Startup Competition"
 hook: "0→1 product definition, in English, with a team from five countries."
 weight: 30
+card_art: "swipe"
+proof: "15 days · Five-country team · Live prototype"
 claim: "I made our ideas visible as user flows and a prototype when the team disagreed."
 
 context: "European Innovation Academy, a 15-day startup competition in Portugal, July to August 2025. Our five-person team came from five countries and worked in English."
