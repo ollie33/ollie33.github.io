@@ -63,15 +63,17 @@
       <ul class="space-y-3 list-none p-0 m-0">
         {{ range . }}
         <li>
-          <a href="{{ .RelPermalink }}" class="group flex flex-col sm:flex-row sm:items-baseline gap-0.5 sm:gap-4 rounded-xl border border-[rgba(58,46,38,0.14)] bg-white px-4 py-3 sm:px-5 shadow-sm transition-colors hover:border-[#fef08a]/55 hover:bg-[#faf6f0]">
-            <span class="flex items-center gap-2 shrink-0 min-w-0">
-              {{ with .Params.kind }}
-              <span class="shrink-0 text-[11px] font-bold uppercase tracking-wide text-[#5c3d2e] bg-[rgba(254,240,138,0.55)] border border-[rgba(58,46,38,0.14)] rounded-full px-2.5 py-0.5">{{ . }}</span>
-              {{ end }}
-              <span class="font-semibold text-[#2a1f18] group-hover:text-[#5c3d2e] transition-colors truncate">{{ .Title }}</span>
+          <a href="{{ .RelPermalink }}" class="group block rounded-xl border border-[rgba(58,46,38,0.14)] bg-white px-4 py-3 sm:px-5 shadow-sm transition-colors hover:border-[#fef08a]/55 hover:bg-[#faf6f0]">
+            <span class="flex items-baseline justify-between gap-3">
+              <span class="flex flex-wrap items-center gap-2 min-w-0">
+                {{ with .Params.kind }}
+                <span class="shrink-0 text-[11px] font-bold uppercase tracking-wide text-[#5c3d2e] bg-[rgba(254,240,138,0.55)] border border-[rgba(58,46,38,0.14)] rounded-full px-2.5 py-0.5">{{ . }}</span>
+                {{ end }}
+                <span class="font-semibold text-[#2a1f18] group-hover:text-[#5c3d2e] transition-colors">{{ .Title }}</span>
+              </span>
+              {{ with .Params.period }}<span class="text-xs sm:text-sm text-[#6e5a4d] shrink-0">{{ . }}</span>{{ end }}
             </span>
-            {{ with .Params.claim }}<span class="text-sm text-[#4a3a32] leading-relaxed sm:flex-1">{{ . }}</span>{{ end }}
-            {{ with .Params.period }}<span class="text-sm text-[#6e5a4d] shrink-0">{{ . }}</span>{{ end }}
+            {{ with .Params.claim }}<span class="block mt-1 text-sm text-[#4a3a32] leading-relaxed">{{ . }}</span>{{ end }}
           </a>
         </li>
         {{ end }}

@@ -49,7 +49,7 @@ theme = "void"
       tagline_2 = "我先看人實際怎麼工作，再用測試找出系統哪一層出了問題。"
       current_line = "e-Insure 數位產品經理實習生"
       now_items = [
-        "我在易安網參與網站改版規劃，並重測一個 AI 客服系統。",
+        "我在易安網參與網站改版規劃，並測試一個 AI 客服系統。",
         "我正在申請 2027 年入學的海外研究所。",
       ]
 
@@ -64,7 +64,7 @@ theme = "void"
     tagline_2 = "I look at how people actually work, then test which part of the system is failing."
     current_line = "Digital Product Manager Intern at e-Insure"
     now_items = [
-      "At e-Insure, I work on the website redesign plan and retest an AI customer service system.",
+      "At e-Insure, I work on the website redesign plan and test an AI customer service system.",
       "I'm applying for master's programs abroad for 2027.",
     ]
   [params.social]
