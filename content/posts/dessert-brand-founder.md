@@ -25,7 +25,7 @@ demo_link: "https://www.instagram.com/seayou_dessert/"
 demo_label: "Instagram"
 ---
 
-Order emails came in inconsistent formats. Each time I opened orders, I spent about two hours retyping them into my records by hand. While the shop was running, I never had the time to fix this.
+Each time I opened orders, I spent about two hours retyping the orders into my records by hand. While the shop was running, I never had the time to fix this.
 
 After the brand ended, I taught myself n8n and rebuilt the order admin process. A Gmail trigger picks up order emails, Gemini and GPT extract the structured data, a JavaScript validation node reshapes it into a fixed schema, and the clean rows go into Google Sheets.
 
