@@ -717,3 +717,39 @@ html.dark #TableOfContents a:hover {
   .rise-d4 { animation-delay: .32s; }
   @keyframes rise { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: none; } }
 }
+
+/* ---- 專案頁互動證據：切換按鈕與可排序表格 ---- */
+.seg-btn {
+  font-size: 0.875rem; font-weight: 600; color: #5c4a3f;
+  padding: 0.4rem 1.1rem; border-radius: 9999px;
+  border: 1px solid rgba(58, 46, 38, 0.18); background: #fff;
+  cursor: pointer; transition: background-color .2s ease, color .2s ease;
+}
+.seg-btn:hover { background: rgba(254, 240, 138, 0.28); }
+.seg-btn[aria-pressed="true"] { background: #FEF08A; color: #2a1f18; border-color: rgba(58, 46, 38, 0.28); }
+.seg-btn:focus-visible, .bench-table th button:focus-visible { outline: 2px solid #e8c96a; outline-offset: 2px; }
+.flow-label { font-size: 0.75rem; font-weight: 700; letter-spacing: .1em; text-transform: uppercase; color: #6e5a4d; margin: 0 0 0.5rem; }
+.flow-panel-after:not([hidden]) { margin-top: 1.25rem; }
+[data-flow-buttons]:not([hidden]) ~ .flow-panel-after { margin-top: 0; }
+
+.bench-table { width: 100%; border-collapse: collapse; font-size: 0.9rem; color: #4a3a32; }
+.bench-table th, .bench-table td { padding: 0.6rem 0.9rem; text-align: left; border-bottom: 1px solid rgba(58, 46, 38, 0.1); }
+.bench-table tbody tr:last-child td { border-bottom: 0; }
+.bench-table .num { text-align: right; font-variant-numeric: tabular-nums; white-space: nowrap; }
+.bench-table td.model { overflow-wrap: break-word; }
+@media (max-width: 639px) {
+  .bench-table { font-size: 0.8rem; }
+  .bench-table th, .bench-table td { padding: 0.5rem 0.6rem; }
+  .bench-table th button { padding: 0.5rem 0.6rem; letter-spacing: .04em; }
+}
+.bench-table thead th { background: #faf6f0; padding: 0; }
+.bench-table th button {
+  width: 100%; padding: 0.6rem 0.9rem; text-align: inherit; cursor: pointer;
+  font-size: 0.75rem; font-weight: 700; letter-spacing: .08em; text-transform: uppercase; color: #6e5a4d;
+  background: none; border: 0;
+}
+.bench-table th button:hover { color: #2a1f18; }
+.bench-table .sort-ind::after { content: "↕"; margin-left: 0.35rem; opacity: .35; }
+.bench-table th[aria-sort="ascending"] .sort-ind::after { content: "↑"; opacity: 1; }
+.bench-table th[aria-sort="descending"] .sort-ind::after { content: "↓"; opacity: 1; }
+.bench-table tr.best td { background: rgba(254, 240, 138, 0.45); color: #2a1f18; font-weight: 600; }

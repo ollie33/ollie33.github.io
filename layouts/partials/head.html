@@ -1,6 +1,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width">
 <title>{{ if .IsHome }}{{ site.Title }}{{ else }}{{ printf "%s | %s" .Title site.Title }}{{ end }}</title>
+{{ partial "head/og.html" . }}
 
 <!-- Light only: oat #FCFBF7, coffee text #2a1f18 -->
 <meta name="color-scheme" content="light">

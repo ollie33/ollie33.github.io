@@ -18,6 +18,7 @@ result: "A process map confirmed line by line, a working prototype connected to 
 reflection: "I used to think AI adoption depends on the model. In this project engineers handled the model, and the hard part was the workflow. The design that worked let AI do the repeated steps while the user makes the final call. My job as a PM was to make that split clear."
 
 image: "/images/ai-adoption-flow-en.svg"
+evidence: "flow-toggle"
 image_caption: "Before, every drawing and every revision went through the drafting specialist. In the flow I designed, AI takes those steps and she confirms the final drawing can be delivered."
 ---
 

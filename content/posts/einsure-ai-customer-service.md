@@ -15,7 +15,7 @@ context: "e-Insure, from September 2026. An AI customer service was almost finis
 role: "Digital Product Manager Intern. I design and run the tests; engineers own the RAG framework and the fixes."
 did: "I took over the testing, sorted the feedback into prompt, dataset, and engineering issues, and compared 3 models myself."
 result: "The model evaluation was finished in October 2026. The three models performed about the same."
-reflection: "The hard part of using AI here is not the model. People do not have time to learn new tools, or to organize what they know into a form an AI can use."
+reflection: "Sorting each problem into a layer told the engineers where to make the fix. I learned that the most useful thing I can do is find where the problem is and bring evidence. The engineers own the fix."
 
 image: "/images/einsure-layers.svg"
 image_caption: "How I sort the support team's feedback. Each problem goes to the layer that needs the fix, and engineers make the change."

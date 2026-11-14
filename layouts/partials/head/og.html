@@ -1,0 +1,21 @@
+{{- /*
+  分享預覽（Open Graph）。
+  description：首頁用 tagline_1 + tagline_2；專案頁用 claim；其他頁用 description，沒有就用首頁那句。
+  image：專案頁用 front matter 的 image；SVG 在社群預覽不會顯示，所以 SVG 或沒有圖時用名片圖卡。
+*/ -}}
+{{- $h := site.Params.home -}}
+{{- $homeDesc := printf "%s %s" $h.tagline_1 $h.tagline_2 -}}
+{{- $title := cond .IsHome site.Title .Title -}}
+{{- $desc := $homeDesc -}}
+{{- $img := "/images/og-card.png" -}}
+{{- if not .IsHome -}}
+  {{- with .Params.claim }}{{ $desc = . }}{{ else }}{{ with $.Params.description }}{{ $desc = . }}{{ end }}{{ end -}}
+  {{- with .Params.image }}{{ if not (strings.HasSuffix (lower .) ".svg") }}{{ $img = . }}{{ end }}{{ end -}}
+{{- end -}}
+<meta property="og:title" content="{{ $title }}">
+<meta property="og:description" content="{{ $desc }}">
+<meta property="og:image" content="{{ $img | absURL }}">
+<meta property="og:url" content="{{ .Permalink }}">
+<meta property="og:type" content="{{ cond (and .IsPage (eq .Section "posts")) "article" "website" }}">
+<meta property="og:site_name" content="{{ site.Title }}">
+<meta name="twitter:card" content="summary_large_image">

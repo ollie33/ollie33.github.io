@@ -18,6 +18,7 @@ result: "bge-m3 scored a 79.59% hit rate and 65.54% MRR. With RAG, verifiable fa
 reflection: "In school I thought the model mattered most. At work I found that the framework, the tools, and the context matter more."
 
 image: "/images/rag-benchmark-en.svg"
+evidence: "benchmark-table"
 image_caption: "My benchmark of 10 embedding models on a self-built financial Q/A set. BAAI/bge-m3 scored highest on both hit rate and MRR, so we used it."
 
 demo_link: "https://github.com/ollie33/Virtual-Anchor-Generation-System"
