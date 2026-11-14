@@ -2,11 +2,11 @@
 title: "About"
 type: page
 layout: about
-subtitle: "Ying-Hsien Lee"
+subtitle: "Ying-Hsien (Olivia) Lee"
 description: "Product and requirements work with a computer science background, from Feng Chia University."
 ---
 
-Hello, I'm **Ying-Hsien Lee**. I have a **B.S. in Computer Science** from **Feng Chia University**, where I was an FCU Honor Student. I'm a PM with a CS background. I look at how people actually work, then test which part of the system is failing.
+Hello, I'm **Ying-Hsien (Olivia) Lee**. I have a **B.S. in Computer Science** from **Feng Chia University**, where I was an FCU Honor Student. I'm a PM with a CS background. I look at how people actually work, then test which part of the system is failing.
 
 Ten months at **[SYSTEX](https://tw.systex.com/systex/ch/index)**, first in testing, later turning client needs into flow diagrams and specifications. A one-month **AI adoption project** with an AI startup, where I mapped a manufacturer's workflow before any AI was designed. A four-person **RAG system** I led to publication at TCSE 2025. A **dessert brand** I built and ran alone for seventeen months. Now I'm a Digital Product Manager Intern at **[e-Insure](https://www.einsure.com.tw/)**.
 

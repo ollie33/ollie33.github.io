@@ -1,7 +1,7 @@
 # Light only: oat #FCFBF7; coffee text #2a1f18 / body #4a3a32 / muted #6e5a4d; accent #FEF08A (~10%).
 baseURL = 'https://ollie33.github.io/'
 defaultContentLanguage = 'en'
-title = 'Ying-Hsien Lee | Portfolio'
+title = 'Ying-Hsien (Olivia) Lee | Portfolio'
 theme = "void"
 
 # ---------- Languages ----------
@@ -27,7 +27,7 @@ theme = "void"
   [languages.zh-tw]
     languageCode = 'zh-tw'
     languageName = '中文'
-    title = '李映嫻 | Portfolio'
+    title = '李映嫻 Olivia Lee | Portfolio'
     weight = 2
 
     [[languages.zh-tw.menus.main]]
@@ -44,7 +44,7 @@ theme = "void"
       weight = 30
 
     [languages.zh-tw.params.home]
-      display_name = "李映嫻 Ying-Hsien Lee"
+      display_name = "李映嫻 Olivia Lee"
       tagline_1 = "我是資工背景的 PM。"
       tagline_2 = "我先看人實際怎麼工作，再用測試找出系統哪一層出了問題。"
       current_line = "e-Insure 數位產品經理實習生"
@@ -59,7 +59,7 @@ theme = "void"
     # 本人專業照（原圖：作品集_素材原圖/Headshot.jpg，裁切 600x600）
     url = "/images/avatar.jpg"
   [params.home]
-    display_name = "Ying-Hsien Lee"
+    display_name = "Ying-Hsien (Olivia) Lee"
     tagline_1 = "I'm a PM with a CS background."
     tagline_2 = "I look at how people actually work, then test which part of the system is failing."
     current_line = "Digital Product Manager Intern at e-Insure"

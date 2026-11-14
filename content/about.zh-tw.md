@@ -2,7 +2,7 @@
 title: "關於我"
 type: page
 layout: about
-subtitle: "李映嫻 Ying-Hsien Lee"
+subtitle: "李映嫻 Olivia Lee"
 description: "資工背景的產品與需求工作，逢甲大學資訊工程學系。"
 ---
 
