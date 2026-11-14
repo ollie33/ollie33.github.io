@@ -1,0 +1,58 @@
+{{- /*
+  虛擬主播的證據：10 種嵌入模型評測長條圖，可切換 Hit rate / MRR，切換後由高到低重新排序。
+  資料取自畢業專題海報。沒有 JavaScript 時，顯示 Hit rate 長條（由高到低），MRR 以文字列在右側。
+*/ -}}
+{{- $rows := slice
+  (dict "m" "BAAI/bge-m3" "h" 79.59 "r" 65.54 "best" true)
+  (dict "m" "intfloat/multilingual-e5-large" "h" 77.55 "r" 50.37)
+  (dict "m" "BAAI/bge-large-zh-v1.5" "h" 75.51 "r" 57.62)
+  (dict "m" "intfloat/multilingual-e5-base" "h" 75.51 "r" 52.55)
+  (dict "m" "thenlper/gte-large-zh" "h" 61.22 "r" 36.50)
+  (dict "m" "paraphrase-multilingual-mpnet-base-v2" "h" 53.06 "r" 38.40)
+  (dict "m" "ckiplab/bert-base-chinese" "h" 42.86 "r" 26.84)
+  (dict "m" "BAAI/bge-large-en-v1.5" "h" 32.65 "r" 20.48)
+  (dict "m" "AI4Finance/FinGPT-v3" "h" 18.37 "r" 8.71)
+  (dict "m" "ProsusAI/finbert" "h" 0.00 "r" 0.00)
+-}}
+<div class="bench-chart rounded-xl border border-[rgba(58,46,38,0.12)] bg-[#fffef8] p-4 sm:p-6" data-bench-chart>
+  <p class="bench-title">10 embedding models on a self-built financial Q/A set</p>
+  <div class="flex justify-center gap-2 mb-5" data-bench-buttons hidden>
+    <button type="button" class="seg-btn" data-metric="h" aria-pressed="true">Hit rate</button>
+    <button type="button" class="seg-btn" data-metric="r" aria-pressed="false">MRR</button>
+  </div>
+  <p class="bench-sub" data-bench-nojs>Hit rate (%)</p>
+  <ol class="bench-rows" data-bench-rows>
+    {{- range $rows }}
+    <li class="bench-row{{ if .best }} best{{ end }}" data-h="{{ .h }}" data-r="{{ .r }}">
+      <span class="bench-name">{{ replace .m "/" "/<wbr>" | safeHTML }}</span>
+      <span class="bench-track"><span class="bench-bar" style="width: {{ .h }}%"></span></span>
+      <span class="bench-val" data-bench-val>{{ printf "%.2f" .h }}%</span>
+      <span class="bench-alt" data-bench-nojs>MRR {{ printf "%.2f" .r }}%</span>
+    </li>
+    {{- end }}
+  </ol>
+</div>
+<script>
+  (function () {
+    var root = document.querySelector('[data-bench-chart]');
+    if (!root) return;
+    var list = root.querySelector('[data-bench-rows]');
+    var buttons = root.querySelectorAll('.seg-btn');
+    function show(metric) {
+      var rows = Array.prototype.slice.call(list.children);
+      rows.sort(function (a, b) {
+        return parseFloat(b.getAttribute('data-' + metric)) - parseFloat(a.getAttribute('data-' + metric));
+      });
+      rows.forEach(function (row) {
+        var v = parseFloat(row.getAttribute('data-' + metric));
+        row.querySelector('.bench-bar').style.width = v + '%';
+        row.querySelector('[data-bench-val]').textContent = v.toFixed(2) + '%';
+        list.appendChild(row);
+      });
+      buttons.forEach(function (b) { b.setAttribute('aria-pressed', String(b.getAttribute('data-metric') === metric)); });
+    }
+    root.querySelectorAll('[data-bench-nojs]').forEach(function (el) { el.hidden = true; });
+    root.querySelector('[data-bench-buttons]').hidden = false;
+    buttons.forEach(function (b) { b.addEventListener('click', function () { show(b.getAttribute('data-metric')); }); });
+  })();
+</script>
