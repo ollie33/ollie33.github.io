@@ -16,6 +16,9 @@ role: "Digital Product Manager Intern. I design and run the tests; engineers own
 did: "I took over the testing, sorted the feedback into prompt, dataset, and engineering issues, and compared 3 models myself."
 result: "The model evaluation was finished in October 2026. The three models performed about the same."
 reflection: "The hard part of using AI here is not the model. People do not have time to learn new tools, or to organize what they know into a form an AI can use."
+
+image: "/images/einsure-layers.svg"
+image_caption: "How I sort the support team's feedback. Each problem goes to the layer that needs the fix, and engineers make the change."
 ---
 
 The AI customer service was nearly done when I joined, but it had not launched. The customer service team has only two people, and they were too busy to test it. I offered to take over the testing, and I organized the results so they only needed to give short feedback.
