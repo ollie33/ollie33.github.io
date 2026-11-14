@@ -40,10 +40,6 @@ Each project used AI at a different layer of the work:
 - **Tested an AI system** — at e-Insure, I test an AI customer service, sort its problems into prompt, dataset, and engineering layers, and bring engineers evidence.
 - **Verified AI's work** — generated SIT/UAT cases at volume with an AI skill, then reviewed every case myself.
 
-## Currently
-
-I'm a Digital Product Manager Intern at **[e-Insure](https://www.einsure.com.tw/)**, and I'm applying for master's programs abroad for 2027.
-
 ## Contact
 
 - **Email:** [hsien.yy@gmail.com](mailto:hsien.yy@gmail.com)
