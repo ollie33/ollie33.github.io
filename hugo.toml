@@ -1,7 +1,7 @@
 # Light only: oat #FCFBF7; coffee text #2a1f18 / body #4a3a32 / muted #6e5a4d; accent #FEF08A (~10%).
 baseURL = 'https://ollie33.github.io/'
 defaultContentLanguage = 'en'
-title = 'Ying-Hsien (Olivia) Lee | Portfolio'
+title = 'Ying-Hsien Lee | Portfolio'
 theme = "void"
 
 # ---------- Languages ----------
@@ -30,7 +30,7 @@ theme = "void"
     # 本人專業照（原圖：作品集_素材原圖/Headshot.jpg，裁切 600x600）
     url = "/images/avatar.jpg"
   [params.home]
-    display_name = "Ying-Hsien (Olivia) Lee"
+    display_name = "Ying-Hsien Lee"
     tagline_1 = "I'm a PM with a CS background."
     tagline_2 = "I look at how people actually work, then test which part of the system is failing."
     current_line = "Digital Product Manager Intern at e-Insure"
