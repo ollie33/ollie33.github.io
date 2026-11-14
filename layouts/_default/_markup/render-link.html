@@ -1,0 +1,9 @@
+{{- /* 外部網址（http/https）與 PDF 另開分頁；站內連結與 mailto 維持原分頁 */ -}}
+{{- $u := urls.Parse .Destination -}}
+{{- $newTab := or (in (slice "http" "https") $u.Scheme) (strings.HasSuffix (lower $u.Path) ".pdf") -}}
+<a href="{{ .Destination | safeURL }}"
+  {{- with .Title }} title="{{ . }}"{{ end }}
+  {{- if $newTab }} target="_blank" rel="noopener noreferrer"{{ end }}>
+  {{- .Text | safeHTML -}}
+</a>
+{{- /* chomp trailing newline */ -}}
