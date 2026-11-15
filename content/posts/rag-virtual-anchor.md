@@ -29,4 +29,4 @@ The first embedding model we tried worked badly, and that is when I started stud
 
 So I built a financial Q/A test set of our own and compared 10 embedding models on it. BAAI/bge-m3 scored highest, with a 79.59% hit rate and 65.54% MRR. I also added a normalization layer for financial terms, so a phrase in the news can match the technical indicator behind it. After RAG went in, verifiable facts in our scripts rose by 80%.
 
-A full video takes about 10 to 15 minutes to generate. Our professor suggested generating it in segments, and the team discussed it and agreed. I implemented the SSE streaming, so users see a progress signal within 5 seconds and can start watching the first segment after about 3 minutes.
+A full video is ready within 10 minutes. Our professor suggested generating it in segments, and the team discussed it and agreed. I implemented the SSE streaming, so users see a progress signal within 5 seconds and can start watching the first segment after about 3 minutes.

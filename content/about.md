@@ -36,7 +36,7 @@ Each project used AI at a different layer of the work:
 
 - **Built an AI system** — designed and benchmarked a RAG pipeline (FAISS, bge-m3) so the scripts used retrieved facts; published at TCSE 2025.
 - **Prototyped with AI** — used Cursor to build an interactive prototype in 15 days at EIA.
-- **Automated with AI** — built an n8n pipeline with Gemini and GPT that parses order emails into structured data, validated on historical data.
+- **Automated with AI** — built an n8n pipeline with Gemini that parses order emails into structured data, validated on historical data.
 - **Tested an AI system** — at e-Insure, I test an AI customer service, sort its problems into prompt, dataset, and engineering layers, and bring engineers evidence.
 - **Verified AI's work** — generated SIT/UAT cases at volume with an AI skill, then reviewed every case myself.
 

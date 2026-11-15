@@ -14,7 +14,7 @@ proof: "Prompt / dataset / engineering · 3 models compared"
 context: "e-Insure, from September 2026. An AI customer service was almost finished but stuck, because the two-person support team had no time to test it."
 role: "Digital Product Manager Intern. I design and run the tests; engineers own the RAG framework and the fixes."
 did: "I took over the testing, sorted the feedback into prompt, dataset, and engineering issues, and compared 3 models myself."
-result: "The model evaluation was finished in October 2026. The three models performed about the same."
+result: "I compared 3 models, and they performed about the same, so we kept the current model and adjusted the RAG framework instead. The engineers made the changes, and the bot is now in its final round of testing."
 reflection: "Sorting each problem into a layer told the engineers where to make the fix. I learned that the most useful thing I can do is find where the problem is and bring evidence. The engineers own the fix."
 
 image: "/images/einsure-layers.svg"
@@ -25,4 +25,4 @@ The AI customer service was nearly done when I joined, but it had not launched. 
 
 When the feedback came back, I analyzed each problem and sorted it into three groups: prompt, dataset, or engineering. I reported the bugs first, so the engineers could adjust the framework. After that, I tested the models myself.
 
-I compared 3 models on the same cases, and they performed about the same. From my capstone project, I believe the framework design matters more than the model. The engineers have not changed it yet, so I am preparing a report with evidence, not just a request to change it.
+I compared 3 models on the same cases, and they performed about the same. The current model was good enough, so instead of switching models, I proposed changes to the RAG framework. For example, the Q&A data now sends each question together with its answer, and retrieval takes results from each data source. The engineers made the changes, and the bot is now in its final round of testing.
