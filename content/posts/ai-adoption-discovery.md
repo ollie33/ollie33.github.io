@@ -14,7 +14,7 @@ proof: "Process map · Working prototype · Role manuals"
 context: "A one-month project with an AI startup, July to August 2026. The client was a mid-sized manufacturer, and the scope ran from quote requests to engineering drawings."
 role: "Product Manager Intern. I owned the interviews, the process map, and the AI step design. Engineers built most of the prototype and connected the real AI model."
 did: "I interviewed the owner and frontline staff role by role, mapped the current workflow, and marked the steps AI would take over."
-result: "A process map confirmed line by line, a working prototype connected to a real model, role-based operation manuals, and permission tests done before rollout."
+result: "A process map confirmed line by line, and a working prototype connected to a real model."
 reflection: "In this project engineers handled the model, and the hard part was the workflow. The design that worked let AI do the repeated steps while the user makes the final call. My job as a PM was to make that split clear."
 
 image: "/images/ai-adoption-flow-en.svg"
