@@ -9,7 +9,7 @@ weight: 5
 featured: true
 card_art: "flow"
 claim: "I mapped how people work, then chose the steps AI should do."
-proof: "Process map · Working prototype · Role manuals"
+proof: "Process map · Working prototype"
 
 context: "A one-month project with an AI startup, July to August 2026. The client was a mid-sized manufacturer, and the scope ran from quote requests to engineering drawings."
 role: "Product Manager Intern. I owned the interviews, the process map, and the AI step design. Engineers built most of the prototype and connected the real AI model."
