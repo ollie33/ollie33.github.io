@@ -25,4 +25,4 @@ The AI customer service was nearly done when I joined, but it had not launched. 
 
 When the feedback came back, I analyzed each problem and sorted it into three groups: prompt, dataset, or engineering. I reported the bugs first, so the engineers could adjust the framework. After that, I tested the models myself.
 
-I compared 3 models on the same cases, and they performed about the same. The current model was good enough, so instead of switching models, I proposed changes to the RAG framework. For example, the Q&A data now sends each question together with its answer, and retrieval takes results from each data source. The engineers made the changes, and the bot is now in its final round of testing.
+I compared 3 models on the same cases, and they performed about the same. The current model was good enough, so instead of switching models, I proposed changes to how the RAG framework prepares and retrieves its data. The engineers made the changes, and the bot is now in its final round of testing.

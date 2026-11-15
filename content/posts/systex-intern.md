@@ -20,8 +20,6 @@ image: "/images/systex-workflow-en.svg"
 image_caption: "My work across the delivery flow. Specification was the core: settle the logic on paper before engineering starts, then verify it with SIT/UAT."
 ---
 
-Client names, system details, and business logic are confidential, so this page stays general.
-
 I turned what I learned in client interviews into flow diagrams and functional specifications. My CS background helped me judge early whether a request was technically possible, and break it into steps engineers could build.
 
 My rule for a specification was simple. An engineer should be able to build from any page without coming back to ask. That meant settling the page flows, the field logic, and the exception scenarios on paper, before anything reached the engineering team.
