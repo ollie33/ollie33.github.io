@@ -7,7 +7,7 @@ kind: "Startup Competition"
 hook: "0→1 product definition, in English, with a team from five countries."
 weight: 30
 card_art: "swipe"
-proof: "Startup competition · Five-country team · Product & UX design"
+proof: "Entrepreneurship · Five-country team · Product & UX design"
 claim: "I made our ideas visible as user flows and a prototype when the team disagreed."
 
 context: "European Innovation Academy, a 15-day startup competition in Portugal, July to August 2025. Our five-person team came from five countries and worked in English."
