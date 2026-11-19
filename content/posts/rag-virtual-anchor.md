@@ -1,5 +1,5 @@
 ---
-title: "Virtual Anchor Generation System"
+title: "RAG-Based Virtual Anchor Generation System"
 subtitle: "A RAG system that turns a stock ticker into a financial news video"
 period: "Feb 2025 – Dec 2025"
 date: 2025-12-31
@@ -9,7 +9,7 @@ weight: 10
 featured: true
 card_art: "benchmark"
 claim: "I picked the model by testing under real constraints, and led a four-person team."
-proof: "10 models benchmarked · bge-m3 79.59% · TCSE 2025"
+proof: "Team lead · Model evaluation · Published paper"
 
 context: "Capstone project, February to December 2025. Our four-person team built a system that turns a stock ticker into a finished news broadcast video."
 role: "Team lead. I owned the RAG retrieval framework and the Flask backend, and integrated four members' modules: news collection, script generation, voice, and video rendering."
@@ -27,6 +27,6 @@ demo_label: "Source Code"
 
 The first embedding model we tried worked badly, and that is when I started studying embedding models. We had three constraints. The content was in Chinese, the domain was finance, and our budget was limited, so we could only use general open-source models.
 
-So I built a financial Q/A test set of our own and compared 10 embedding models on it. BAAI/bge-m3 scored highest, with a 79.59% hit rate and 65.54% MRR. I also added a normalization layer for financial terms, so a phrase in the news can match the technical indicator behind it. After RAG went in, verifiable facts in our scripts rose by 80%.
+So I built a financial Q/A test set of our own and compared 10 embedding models on it. BAAI/bge-m3 scored highest, with a 79.59% hit rate and 65.54% MRR. I also added a normalization layer for financial terms. It maps different news phrases with the same meaning to one shared concept before retrieval. After RAG went in, verifiable facts in our scripts rose by 80%.
 
 A full video is ready within 10 minutes. Our professor suggested generating it in segments, and the team discussed it and agreed. I implemented the SSE streaming, so users see a progress signal within 5 seconds and can start watching the first segment after about 3 minutes.

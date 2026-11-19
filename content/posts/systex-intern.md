@@ -7,7 +7,7 @@ kind: "Internship"
 hook: "Ten months of enterprise delivery, from testing to specifications."
 weight: 20
 card_art: "spec"
-proof: "Functional specs · SIT/UAT · About two weeks to two days"
+proof: "Requirements analysis · Functional specs · AI-assisted testing"
 claim: "I turned client needs into flow diagrams and specs engineers could build from."
 
 context: "A ten-month internship at SYSTEX, a Taiwanese IT services company, across three enterprise software projects. The first months were mostly testing; later I focused on requirements work."
